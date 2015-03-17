@@ -1,0 +1,436 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		DD56AA2E1AB8F05100DB0669 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = DD56AA2D1AB8F05100DB0669 /* main.m */; };
+		DD56AA311AB8F05100DB0669 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DD56AA301AB8F05100DB0669 /* AppDelegate.m */; };
+		DD56AA341AB8F05100DB0669 /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD56AA331AB8F05100DB0669 /* FirstViewController.m */; };
+		DD56AA371AB8F05100DB0669 /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD56AA361AB8F05100DB0669 /* SecondViewController.m */; };
+		DD56AA3A1AB8F05100DB0669 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DD56AA381AB8F05100DB0669 /* Main.storyboard */; };
+		DD56AA3C1AB8F05100DB0669 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DD56AA3B1AB8F05100DB0669 /* Images.xcassets */; };
+		DD56AA3F1AB8F05100DB0669 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = DD56AA3D1AB8F05100DB0669 /* LaunchScreen.xib */; };
+		DD56AA4B1AB8F05100DB0669 /* OrganicGardeningTests.m in Sources */ = {isa = PBXBuildFile; fileRef = DD56AA4A1AB8F05100DB0669 /* OrganicGardeningTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		DD56AA451AB8F05100DB0669 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DD56AA201AB8F05100DB0669 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DD56AA271AB8F05100DB0669;
+			remoteInfo = OrganicGardening;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		DD56AA281AB8F05100DB0669 /* OrganicGardening.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OrganicGardening.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		DD56AA2C1AB8F05100DB0669 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DD56AA2D1AB8F05100DB0669 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		DD56AA2F1AB8F05100DB0669 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		DD56AA301AB8F05100DB0669 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		DD56AA321AB8F05100DB0669 /* FirstViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FirstViewController.h; sourceTree = "<group>"; };
+		DD56AA331AB8F05100DB0669 /* FirstViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FirstViewController.m; sourceTree = "<group>"; };
+		DD56AA351AB8F05100DB0669 /* SecondViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SecondViewController.h; sourceTree = "<group>"; };
+		DD56AA361AB8F05100DB0669 /* SecondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
+		DD56AA391AB8F05100DB0669 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		DD56AA3B1AB8F05100DB0669 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		DD56AA3E1AB8F05100DB0669 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		DD56AA441AB8F05100DB0669 /* OrganicGardeningTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OrganicGardeningTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		DD56AA491AB8F05100DB0669 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DD56AA4A1AB8F05100DB0669 /* OrganicGardeningTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OrganicGardeningTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		DD56AA251AB8F05100DB0669 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DD56AA411AB8F05100DB0669 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		DD56AA1F1AB8F05100DB0669 = {
+			isa = PBXGroup;
+			children = (
+				DD56AA2A1AB8F05100DB0669 /* OrganicGardening */,
+				DD56AA471AB8F05100DB0669 /* OrganicGardeningTests */,
+				DD56AA291AB8F05100DB0669 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		DD56AA291AB8F05100DB0669 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				DD56AA281AB8F05100DB0669 /* OrganicGardening.app */,
+				DD56AA441AB8F05100DB0669 /* OrganicGardeningTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		DD56AA2A1AB8F05100DB0669 /* OrganicGardening */ = {
+			isa = PBXGroup;
+			children = (
+				DD56AA2F1AB8F05100DB0669 /* AppDelegate.h */,
+				DD56AA301AB8F05100DB0669 /* AppDelegate.m */,
+				DD56AA321AB8F05100DB0669 /* FirstViewController.h */,
+				DD56AA331AB8F05100DB0669 /* FirstViewController.m */,
+				DD56AA351AB8F05100DB0669 /* SecondViewController.h */,
+				DD56AA361AB8F05100DB0669 /* SecondViewController.m */,
+				DD56AA381AB8F05100DB0669 /* Main.storyboard */,
+				DD56AA3B1AB8F05100DB0669 /* Images.xcassets */,
+				DD56AA3D1AB8F05100DB0669 /* LaunchScreen.xib */,
+				DD56AA2B1AB8F05100DB0669 /* Supporting Files */,
+			);
+			path = OrganicGardening;
+			sourceTree = "<group>";
+		};
+		DD56AA2B1AB8F05100DB0669 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				DD56AA2C1AB8F05100DB0669 /* Info.plist */,
+				DD56AA2D1AB8F05100DB0669 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		DD56AA471AB8F05100DB0669 /* OrganicGardeningTests */ = {
+			isa = PBXGroup;
+			children = (
+				DD56AA4A1AB8F05100DB0669 /* OrganicGardeningTests.m */,
+				DD56AA481AB8F05100DB0669 /* Supporting Files */,
+			);
+			path = OrganicGardeningTests;
+			sourceTree = "<group>";
+		};
+		DD56AA481AB8F05100DB0669 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				DD56AA491AB8F05100DB0669 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		DD56AA271AB8F05100DB0669 /* OrganicGardening */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DD56AA4E1AB8F05100DB0669 /* Build configuration list for PBXNativeTarget "OrganicGardening" */;
+			buildPhases = (
+				DD56AA241AB8F05100DB0669 /* Sources */,
+				DD56AA251AB8F05100DB0669 /* Frameworks */,
+				DD56AA261AB8F05100DB0669 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = OrganicGardening;
+			productName = OrganicGardening;
+			productReference = DD56AA281AB8F05100DB0669 /* OrganicGardening.app */;
+			productType = "com.apple.product-type.application";
+		};
+		DD56AA431AB8F05100DB0669 /* OrganicGardeningTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DD56AA511AB8F05100DB0669 /* Build configuration list for PBXNativeTarget "OrganicGardeningTests" */;
+			buildPhases = (
+				DD56AA401AB8F05100DB0669 /* Sources */,
+				DD56AA411AB8F05100DB0669 /* Frameworks */,
+				DD56AA421AB8F05100DB0669 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				DD56AA461AB8F05100DB0669 /* PBXTargetDependency */,
+			);
+			name = OrganicGardeningTests;
+			productName = OrganicGardeningTests;
+			productReference = DD56AA441AB8F05100DB0669 /* OrganicGardeningTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		DD56AA201AB8F05100DB0669 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0620;
+				ORGANIZATIONNAME = "Kevin O'Toole";
+				TargetAttributes = {
+					DD56AA271AB8F05100DB0669 = {
+						CreatedOnToolsVersion = 6.2;
+						DevelopmentTeam = 99G4RB3RAK;
+					};
+					DD56AA431AB8F05100DB0669 = {
+						CreatedOnToolsVersion = 6.2;
+						TestTargetID = DD56AA271AB8F05100DB0669;
+					};
+				};
+			};
+			buildConfigurationList = DD56AA231AB8F05100DB0669 /* Build configuration list for PBXProject "OrganicGardening" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = DD56AA1F1AB8F05100DB0669;
+			productRefGroup = DD56AA291AB8F05100DB0669 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				DD56AA271AB8F05100DB0669 /* OrganicGardening */,
+				DD56AA431AB8F05100DB0669 /* OrganicGardeningTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		DD56AA261AB8F05100DB0669 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DD56AA3A1AB8F05100DB0669 /* Main.storyboard in Resources */,
+				DD56AA3F1AB8F05100DB0669 /* LaunchScreen.xib in Resources */,
+				DD56AA3C1AB8F05100DB0669 /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DD56AA421AB8F05100DB0669 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		DD56AA241AB8F05100DB0669 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DD56AA371AB8F05100DB0669 /* SecondViewController.m in Sources */,
+				DD56AA311AB8F05100DB0669 /* AppDelegate.m in Sources */,
+				DD56AA341AB8F05100DB0669 /* FirstViewController.m in Sources */,
+				DD56AA2E1AB8F05100DB0669 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DD56AA401AB8F05100DB0669 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DD56AA4B1AB8F05100DB0669 /* OrganicGardeningTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		DD56AA461AB8F05100DB0669 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DD56AA271AB8F05100DB0669 /* OrganicGardening */;
+			targetProxy = DD56AA451AB8F05100DB0669 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		DD56AA381AB8F05100DB0669 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DD56AA391AB8F05100DB0669 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		DD56AA3D1AB8F05100DB0669 /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DD56AA3E1AB8F05100DB0669 /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		DD56AA4C1AB8F05100DB0669 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		DD56AA4D1AB8F05100DB0669 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		DD56AA4F1AB8F05100DB0669 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				INFOPLIST_FILE = OrganicGardening/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		DD56AA501AB8F05100DB0669 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				INFOPLIST_FILE = OrganicGardening/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		DD56AA521AB8F05100DB0669 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = OrganicGardeningTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/OrganicGardening.app/OrganicGardening";
+			};
+			name = Debug;
+		};
+		DD56AA531AB8F05100DB0669 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = OrganicGardeningTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/OrganicGardening.app/OrganicGardening";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		DD56AA231AB8F05100DB0669 /* Build configuration list for PBXProject "OrganicGardening" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DD56AA4C1AB8F05100DB0669 /* Debug */,
+				DD56AA4D1AB8F05100DB0669 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DD56AA4E1AB8F05100DB0669 /* Build configuration list for PBXNativeTarget "OrganicGardening" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DD56AA4F1AB8F05100DB0669 /* Debug */,
+				DD56AA501AB8F05100DB0669 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		DD56AA511AB8F05100DB0669 /* Build configuration list for PBXNativeTarget "OrganicGardeningTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DD56AA521AB8F05100DB0669 /* Debug */,
+				DD56AA531AB8F05100DB0669 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = DD56AA201AB8F05100DB0669 /* Project object */;
+}
