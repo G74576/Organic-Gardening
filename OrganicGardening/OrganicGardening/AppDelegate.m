@@ -17,6 +17,9 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    
+    //Set the tint color of tab bar items to white
+    [[UITabBar appearance] setTintColor:[UIColor whiteColor]];
     return YES;
 }
 
