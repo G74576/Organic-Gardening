@@ -7,10 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "PlantDetailViewController.h"
+#import "PlantInfo.h"
 
 @interface PlantListTableViewController : UITableViewController{
-    
-    IBOutlet UILabel *titleLabel;       //Populate category list title
     
     NSMutableArray *vegiArray;          //Vegetable list array
     NSMutableArray *herbArray;          //Herbs list array
@@ -19,8 +19,6 @@
     int plantCategoryInt;               //Used to know which category is selected from the home screen
     
 }
-
-@property(strong, nonatomic)IBOutlet UILabel *titleLabel;
 
 @property(strong, nonatomic)IBOutlet UITableView *listTableView;
 

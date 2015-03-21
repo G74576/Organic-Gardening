@@ -14,10 +14,12 @@
 		DD56AA341AB8F05100DB0669 /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD56AA331AB8F05100DB0669 /* FirstViewController.m */; };
 		DD56AA371AB8F05100DB0669 /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD56AA361AB8F05100DB0669 /* SecondViewController.m */; };
 		DD56AA3A1AB8F05100DB0669 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DD56AA381AB8F05100DB0669 /* Main.storyboard */; };
-		DD56AA3C1AB8F05100DB0669 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DD56AA3B1AB8F05100DB0669 /* Images.xcassets */; };
 		DD56AA3F1AB8F05100DB0669 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = DD56AA3D1AB8F05100DB0669 /* LaunchScreen.xib */; };
 		DD56AA4B1AB8F05100DB0669 /* OrganicGardeningTests.m in Sources */ = {isa = PBXBuildFile; fileRef = DD56AA4A1AB8F05100DB0669 /* OrganicGardeningTests.m */; };
 		DD56AA551AB90CDE00DB0669 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = DD56AA541AB90CDE00DB0669 /* logo.png */; };
+		DD66264B1ABCE1AC00BE7C58 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DD66264A1ABCE1AC00BE7C58 /* Images.xcassets */; };
+		DD66264E1ABDD82D00BE7C58 /* PlantDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD66264D1ABDD82D00BE7C58 /* PlantDetailViewController.m */; };
+		DD6626511ABDDFFA00BE7C58 /* PlantInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = DD6626501ABDDFFA00BE7C58 /* PlantInfo.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,12 +46,16 @@
 		DD56AA351AB8F05100DB0669 /* SecondViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SecondViewController.h; sourceTree = "<group>"; };
 		DD56AA361AB8F05100DB0669 /* SecondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
 		DD56AA391AB8F05100DB0669 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		DD56AA3B1AB8F05100DB0669 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		DD56AA3E1AB8F05100DB0669 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		DD56AA441AB8F05100DB0669 /* OrganicGardeningTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OrganicGardeningTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD56AA491AB8F05100DB0669 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DD56AA4A1AB8F05100DB0669 /* OrganicGardeningTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OrganicGardeningTests.m; sourceTree = "<group>"; };
 		DD56AA541AB90CDE00DB0669 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
+		DD66264A1ABCE1AC00BE7C58 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		DD66264C1ABDD82D00BE7C58 /* PlantDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlantDetailViewController.h; sourceTree = "<group>"; };
+		DD66264D1ABDD82D00BE7C58 /* PlantDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlantDetailViewController.m; sourceTree = "<group>"; };
+		DD66264F1ABDDFFA00BE7C58 /* PlantInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlantInfo.h; sourceTree = "<group>"; };
+		DD6626501ABDDFFA00BE7C58 /* PlantInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlantInfo.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +81,10 @@
 			children = (
 				DD2A91001ABBB3B0001063A5 /* PlantListTableViewController.h */,
 				DD2A91011ABBB3B0001063A5 /* PlantListTableViewController.m */,
+				DD66264C1ABDD82D00BE7C58 /* PlantDetailViewController.h */,
+				DD66264D1ABDD82D00BE7C58 /* PlantDetailViewController.m */,
+				DD66264F1ABDDFFA00BE7C58 /* PlantInfo.h */,
+				DD6626501ABDDFFA00BE7C58 /* PlantInfo.m */,
 			);
 			name = Plants;
 			sourceTree = "<group>";
@@ -107,7 +117,7 @@
 				DD56AA351AB8F05100DB0669 /* SecondViewController.h */,
 				DD56AA361AB8F05100DB0669 /* SecondViewController.m */,
 				DD56AA381AB8F05100DB0669 /* Main.storyboard */,
-				DD56AA3B1AB8F05100DB0669 /* Images.xcassets */,
+				DD66264A1ABCE1AC00BE7C58 /* Images.xcassets */,
 				DD56AA3D1AB8F05100DB0669 /* LaunchScreen.xib */,
 				DD2A91031ABBB3BD001063A5 /* Plants */,
 				DD56AA2B1AB8F05100DB0669 /* Supporting Files */,
@@ -233,10 +243,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				DD56AA551AB90CDE00DB0669 /* logo.png in Resources */,
+				DD66264B1ABCE1AC00BE7C58 /* Images.xcassets in Resources */,
 				DD56AA3A1AB8F05100DB0669 /* Main.storyboard in Resources */,
 				DD56AA3F1AB8F05100DB0669 /* LaunchScreen.xib in Resources */,
 				DD2A90FD1ABB8AE1001063A5 /* Apple Chancery.ttf in Resources */,
-				DD56AA3C1AB8F05100DB0669 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -258,7 +268,9 @@
 				DD2A91021ABBB3B0001063A5 /* PlantListTableViewController.m in Sources */,
 				DD56AA311AB8F05100DB0669 /* AppDelegate.m in Sources */,
 				DD56AA341AB8F05100DB0669 /* FirstViewController.m in Sources */,
+				DD6626511ABDDFFA00BE7C58 /* PlantInfo.m in Sources */,
 				DD56AA2E1AB8F05100DB0669 /* main.m in Sources */,
+				DD66264E1ABDD82D00BE7C58 /* PlantDetailViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

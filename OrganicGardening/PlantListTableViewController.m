@@ -7,23 +7,25 @@
 //
 
 #import "PlantListTableViewController.h"
+#import "PlantDetailViewController.h"
+#import "PlantInfo.h"
 
 @interface PlantListTableViewController ()
 
 @end
 
 @implementation PlantListTableViewController
-@synthesize plantCategoryInt, listTableView, vegiArray, herbArray, fruitArray, titleLabel;
+@synthesize plantCategoryInt, listTableView, vegiArray, herbArray, fruitArray;
 
 - (void)viewDidLoad {
     
     vegiArray = [[NSMutableArray alloc]init];
     
-    NSString *carrots = @"Carrots";
-    NSString *cucumbers = @"Cucumbers";
-    NSString *eggplant = @"Eggplant";
-    NSString *lettuce = @"Lettuce";
-    NSString *peas = @"Peas";
+    PlantInfo *carrots = [[PlantInfo alloc]initWithTitle:@"Carrots"];
+    PlantInfo *cucumbers = [[PlantInfo alloc]initWithTitle:@"Cucumbers"];
+    PlantInfo *eggplant = [[PlantInfo alloc]initWithTitle:@"Eggplant"];
+    PlantInfo *lettuce = [[PlantInfo alloc]initWithTitle:@"Lettuce"];
+    PlantInfo *peas = [[PlantInfo alloc]initWithTitle:@"Peas"];
     
     [vegiArray addObject:carrots];
     [vegiArray addObject:cucumbers];
@@ -33,25 +35,25 @@
     
     herbArray = [[NSMutableArray alloc]init];
     
-    NSString *basil = @"Basil";
-    NSString *dill = @"Dill";
-    NSString *mint = @"Mint";
-    NSString *oregano = @"Oregano";
-    NSString *parseley = @"Parsley";
+    PlantInfo *basil = [[PlantInfo alloc]initWithTitle:@"Basil"];
+    PlantInfo *dill = [[PlantInfo alloc]initWithTitle:@"Dill"];
+    PlantInfo *mint = [[PlantInfo alloc]initWithTitle:@"Mint"];
+    PlantInfo *oregano = [[PlantInfo alloc]initWithTitle:@"Oregano"];
+    PlantInfo *parsley = [[PlantInfo alloc]initWithTitle:@"Parsley"];
     
     [herbArray addObject:basil];
     [herbArray addObject:dill];
     [herbArray addObject:mint];
     [herbArray addObject:oregano];
-    [herbArray addObject:parseley];
+    [herbArray addObject:parsley];
     
     fruitArray = [[NSMutableArray alloc] init];
     
-    NSString *blueberry =@"Blueberrys";
-    NSString *melon = @"Melon";
-    NSString *rasp = @"Raspberrys";
-    NSString *straw = @"Strawberrys";
-    NSString *water = @"Watermelon";
+    PlantInfo *blueberry = [[PlantInfo alloc]initWithTitle:@"Blueberrys"];
+    PlantInfo *melon = [[PlantInfo alloc]initWithTitle:@"Melon"];
+    PlantInfo *rasp = [[PlantInfo alloc]initWithTitle:@"Raspberrys"];
+    PlantInfo *straw = [[PlantInfo alloc]initWithTitle:@"Strawberrys"];
+    PlantInfo *water = [[PlantInfo alloc]initWithTitle:@"Watermelon"];
     
     [fruitArray addObject:blueberry];
     [fruitArray addObject:melon];
@@ -99,30 +101,30 @@
     {
         return [fruitArray count];
     }
-    [self.tableView reloadData];
+    [self.listTableView reloadData];
     return 0;
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"PlantCell" forIndexPath:indexPath];
+    UITableViewCell *cell = [listTableView dequeueReusableCellWithIdentifier:@"PlantCell" forIndexPath:indexPath];
     
     // Configure the cell...
     if (cell != nil) {
         if (plantCategoryInt == 0) {
             self.navigationItem.title = @"Vegetables";
-            NSUInteger row = [indexPath row];
-            cell.textLabel.text = [vegiArray objectAtIndex:row];
+            PlantInfo *plantInfo = [vegiArray objectAtIndex:indexPath.row];
+            cell.textLabel.text = plantInfo.plantName;
         }
         else if (plantCategoryInt == 1){
             self.navigationItem.title = @"Herbs";
-            NSUInteger row = [indexPath row];
-            cell.textLabel.text = [herbArray objectAtIndex:row];
+            PlantInfo *plantInfo = [herbArray objectAtIndex:indexPath.row];
+            cell.textLabel.text = plantInfo.plantName;
         }
         else if (plantCategoryInt == 2){
             self.navigationItem.title = @"Fruits";
-            NSUInteger row = [indexPath row];
-            cell.textLabel.text = [fruitArray objectAtIndex:row];
+            PlantInfo *plantInfo = [fruitArray objectAtIndex:indexPath.row];
+            cell.textLabel.text = plantInfo.plantName;
         }
     }
     return cell;
@@ -163,14 +165,37 @@
 }
 */
 
-/*
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
+    if ([segue.identifier isEqualToString:@"PlantDetails"])
+    {
+        NSIndexPath *indexPath = [self.listTableView indexPathForSelectedRow];
+        PlantDetailViewController *plantDetailViewController = segue.destinationViewController;
+        
+        if (plantDetailViewController != nil)
+        {
+            if (plantCategoryInt == 0)
+            {
+                PlantInfo *vegiInfo = [vegiArray objectAtIndex:indexPath.row];
+                plantDetailViewController.pInfo = vegiInfo;
+            }
+            else if (plantCategoryInt == 1)
+            {
+                PlantInfo *herbInfo = [herbArray objectAtIndex:indexPath.row];
+                plantDetailViewController.pInfo = herbInfo;
+            }
+            else if (plantCategoryInt == 2)
+            {
+                PlantInfo *fruitInfo = [fruitArray objectAtIndex:indexPath.row];
+                plantDetailViewController.pInfo = fruitInfo;
+            }
+        }
+    }
 }
-*/
 
 @end
