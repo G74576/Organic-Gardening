@@ -21,11 +21,11 @@
     
     vegiArray = [[NSMutableArray alloc]init];
     
-    PlantInfo *carrots = [[PlantInfo alloc]initWithTitle:@"Carrots"];
-    PlantInfo *cucumbers = [[PlantInfo alloc]initWithTitle:@"Cucumbers"];
-    PlantInfo *eggplant = [[PlantInfo alloc]initWithTitle:@"Eggplant"];
-    PlantInfo *lettuce = [[PlantInfo alloc]initWithTitle:@"Lettuce"];
-    PlantInfo *peas = [[PlantInfo alloc]initWithTitle:@"Peas"];
+    PlantInfo *carrots = [[PlantInfo alloc]initWithTitle:@"Carrots" pZone:1];
+    PlantInfo *cucumbers = [[PlantInfo alloc]initWithTitle:@"Cucumbers" pZone:1];
+    PlantInfo *eggplant = [[PlantInfo alloc]initWithTitle:@"Eggplant" pZone:1];
+    PlantInfo *lettuce = [[PlantInfo alloc]initWithTitle:@"Lettuce" pZone:1];
+    PlantInfo *peas = [[PlantInfo alloc]initWithTitle:@"Peas" pZone:1];
     
     [vegiArray addObject:carrots];
     [vegiArray addObject:cucumbers];
@@ -35,11 +35,11 @@
     
     herbArray = [[NSMutableArray alloc]init];
     
-    PlantInfo *basil = [[PlantInfo alloc]initWithTitle:@"Basil"];
-    PlantInfo *dill = [[PlantInfo alloc]initWithTitle:@"Dill"];
-    PlantInfo *mint = [[PlantInfo alloc]initWithTitle:@"Mint"];
-    PlantInfo *oregano = [[PlantInfo alloc]initWithTitle:@"Oregano"];
-    PlantInfo *parsley = [[PlantInfo alloc]initWithTitle:@"Parsley"];
+    PlantInfo *basil = [[PlantInfo alloc]initWithTitle:@"Basil" pZone:2];
+    PlantInfo *dill = [[PlantInfo alloc]initWithTitle:@"Dill" pZone:2];
+    PlantInfo *mint = [[PlantInfo alloc]initWithTitle:@"Mint" pZone:2];
+    PlantInfo *oregano = [[PlantInfo alloc]initWithTitle:@"Oregano" pZone:2];
+    PlantInfo *parsley = [[PlantInfo alloc]initWithTitle:@"Parsley" pZone:2];
     
     [herbArray addObject:basil];
     [herbArray addObject:dill];
@@ -49,11 +49,11 @@
     
     fruitArray = [[NSMutableArray alloc] init];
     
-    PlantInfo *blueberry = [[PlantInfo alloc]initWithTitle:@"Blueberrys"];
-    PlantInfo *melon = [[PlantInfo alloc]initWithTitle:@"Melon"];
-    PlantInfo *rasp = [[PlantInfo alloc]initWithTitle:@"Raspberrys"];
-    PlantInfo *straw = [[PlantInfo alloc]initWithTitle:@"Strawberrys"];
-    PlantInfo *water = [[PlantInfo alloc]initWithTitle:@"Watermelon"];
+    PlantInfo *blueberry = [[PlantInfo alloc]initWithTitle:@"Blueberrys" pZone:3];
+    PlantInfo *melon = [[PlantInfo alloc]initWithTitle:@"Melon" pZone:3];
+    PlantInfo *rasp = [[PlantInfo alloc]initWithTitle:@"Raspberrys" pZone:3];
+    PlantInfo *straw = [[PlantInfo alloc]initWithTitle:@"Strawberrys" pZone:3];
+    PlantInfo *water = [[PlantInfo alloc]initWithTitle:@"Watermelon" pZone:3];
     
     [fruitArray addObject:blueberry];
     [fruitArray addObject:melon];
@@ -70,7 +70,7 @@
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
-//Hide navigation bar on this scene
+//Show navigation bar on this scene
 - (void)viewWillAppear:(BOOL)animated
 {
     [self.navigationController setNavigationBarHidden:NO];

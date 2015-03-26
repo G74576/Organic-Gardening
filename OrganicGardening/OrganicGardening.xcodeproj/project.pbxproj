@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DD1AF8AF1AC35A09009C9637 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD1AF8AE1AC35A09009C9637 /* AdSupport.framework */; };
 		DD2A90FD1ABB8AE1001063A5 /* Apple Chancery.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DD2A90FC1ABB8AE1001063A5 /* Apple Chancery.ttf */; };
 		DD2A91021ABBB3B0001063A5 /* PlantListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD2A91011ABBB3B0001063A5 /* PlantListTableViewController.m */; };
 		DD56AA2E1AB8F05100DB0669 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = DD56AA2D1AB8F05100DB0669 /* main.m */; };
@@ -20,6 +21,38 @@
 		DD66264B1ABCE1AC00BE7C58 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DD66264A1ABCE1AC00BE7C58 /* Images.xcassets */; };
 		DD66264E1ABDD82D00BE7C58 /* PlantDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD66264D1ABDD82D00BE7C58 /* PlantDetailViewController.m */; };
 		DD6626511ABDDFFA00BE7C58 /* PlantInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = DD6626501ABDDFFA00BE7C58 /* PlantInfo.m */; };
+		DDB3E7231ABF239500D76401 /* MapsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DDB3E7221ABF239500D76401 /* MapsViewController.m */; };
+		DDB3E7261ABF250500D76401 /* ZoneTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DDB3E7251ABF250500D76401 /* ZoneTableViewController.m */; };
+		DDB3E7281AC20E0600D76401 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDB3E7271AC20E0600D76401 /* QuartzCore.framework */; };
+		DDB3E72E1AC20FA000D76401 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDB3E72D1AC20FA000D76401 /* AudioToolbox.framework */; };
+		DDB3E7301AC20FAB00D76401 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDB3E72F1AC20FAB00D76401 /* CFNetwork.framework */; };
+		DDB3E7321AC20FB600D76401 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDB3E7311AC20FB600D76401 /* CoreGraphics.framework */; };
+		DDB3E7341AC20FBE00D76401 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDB3E7331AC20FBE00D76401 /* CoreLocation.framework */; };
+		DDB3E7361AC20FC500D76401 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDB3E7351AC20FC500D76401 /* MobileCoreServices.framework */; };
+		DDB3E7381AC20FCF00D76401 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDB3E7371AC20FCF00D76401 /* Security.framework */; };
+		DDB3E73A1AC20FD700D76401 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDB3E7391AC20FD700D76401 /* StoreKit.framework */; };
+		DDB3E73C1AC20FE000D76401 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDB3E73B1AC20FE000D76401 /* SystemConfiguration.framework */; };
+		DDB3E73E1AC20FF300D76401 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = DDB3E73D1AC20FF300D76401 /* libz.dylib */; };
+		DDB3E7401AC2100100D76401 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = DDB3E73F1AC2100100D76401 /* libsqlite3.dylib */; };
+		DDB3E74F1AC2121300D76401 /* MyGardenTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DDB3E74E1AC2121300D76401 /* MyGardenTableViewController.m */; };
+		DDB3E7531AC2165600D76401 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDB3E7521AC2165600D76401 /* Social.framework */; };
+		DDB3E7551AC23C6700D76401 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDB3E7541AC23C6700D76401 /* Accounts.framework */; };
+		DDB3E7571AC23E4500D76401 /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = DDB3E7561AC23E4500D76401 /* libsqlite3.0.dylib */; };
+		DDB3E7591AC23E5500D76401 /* libz.1.1.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = DDB3E7581AC23E5500D76401 /* libz.1.1.3.dylib */; };
+		DDB3E75F1AC2401800D76401 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDB3E75E1AC2401800D76401 /* Foundation.framework */; };
+		DDB3E76E1AC24B6C00D76401 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDB3E7691AC24B6C00D76401 /* Bolts.framework */; };
+		DDB3E76F1AC24B6C00D76401 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDB3E76A1AC24B6C00D76401 /* Parse.framework */; };
+		DDB3E7701AC24B6C00D76401 /* ParseCrashReporting.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDB3E76B1AC24B6C00D76401 /* ParseCrashReporting.framework */; };
+		DDB3E7711AC24B6C00D76401 /* ParseFacebookUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDB3E76C1AC24B6C00D76401 /* ParseFacebookUtils.framework */; };
+		DDB3E7721AC24B6C00D76401 /* ParseUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDB3E76D1AC24B6C00D76401 /* ParseUI.framework */; };
+		DDB3E7821AC25B8000D76401 /* FacebookSDK in Resources */ = {isa = PBXBuildFile; fileRef = DDB3E7811AC25B8000D76401 /* FacebookSDK */; };
+		DDB3E78A1AC25BE900D76401 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDB3E7831AC25BE800D76401 /* Bolts.framework */; };
+		DDB3E78B1AC25BE900D76401 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDB3E7841AC25BE800D76401 /* FacebookSDK.framework */; };
+		DDB3E78C1AC25BE900D76401 /* FBAudienceNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDB3E7851AC25BE800D76401 /* FBAudienceNetwork.framework */; };
+		DDB3E78D1AC25BE900D76401 /* FBAudienceNetwork.README.txt in Resources */ = {isa = PBXBuildFile; fileRef = DDB3E7861AC25BE800D76401 /* FBAudienceNetwork.README.txt */; };
+		DDB3E78E1AC25BE900D76401 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = DDB3E7871AC25BE800D76401 /* LICENSE */; };
+		DDB3E78F1AC25BE900D76401 /* README.txt in Resources */ = {isa = PBXBuildFile; fileRef = DDB3E7881AC25BE800D76401 /* README.txt */; };
+		DDB3E7901AC25BE900D76401 /* Samples in Resources */ = {isa = PBXBuildFile; fileRef = DDB3E7891AC25BE800D76401 /* Samples */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -33,6 +66,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		DD1AF8AE1AC35A09009C9637 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
 		DD2A90FC1ABB8AE1001063A5 /* Apple Chancery.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Apple Chancery.ttf"; sourceTree = "<group>"; };
 		DD2A91001ABBB3B0001063A5 /* PlantListTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PlantListTableViewController.h; path = ../PlantListTableViewController.h; sourceTree = "<group>"; };
 		DD2A91011ABBB3B0001063A5 /* PlantListTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PlantListTableViewController.m; path = ../PlantListTableViewController.m; sourceTree = "<group>"; };
@@ -56,6 +90,41 @@
 		DD66264D1ABDD82D00BE7C58 /* PlantDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlantDetailViewController.m; sourceTree = "<group>"; };
 		DD66264F1ABDDFFA00BE7C58 /* PlantInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlantInfo.h; sourceTree = "<group>"; };
 		DD6626501ABDDFFA00BE7C58 /* PlantInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlantInfo.m; sourceTree = "<group>"; };
+		DDB3E7211ABF239500D76401 /* MapsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapsViewController.h; sourceTree = "<group>"; };
+		DDB3E7221ABF239500D76401 /* MapsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapsViewController.m; sourceTree = "<group>"; };
+		DDB3E7241ABF250500D76401 /* ZoneTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZoneTableViewController.h; sourceTree = "<group>"; };
+		DDB3E7251ABF250500D76401 /* ZoneTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZoneTableViewController.m; sourceTree = "<group>"; };
+		DDB3E7271AC20E0600D76401 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		DDB3E72D1AC20FA000D76401 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		DDB3E72F1AC20FAB00D76401 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		DDB3E7311AC20FB600D76401 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		DDB3E7331AC20FBE00D76401 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		DDB3E7351AC20FC500D76401 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		DDB3E7371AC20FCF00D76401 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		DDB3E7391AC20FD700D76401 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		DDB3E73B1AC20FE000D76401 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		DDB3E73D1AC20FF300D76401 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		DDB3E73F1AC2100100D76401 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		DDB3E74D1AC2121300D76401 /* MyGardenTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyGardenTableViewController.h; sourceTree = "<group>"; };
+		DDB3E74E1AC2121300D76401 /* MyGardenTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyGardenTableViewController.m; sourceTree = "<group>"; };
+		DDB3E7521AC2165600D76401 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
+		DDB3E7541AC23C6700D76401 /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
+		DDB3E7561AC23E4500D76401 /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
+		DDB3E7581AC23E5500D76401 /* libz.1.1.3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.1.3.dylib; path = usr/lib/libz.1.1.3.dylib; sourceTree = SDKROOT; };
+		DDB3E75E1AC2401800D76401 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		DDB3E7691AC24B6C00D76401 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
+		DDB3E76A1AC24B6C00D76401 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
+		DDB3E76B1AC24B6C00D76401 /* ParseCrashReporting.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseCrashReporting.framework; sourceTree = "<group>"; };
+		DDB3E76C1AC24B6C00D76401 /* ParseFacebookUtils.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseFacebookUtils.framework; sourceTree = "<group>"; };
+		DDB3E76D1AC24B6C00D76401 /* ParseUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseUI.framework; sourceTree = "<group>"; };
+		DDB3E7811AC25B8000D76401 /* FacebookSDK */ = {isa = PBXFileReference; lastKnownFileType = folder; path = FacebookSDK; sourceTree = "<group>"; };
+		DDB3E7831AC25BE800D76401 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Bolts.framework; path = FacebookSDK/Bolts.framework; sourceTree = "<group>"; };
+		DDB3E7841AC25BE800D76401 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FacebookSDK.framework; path = FacebookSDK/FacebookSDK.framework; sourceTree = "<group>"; };
+		DDB3E7851AC25BE800D76401 /* FBAudienceNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBAudienceNetwork.framework; path = FacebookSDK/FBAudienceNetwork.framework; sourceTree = "<group>"; };
+		DDB3E7861AC25BE800D76401 /* FBAudienceNetwork.README.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = FBAudienceNetwork.README.txt; path = FacebookSDK/FBAudienceNetwork.README.txt; sourceTree = "<group>"; };
+		DDB3E7871AC25BE800D76401 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = LICENSE; path = FacebookSDK/LICENSE; sourceTree = "<group>"; };
+		DDB3E7881AC25BE800D76401 /* README.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = README.txt; path = FacebookSDK/README.txt; sourceTree = "<group>"; };
+		DDB3E7891AC25BE800D76401 /* Samples */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Samples; path = FacebookSDK/Samples; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +132,31 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DD1AF8AF1AC35A09009C9637 /* AdSupport.framework in Frameworks */,
+				DDB3E75F1AC2401800D76401 /* Foundation.framework in Frameworks */,
+				DDB3E7591AC23E5500D76401 /* libz.1.1.3.dylib in Frameworks */,
+				DDB3E7571AC23E4500D76401 /* libsqlite3.0.dylib in Frameworks */,
+				DDB3E7551AC23C6700D76401 /* Accounts.framework in Frameworks */,
+				DDB3E7531AC2165600D76401 /* Social.framework in Frameworks */,
+				DDB3E7401AC2100100D76401 /* libsqlite3.dylib in Frameworks */,
+				DDB3E73E1AC20FF300D76401 /* libz.dylib in Frameworks */,
+				DDB3E73C1AC20FE000D76401 /* SystemConfiguration.framework in Frameworks */,
+				DDB3E73A1AC20FD700D76401 /* StoreKit.framework in Frameworks */,
+				DDB3E7721AC24B6C00D76401 /* ParseUI.framework in Frameworks */,
+				DDB3E7381AC20FCF00D76401 /* Security.framework in Frameworks */,
+				DDB3E7701AC24B6C00D76401 /* ParseCrashReporting.framework in Frameworks */,
+				DDB3E78B1AC25BE900D76401 /* FacebookSDK.framework in Frameworks */,
+				DDB3E76F1AC24B6C00D76401 /* Parse.framework in Frameworks */,
+				DDB3E7361AC20FC500D76401 /* MobileCoreServices.framework in Frameworks */,
+				DDB3E78C1AC25BE900D76401 /* FBAudienceNetwork.framework in Frameworks */,
+				DDB3E7341AC20FBE00D76401 /* CoreLocation.framework in Frameworks */,
+				DDB3E76E1AC24B6C00D76401 /* Bolts.framework in Frameworks */,
+				DDB3E7321AC20FB600D76401 /* CoreGraphics.framework in Frameworks */,
+				DDB3E7301AC20FAB00D76401 /* CFNetwork.framework in Frameworks */,
+				DDB3E72E1AC20FA000D76401 /* AudioToolbox.framework in Frameworks */,
+				DDB3E78A1AC25BE900D76401 /* Bolts.framework in Frameworks */,
+				DDB3E7711AC24B6C00D76401 /* ParseFacebookUtils.framework in Frameworks */,
+				DDB3E7281AC20E0600D76401 /* QuartzCore.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -92,6 +186,7 @@
 		DD56AA1F1AB8F05100DB0669 = {
 			isa = PBXGroup;
 			children = (
+				DDB3E7421AC2102200D76401 /* Frameworks */,
 				DD56AA2A1AB8F05100DB0669 /* OrganicGardening */,
 				DD56AA471AB8F05100DB0669 /* OrganicGardeningTests */,
 				DD56AA291AB8F05100DB0669 /* Products */,
@@ -119,6 +214,9 @@
 				DD56AA381AB8F05100DB0669 /* Main.storyboard */,
 				DD66264A1ABCE1AC00BE7C58 /* Images.xcassets */,
 				DD56AA3D1AB8F05100DB0669 /* LaunchScreen.xib */,
+				DDCE260F1ABE3CA90000D8E3 /* MyGarden */,
+				DDCE260E1ABE3C9C0000D8E3 /* Tips */,
+				DDCE260D1ABE3C8F0000D8E3 /* Map */,
 				DD2A91031ABBB3BD001063A5 /* Plants */,
 				DD56AA2B1AB8F05100DB0669 /* Supporting Files */,
 			);
@@ -159,6 +257,70 @@
 				DD56AA541AB90CDE00DB0669 /* logo.png */,
 			);
 			name = assets;
+			sourceTree = "<group>";
+		};
+		DDB3E7421AC2102200D76401 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				DD1AF8AE1AC35A09009C9637 /* AdSupport.framework */,
+				DDB3E7831AC25BE800D76401 /* Bolts.framework */,
+				DDB3E7841AC25BE800D76401 /* FacebookSDK.framework */,
+				DDB3E7851AC25BE800D76401 /* FBAudienceNetwork.framework */,
+				DDB3E7861AC25BE800D76401 /* FBAudienceNetwork.README.txt */,
+				DDB3E7871AC25BE800D76401 /* LICENSE */,
+				DDB3E7881AC25BE800D76401 /* README.txt */,
+				DDB3E7891AC25BE800D76401 /* Samples */,
+				DDB3E7811AC25B8000D76401 /* FacebookSDK */,
+				DDB3E7691AC24B6C00D76401 /* Bolts.framework */,
+				DDB3E76A1AC24B6C00D76401 /* Parse.framework */,
+				DDB3E76B1AC24B6C00D76401 /* ParseCrashReporting.framework */,
+				DDB3E76C1AC24B6C00D76401 /* ParseFacebookUtils.framework */,
+				DDB3E76D1AC24B6C00D76401 /* ParseUI.framework */,
+				DDB3E75E1AC2401800D76401 /* Foundation.framework */,
+				DDB3E7581AC23E5500D76401 /* libz.1.1.3.dylib */,
+				DDB3E7561AC23E4500D76401 /* libsqlite3.0.dylib */,
+				DDB3E7541AC23C6700D76401 /* Accounts.framework */,
+				DDB3E7521AC2165600D76401 /* Social.framework */,
+				DDB3E73F1AC2100100D76401 /* libsqlite3.dylib */,
+				DDB3E73D1AC20FF300D76401 /* libz.dylib */,
+				DDB3E73B1AC20FE000D76401 /* SystemConfiguration.framework */,
+				DDB3E7391AC20FD700D76401 /* StoreKit.framework */,
+				DDB3E7371AC20FCF00D76401 /* Security.framework */,
+				DDB3E7351AC20FC500D76401 /* MobileCoreServices.framework */,
+				DDB3E7331AC20FBE00D76401 /* CoreLocation.framework */,
+				DDB3E7311AC20FB600D76401 /* CoreGraphics.framework */,
+				DDB3E72F1AC20FAB00D76401 /* CFNetwork.framework */,
+				DDB3E72D1AC20FA000D76401 /* AudioToolbox.framework */,
+				DDB3E7271AC20E0600D76401 /* QuartzCore.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		DDCE260D1ABE3C8F0000D8E3 /* Map */ = {
+			isa = PBXGroup;
+			children = (
+				DDB3E7211ABF239500D76401 /* MapsViewController.h */,
+				DDB3E7221ABF239500D76401 /* MapsViewController.m */,
+				DDB3E7241ABF250500D76401 /* ZoneTableViewController.h */,
+				DDB3E7251ABF250500D76401 /* ZoneTableViewController.m */,
+			);
+			name = Map;
+			sourceTree = "<group>";
+		};
+		DDCE260E1ABE3C9C0000D8E3 /* Tips */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Tips;
+			sourceTree = "<group>";
+		};
+		DDCE260F1ABE3CA90000D8E3 /* MyGarden */ = {
+			isa = PBXGroup;
+			children = (
+				DDB3E74D1AC2121300D76401 /* MyGardenTableViewController.h */,
+				DDB3E74E1AC2121300D76401 /* MyGardenTableViewController.m */,
+			);
+			name = MyGarden;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -242,9 +404,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DDB3E7901AC25BE900D76401 /* Samples in Resources */,
 				DD56AA551AB90CDE00DB0669 /* logo.png in Resources */,
+				DDB3E78F1AC25BE900D76401 /* README.txt in Resources */,
 				DD66264B1ABCE1AC00BE7C58 /* Images.xcassets in Resources */,
+				DDB3E78E1AC25BE900D76401 /* LICENSE in Resources */,
 				DD56AA3A1AB8F05100DB0669 /* Main.storyboard in Resources */,
+				DDB3E78D1AC25BE900D76401 /* FBAudienceNetwork.README.txt in Resources */,
+				DDB3E7821AC25B8000D76401 /* FacebookSDK in Resources */,
 				DD56AA3F1AB8F05100DB0669 /* LaunchScreen.xib in Resources */,
 				DD2A90FD1ABB8AE1001063A5 /* Apple Chancery.ttf in Resources */,
 			);
@@ -264,6 +431,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DDB3E74F1AC2121300D76401 /* MyGardenTableViewController.m in Sources */,
 				DD56AA371AB8F05100DB0669 /* SecondViewController.m in Sources */,
 				DD2A91021ABBB3B0001063A5 /* PlantListTableViewController.m in Sources */,
 				DD56AA311AB8F05100DB0669 /* AppDelegate.m in Sources */,
@@ -271,6 +439,8 @@
 				DD6626511ABDDFFA00BE7C58 /* PlantInfo.m in Sources */,
 				DD56AA2E1AB8F05100DB0669 /* main.m in Sources */,
 				DD66264E1ABDD82D00BE7C58 /* PlantDetailViewController.m in Sources */,
+				DDB3E7231ABF239500D76401 /* MapsViewController.m in Sources */,
+				DDB3E7261ABF250500D76401 /* ZoneTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -393,9 +563,16 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/FacebookSDK",
+				);
 				INFOPLIST_FILE = OrganicGardening/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -404,9 +581,16 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/FacebookSDK",
+				);
 				INFOPLIST_FILE = OrganicGardening/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};

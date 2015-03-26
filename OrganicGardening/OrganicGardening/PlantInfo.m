@@ -9,11 +9,12 @@
 #import "PlantInfo.h"
 
 @implementation PlantInfo
-@synthesize plantName;
+@synthesize plantName, plantZone;
 
--(id)initWithTitle:(NSString *)pName{
+-(id)initWithTitle:(NSString *)pName pZone:(int)pZone{
     if ((self = [super init])) {
         plantName = pName;
+        plantZone = pZone;
     }
     return self;
 }

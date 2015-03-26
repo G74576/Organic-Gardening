@@ -16,4 +16,6 @@
 
 @property (strong, nonatomic)PlantInfo *pInfo;
 
+-(IBAction)addToGarden:(id)sender;
+
 @end

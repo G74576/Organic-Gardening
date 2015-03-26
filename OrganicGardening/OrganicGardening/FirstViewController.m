@@ -21,6 +21,7 @@
     
     //Set appearance of title for navigation bar.
     [[UINavigationBar appearance] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor whiteColor], NSForegroundColorAttributeName, [UIFont fontWithName:@"Apple-Chancery" size:30.0], NSFontAttributeName, nil]];
+
 }
 
 

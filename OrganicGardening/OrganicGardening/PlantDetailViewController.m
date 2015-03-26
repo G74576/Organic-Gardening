@@ -9,6 +9,7 @@
 #import "PlantDetailViewController.h"
 #import "PlantListTableViewController.h"
 #import "PlantInfo.h"
+#import <Parse/Parse.h>
 
 @interface PlantDetailViewController ()
 
@@ -27,6 +28,27 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(IBAction)addToGarden:(id)sender{
+    PFUser *user = [PFUser currentUser];
+    
+    PFObject *postEvent = [PFObject objectWithClassName:@"MyGarden"];
+    
+    postEvent[@"mgName"] = pInfo.plantName;
+    
+    postEvent[@"user"] = user;
+    [postEvent save];
+    UIView *parent = self.view.superview;
+    [self.view removeFromSuperview];
+    self.view = nil;
+    [parent addSubview:self.view];
+    
+    [[[UIAlertView alloc] initWithTitle:@"Add To My Garden"
+                                message:@"Added to your personal garden!"
+                               delegate:nil
+                      cancelButtonTitle:@"ok"
+                      otherButtonTitles:nil] show];
 }
 
 /*

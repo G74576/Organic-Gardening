@@ -11,11 +11,12 @@
 @interface PlantInfo : NSObject{
 
     NSString *plantName;
-
+    int plantZone;
 }
 
--(id)initWithTitle:(NSString *)pName;
+-(id)initWithTitle:(NSString *)pName pZone:(int)pZone;
 
 @property(strong, nonatomic)NSString *plantName;
+@property int plantZone;
 
 @end
