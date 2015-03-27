@@ -12,6 +12,8 @@
 
 @interface PlantDetailViewController : UIViewController<UIAlertViewDelegate>{
     
+    IBOutlet UIScrollView *scrollView;
+    
 }
 
 @property (strong, nonatomic)PlantInfo *pInfo;

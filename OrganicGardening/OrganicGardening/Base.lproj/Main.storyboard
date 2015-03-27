@@ -63,33 +63,119 @@
                         <viewControllerLayoutGuide type="bottom" id="aeR-8v-iUj"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="dRX-S3-oM3">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="1000"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="bgImage15" translatesAutoresizingMaskIntoConstraints="NO" id="dKp-FJ-Zof">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bgImage15" translatesAutoresizingMaskIntoConstraints="NO" id="dKp-FJ-Zof">
                                 <rect key="frame" x="0.0" y="64" width="375" height="160"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </imageView>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="mca-hM-BPL">
-                                <rect key="frame" x="0.0" y="224" width="375" height="394"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <label key="tableFooterView" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Here is where all the details about the selected plant will be displayed." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="mFS-Cf-4xU">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="111"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                    <nil key="highlightedColor"/>
-                                </label>
-                                <sections/>
-                            </tableView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="This will be where the image will show" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Zs-PF-buC">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This will be where the image will show" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Zs-PF-buC">
                                 <rect key="frame" x="85" y="92" width="205" height="103"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="103" id="xj4-7B-I9K"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CG1-D7-iNn">
+                                <rect key="frame" x="0.0" y="232" width="375" height="719"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Plant Details" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rZ9-OI-U7c">
+                                        <rect key="frame" x="16" y="48" width="133" height="21"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="133" id="kXA-35-XNI"/>
+                                            <constraint firstAttribute="height" constant="21" id="yLs-Kj-sOK"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="22"/>
+                                        <color key="textColor" red="0.20000000000000001" green="0.80000000000000004" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Here is where all the details about the selected plant will be displayed." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mFS-Cf-4xU">
+                                        <rect key="frame" x="24" y="72" width="343" height="87"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="343" id="0MJ-PQ-rO4"/>
+                                            <constraint firstAttribute="height" constant="87" id="lAb-gP-f0j"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="18"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Growing Details" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zks-Xs-A88">
+                                        <rect key="frame" x="16" y="183" width="171" height="21"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="21" id="ayO-6Y-Dqt"/>
+                                            <constraint firstAttribute="width" constant="171" id="ymH-dZ-Giy"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="22"/>
+                                        <color key="textColor" red="0.20000000000000001" green="0.80000000000000004" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wad-nx-N10">
+                                        <rect key="frame" x="24" y="228" width="343" height="87"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="87" id="ttl-cI-I2W"/>
+                                        </constraints>
+                                        <string key="text">Here is where all the growing details about the plant will be, information such as: Difficulty, Sunlight, Spacing, Watering, Soil, etc.</string>
+                                        <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="18"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Caring Details" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DkF-vL-M40">
+                                        <rect key="frame" x="16" y="335" width="155" height="23"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="23" id="QK4-6d-oRY"/>
+                                            <constraint firstAttribute="width" constant="155" id="bay-rQ-NXf"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="22"/>
+                                        <color key="textColor" red="0.20000000000000001" green="0.80000000000000004" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Here is where all the information about germination, transplanting, harvesting, container size etc., will be located" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sts-zW-5IP">
+                                        <rect key="frame" x="16" y="372" width="343" height="87"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="87" id="tyn-sX-7yB"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="18"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="Zks-Xs-A88" firstAttribute="leading" secondItem="DkF-vL-M40" secondAttribute="leading" id="6hA-xe-WoC"/>
+                                    <constraint firstItem="wad-nx-N10" firstAttribute="top" secondItem="Zks-Xs-A88" secondAttribute="bottom" constant="24" id="EXt-3V-Mi0"/>
+                                    <constraint firstItem="Zks-Xs-A88" firstAttribute="top" secondItem="mFS-Cf-4xU" secondAttribute="bottom" constant="24" id="FYJ-Nb-tB4"/>
+                                    <constraint firstItem="mFS-Cf-4xU" firstAttribute="leading" secondItem="CG1-D7-iNn" secondAttribute="leading" constant="24" id="HTc-3y-tgy"/>
+                                    <constraint firstItem="Sts-zW-5IP" firstAttribute="centerX" secondItem="CG1-D7-iNn" secondAttribute="centerX" id="JNs-bf-YkZ"/>
+                                    <constraint firstAttribute="bottom" secondItem="Sts-zW-5IP" secondAttribute="bottom" constant="260" id="LGo-IF-3o3"/>
+                                    <constraint firstItem="DkF-vL-M40" firstAttribute="leading" secondItem="Sts-zW-5IP" secondAttribute="leading" id="O4C-uH-ZxB"/>
+                                    <constraint firstItem="wad-nx-N10" firstAttribute="trailing" secondItem="CG1-D7-iNn" secondAttribute="trailingMargin" id="VHY-S7-Wd3"/>
+                                    <constraint firstItem="rZ9-OI-U7c" firstAttribute="top" secondItem="CG1-D7-iNn" secondAttribute="top" constant="48" id="WGz-vE-sMv"/>
+                                    <constraint firstItem="Sts-zW-5IP" firstAttribute="top" secondItem="DkF-vL-M40" secondAttribute="bottom" constant="14" id="bgv-fP-8qQ"/>
+                                    <constraint firstItem="mFS-Cf-4xU" firstAttribute="trailing" secondItem="wad-nx-N10" secondAttribute="trailing" id="dtY-Gd-T8I"/>
+                                    <constraint firstItem="wad-nx-N10" firstAttribute="leading" secondItem="mFS-Cf-4xU" secondAttribute="leading" id="oEn-g0-Au9"/>
+                                    <constraint firstItem="rZ9-OI-U7c" firstAttribute="leading" secondItem="CG1-D7-iNn" secondAttribute="leading" constant="16" id="pLY-yd-2uY"/>
+                                    <constraint firstItem="mFS-Cf-4xU" firstAttribute="top" secondItem="rZ9-OI-U7c" secondAttribute="bottom" constant="3" id="q6t-x9-icC"/>
+                                    <constraint firstItem="Zks-Xs-A88" firstAttribute="leading" secondItem="rZ9-OI-U7c" secondAttribute="leading" id="tJW-V0-ged"/>
+                                    <constraint firstItem="DkF-vL-M40" firstAttribute="top" secondItem="wad-nx-N10" secondAttribute="bottom" constant="20" id="z8Q-zw-qRF"/>
+                                </constraints>
+                            </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="CG1-D7-iNn" firstAttribute="top" secondItem="dKp-FJ-Zof" secondAttribute="bottom" constant="8" symbolic="YES" id="6IM-xd-6gJ"/>
+                            <constraint firstItem="5Zs-PF-buC" firstAttribute="centerX" secondItem="dKp-FJ-Zof" secondAttribute="centerX" id="BP1-C7-fGL"/>
+                            <constraint firstItem="5Zs-PF-buC" firstAttribute="top" secondItem="wmy-ml-hOM" secondAttribute="bottom" constant="28" id="GMP-Yl-Y6w"/>
+                            <constraint firstItem="CG1-D7-iNn" firstAttribute="leading" secondItem="dRX-S3-oM3" secondAttribute="leading" id="O3m-lS-5fD"/>
+                            <constraint firstItem="CG1-D7-iNn" firstAttribute="trailing" secondItem="dKp-FJ-Zof" secondAttribute="trailing" id="QvC-os-j2p"/>
+                            <constraint firstItem="CG1-D7-iNn" firstAttribute="leading" secondItem="dKp-FJ-Zof" secondAttribute="leading" id="RjZ-jg-wCh"/>
+                            <constraint firstAttribute="trailing" secondItem="CG1-D7-iNn" secondAttribute="trailing" id="Siw-KF-Xgm"/>
+                            <constraint firstItem="CG1-D7-iNn" firstAttribute="bottom" secondItem="aeR-8v-iUj" secondAttribute="top" id="a9n-9E-z4U"/>
+                            <constraint firstItem="dKp-FJ-Zof" firstAttribute="top" secondItem="wmy-ml-hOM" secondAttribute="bottom" id="cvm-g4-xMP"/>
+                            <constraint firstItem="5Zs-PF-buC" firstAttribute="leading" secondItem="dRX-S3-oM3" secondAttribute="leadingMargin" constant="69" id="inb-xY-AHv"/>
+                            <constraint firstItem="CG1-D7-iNn" firstAttribute="top" secondItem="5Zs-PF-buC" secondAttribute="bottom" constant="37" id="xgT-fs-xdb"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Title" id="gTU-aa-RPn">
                         <barButtonItem key="rightBarButtonItem" title="Add" id="Qzi-Sk-Liw">
@@ -99,10 +185,15 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="375" height="1000"/>
+                    <connections>
+                        <outlet property="scrollView" destination="CG1-D7-iNn" id="bPi-yW-lsZ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yxb-4L-JUc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2320.5" y="-1456.5"/>
+            <point key="canvasLocation" x="2325.5" y="-1681"/>
         </scene>
         <!--Title-->
         <scene sceneID="vvA-Ya-wJp">
@@ -712,7 +803,7 @@
         <image name="vegiIcon" width="200" height="200"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="qH1-f9-tBG"/>
         <segue reference="KyX-AW-Pkr"/>
-        <segue reference="6fI-6D-l5G"/>
     </inferredMetricsTieBreakers>
 </document>

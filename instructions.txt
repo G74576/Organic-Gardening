@@ -1,0 +1,62 @@
+IPV
+======================
+Developer: Kevin O'Toole
+IPV Term 1503
+Application: Organic Gardening
+Version: 1.0.0
+Platform: iOS
+Copyright 2015 @ Kevin O'Toole, All rights reserved
+Repository Link: https://github.com/G74576/Organic-Gardening
+
+======================
+Application Features:
+ -Tabbed Navigation:
+ 	- Home Screen
+ 	- Take a Photo and share
+ - Home Screen:
+ 	- Vegetables
+ 	- Herbs
+ 	- Fruits
+ 	- Growing Zone
+ 	- My Garden
+ 	- Tips & Tricks
+
+======================
+Tabbed Navigation - Home Screen:
+When the application launches the user will be presented with the home screen.  
+On this screen the user will have the option to choose: Vegetable, Herbs, Fruits, Growing
+Zone, My Garden or Tips & Tricks. 
+
+Clicking on Vegetables/Herbs/Fruits will take the user
+to a list view of all the plants in that category. From this list the user can select an 
+item to view its details and get the information about that item.  From the details view
+of the selected item, the user will be able to add that item to their My Garden list. If 
+the user is not already logged into the application, they will be prompted to log in 
+through a login/password, Facebook or Twitter.
+
+Clicking on Growing Zone - the user will be presented with an image of the USDA Plant 
+Hardiness Zone Map and a list view of all the zones.  The user will be able to determine 
+what growing zone they are in and select that zone from the list to see which plants grow
+best in that zone.  From the growing zone list view, the user can then select an item to 
+view its details.  
+
+Clicking on My Garden the user will be prompted to login to their garden.  The user can 
+login using a username and password.  If they do not have a login, they will also be able
+to signup for a login from here.  The user will also be presented with the option to login
+to their garden using Facebook or Twitter.  After logged in the user will be presented with
+a list view of all the items they have added to their garden.  After selecting and item 
+from the list the user will be able to adjust the planting details such as when they
+planted, when germination will take place, when to harvest, etc.  From either the list 
+view or detail view of my garden, the user will be presented with an edit option to remove
+items from their garden.
+
+Clicking on Tips & Tricks will bring up a list view of all different types of tips and or 
+tricks related to gardening.  Selecting and item from the list will allow the user to 
+view that tip/trick.
+
+Tabbed Navigation - Photo Share Screen:
+Clicking on the camera icon in the bottom tab bar navigation the user will be presented 
+with a view.  The view will have a static image and some details about taking and sharing 
+a photo of their gardens progress with social media sites like Facebook.  After taking 
+a picture the user will be given the option to retake the photo, clear the photo, or post
+the photo to Facebook.

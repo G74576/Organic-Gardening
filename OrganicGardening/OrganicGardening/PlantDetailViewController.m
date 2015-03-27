@@ -23,6 +23,9 @@
 
     self.title = pInfo.plantName;
     [super viewDidLoad];
+    
+    [scrollView setScrollEnabled:YES];
+    [scrollView setContentSize:CGSizeMake(375, 719)];
     // Do any additional setup after loading the view.
 }
 
