@@ -8,8 +8,21 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SecondViewController : UIViewController
+@interface SecondViewController : UIViewController<UINavigationControllerDelegate, UIImagePickerControllerDelegate, UIAlertViewDelegate>{
 
+    IBOutlet UIImageView *imageView;
+    IBOutlet UIButton *takeButton;
+    IBOutlet UIButton *clearButton;
+    IBOutlet UIButton *faceBookButton;
+    
+    UIImagePickerController *picker;
+    UIImage *image;
+    
+}
+
+-(IBAction)takePhoto:(id)sender;
+-(IBAction)clearPhoto:(id)sender;
+-(IBAction)postFacebook:(id)sender;
 
 @end
 

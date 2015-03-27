@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		DD1AF8AF1AC35A09009C9637 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD1AF8AE1AC35A09009C9637 /* AdSupport.framework */; };
+		DD1AF8B21AC39B15009C9637 /* TipsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD1AF8B11AC39B15009C9637 /* TipsTableViewController.m */; };
+		DD1AF8B51AC39E06009C9637 /* TipsInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = DD1AF8B41AC39E06009C9637 /* TipsInfo.m */; };
+		DD1AF8B81AC3A0C9009C9637 /* TipsDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD1AF8B71AC3A0C9009C9637 /* TipsDetailViewController.m */; };
 		DD2A90FD1ABB8AE1001063A5 /* Apple Chancery.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DD2A90FC1ABB8AE1001063A5 /* Apple Chancery.ttf */; };
 		DD2A91021ABBB3B0001063A5 /* PlantListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD2A91011ABBB3B0001063A5 /* PlantListTableViewController.m */; };
 		DD56AA2E1AB8F05100DB0669 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = DD56AA2D1AB8F05100DB0669 /* main.m */; };
@@ -67,6 +70,12 @@
 
 /* Begin PBXFileReference section */
 		DD1AF8AE1AC35A09009C9637 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
+		DD1AF8B01AC39B15009C9637 /* TipsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TipsTableViewController.h; sourceTree = "<group>"; };
+		DD1AF8B11AC39B15009C9637 /* TipsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TipsTableViewController.m; sourceTree = "<group>"; };
+		DD1AF8B31AC39E06009C9637 /* TipsInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TipsInfo.h; sourceTree = "<group>"; };
+		DD1AF8B41AC39E06009C9637 /* TipsInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TipsInfo.m; sourceTree = "<group>"; };
+		DD1AF8B61AC3A0C9009C9637 /* TipsDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TipsDetailViewController.h; sourceTree = "<group>"; };
+		DD1AF8B71AC3A0C9009C9637 /* TipsDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TipsDetailViewController.m; sourceTree = "<group>"; };
 		DD2A90FC1ABB8AE1001063A5 /* Apple Chancery.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Apple Chancery.ttf"; sourceTree = "<group>"; };
 		DD2A91001ABBB3B0001063A5 /* PlantListTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PlantListTableViewController.h; path = ../PlantListTableViewController.h; sourceTree = "<group>"; };
 		DD2A91011ABBB3B0001063A5 /* PlantListTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PlantListTableViewController.m; path = ../PlantListTableViewController.m; sourceTree = "<group>"; };
@@ -310,6 +319,12 @@
 		DDCE260E1ABE3C9C0000D8E3 /* Tips */ = {
 			isa = PBXGroup;
 			children = (
+				DD1AF8B01AC39B15009C9637 /* TipsTableViewController.h */,
+				DD1AF8B11AC39B15009C9637 /* TipsTableViewController.m */,
+				DD1AF8B61AC3A0C9009C9637 /* TipsDetailViewController.h */,
+				DD1AF8B71AC3A0C9009C9637 /* TipsDetailViewController.m */,
+				DD1AF8B31AC39E06009C9637 /* TipsInfo.h */,
+				DD1AF8B41AC39E06009C9637 /* TipsInfo.m */,
 			);
 			name = Tips;
 			sourceTree = "<group>";
@@ -431,6 +446,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DD1AF8B21AC39B15009C9637 /* TipsTableViewController.m in Sources */,
+				DD1AF8B51AC39E06009C9637 /* TipsInfo.m in Sources */,
 				DDB3E74F1AC2121300D76401 /* MyGardenTableViewController.m in Sources */,
 				DD56AA371AB8F05100DB0669 /* SecondViewController.m in Sources */,
 				DD2A91021ABBB3B0001063A5 /* PlantListTableViewController.m in Sources */,
@@ -440,6 +457,7 @@
 				DD56AA2E1AB8F05100DB0669 /* main.m in Sources */,
 				DD66264E1ABDD82D00BE7C58 /* PlantDetailViewController.m in Sources */,
 				DDB3E7231ABF239500D76401 /* MapsViewController.m in Sources */,
+				DD1AF8B81AC3A0C9009C9637 /* TipsDetailViewController.m in Sources */,
 				DDB3E7261ABF250500D76401 /* ZoneTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

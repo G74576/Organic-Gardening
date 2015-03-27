@@ -10,7 +10,7 @@
 #import "PlantInfo.h"
 #import "PlantListTableViewController.h"
 
-@interface PlantDetailViewController : UIViewController{
+@interface PlantDetailViewController : UIViewController<UIAlertViewDelegate>{
     
 }
 
