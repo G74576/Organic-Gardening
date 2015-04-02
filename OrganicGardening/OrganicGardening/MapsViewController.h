@@ -11,7 +11,6 @@
 @interface MapsViewController : UIViewController<UITableViewDataSource, UITableViewDelegate> {
     
     NSMutableArray *zoneArray;      //Array of zone numbers for table
-    
 }
 
 @property(strong, nonatomic)IBOutlet UITableView *mapTableView;

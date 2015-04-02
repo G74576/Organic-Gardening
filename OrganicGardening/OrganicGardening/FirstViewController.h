@@ -7,11 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <Parse/Parse.h>
+#import <ParseUI/ParseUI.h>
 
-@interface FirstViewController : UIViewController
+@interface FirstViewController : UIViewController<PFLogInViewControllerDelegate, PFSignUpViewControllerDelegate>{
 
-
-
+}
 
 @end
 

@@ -8,23 +8,20 @@
 
 #import <UIKit/UIKit.h>
 #import "PlantDetailViewController.h"
-#import "PlantInfo.h"
+#import <Parse/Parse.h>
+#import <ParseUI/ParseUI.h>
 
 @interface PlantListTableViewController : UITableViewController{
     
-    NSMutableArray *vegiArray;          //Vegetable list array
-    NSMutableArray *herbArray;          //Herbs list array
-    NSMutableArray *fruitArray;         //Fruit list arrray
+    NSArray *vArray;
+    NSArray *hArray;
+    NSArray *fArray;
     
     int plantCategoryInt;               //Used to know which category is selected from the home screen
     
 }
 
 @property(strong, nonatomic)IBOutlet UITableView *listTableView;
-
-@property(strong, nonatomic)NSMutableArray *vegiArray;
-@property(strong, nonatomic)NSMutableArray *herbArray;
-@property(strong, nonatomic)NSMutableArray *fruitArray;
 
 @property int plantCategoryInt;
 

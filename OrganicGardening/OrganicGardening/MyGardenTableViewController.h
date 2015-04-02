@@ -10,13 +10,13 @@
 #import <Parse/Parse.h>
 #import <ParseUI/ParseUI.h>
 
-@interface MyGardenTableViewController : UITableViewController<PFSignUpViewControllerDelegate, PFLogInViewControllerDelegate>{
+@interface MyGardenTableViewController : UITableViewController{
     
     NSArray *gardenArray;
 }
 
 @property(strong, nonatomic)IBOutlet UITableView *gardenTable;
 
--(IBAction)logOut:(id)sender;
+//-(IBAction)logOut:(id)sender;
 
 @end

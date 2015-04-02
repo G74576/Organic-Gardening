@@ -21,9 +21,11 @@
 		DD56AA3F1AB8F05100DB0669 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = DD56AA3D1AB8F05100DB0669 /* LaunchScreen.xib */; };
 		DD56AA4B1AB8F05100DB0669 /* OrganicGardeningTests.m in Sources */ = {isa = PBXBuildFile; fileRef = DD56AA4A1AB8F05100DB0669 /* OrganicGardeningTests.m */; };
 		DD56AA551AB90CDE00DB0669 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = DD56AA541AB90CDE00DB0669 /* logo.png */; };
+		DD5EBDC71ACB669B008265B2 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = DD5EBDC61ACB669B008265B2 /* Reachability.m */; };
+		DD5EBDCA1ACB6B37008265B2 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD5EBDC91ACB6B37008265B2 /* LoginViewController.m */; };
+		DD5EBDCD1ACB6BC6008265B2 /* SignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD5EBDCC1ACB6BC6008265B2 /* SignUpViewController.m */; };
 		DD66264B1ABCE1AC00BE7C58 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DD66264A1ABCE1AC00BE7C58 /* Images.xcassets */; };
 		DD66264E1ABDD82D00BE7C58 /* PlantDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD66264D1ABDD82D00BE7C58 /* PlantDetailViewController.m */; };
-		DD6626511ABDDFFA00BE7C58 /* PlantInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = DD6626501ABDDFFA00BE7C58 /* PlantInfo.m */; };
 		DDB3E7231ABF239500D76401 /* MapsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DDB3E7221ABF239500D76401 /* MapsViewController.m */; };
 		DDB3E7261ABF250500D76401 /* ZoneTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DDB3E7251ABF250500D76401 /* ZoneTableViewController.m */; };
 		DDB3E7281AC20E0600D76401 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDB3E7271AC20E0600D76401 /* QuartzCore.framework */; };
@@ -94,11 +96,15 @@
 		DD56AA491AB8F05100DB0669 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DD56AA4A1AB8F05100DB0669 /* OrganicGardeningTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OrganicGardeningTests.m; sourceTree = "<group>"; };
 		DD56AA541AB90CDE00DB0669 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
+		DD5EBDC51ACB669B008265B2 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
+		DD5EBDC61ACB669B008265B2 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
+		DD5EBDC81ACB6B37008265B2 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		DD5EBDC91ACB6B37008265B2 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		DD5EBDCB1ACB6BC6008265B2 /* SignUpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignUpViewController.h; sourceTree = "<group>"; };
+		DD5EBDCC1ACB6BC6008265B2 /* SignUpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignUpViewController.m; sourceTree = "<group>"; };
 		DD66264A1ABCE1AC00BE7C58 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		DD66264C1ABDD82D00BE7C58 /* PlantDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlantDetailViewController.h; sourceTree = "<group>"; };
 		DD66264D1ABDD82D00BE7C58 /* PlantDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlantDetailViewController.m; sourceTree = "<group>"; };
-		DD66264F1ABDDFFA00BE7C58 /* PlantInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlantInfo.h; sourceTree = "<group>"; };
-		DD6626501ABDDFFA00BE7C58 /* PlantInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlantInfo.m; sourceTree = "<group>"; };
 		DDB3E7211ABF239500D76401 /* MapsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapsViewController.h; sourceTree = "<group>"; };
 		DDB3E7221ABF239500D76401 /* MapsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapsViewController.m; sourceTree = "<group>"; };
 		DDB3E7241ABF250500D76401 /* ZoneTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZoneTableViewController.h; sourceTree = "<group>"; };
@@ -186,8 +192,6 @@
 				DD2A91011ABBB3B0001063A5 /* PlantListTableViewController.m */,
 				DD66264C1ABDD82D00BE7C58 /* PlantDetailViewController.h */,
 				DD66264D1ABDD82D00BE7C58 /* PlantDetailViewController.m */,
-				DD66264F1ABDDFFA00BE7C58 /* PlantInfo.h */,
-				DD6626501ABDDFFA00BE7C58 /* PlantInfo.m */,
 			);
 			name = Plants;
 			sourceTree = "<group>";
@@ -216,6 +220,8 @@
 			children = (
 				DD56AA2F1AB8F05100DB0669 /* AppDelegate.h */,
 				DD56AA301AB8F05100DB0669 /* AppDelegate.m */,
+				DD5EBDC51ACB669B008265B2 /* Reachability.h */,
+				DD5EBDC61ACB669B008265B2 /* Reachability.m */,
 				DD56AA321AB8F05100DB0669 /* FirstViewController.h */,
 				DD56AA331AB8F05100DB0669 /* FirstViewController.m */,
 				DD56AA351AB8F05100DB0669 /* SecondViewController.h */,
@@ -228,6 +234,7 @@
 				DDCE260D1ABE3C8F0000D8E3 /* Map */,
 				DD2A91031ABBB3BD001063A5 /* Plants */,
 				DD56AA2B1AB8F05100DB0669 /* Supporting Files */,
+				DD5EBDCE1ACB6BF9008265B2 /* LoginSignUp */,
 			);
 			path = OrganicGardening;
 			sourceTree = "<group>";
@@ -266,6 +273,17 @@
 				DD56AA541AB90CDE00DB0669 /* logo.png */,
 			);
 			name = assets;
+			sourceTree = "<group>";
+		};
+		DD5EBDCE1ACB6BF9008265B2 /* LoginSignUp */ = {
+			isa = PBXGroup;
+			children = (
+				DD5EBDC81ACB6B37008265B2 /* LoginViewController.h */,
+				DD5EBDC91ACB6B37008265B2 /* LoginViewController.m */,
+				DD5EBDCB1ACB6BC6008265B2 /* SignUpViewController.h */,
+				DD5EBDCC1ACB6BC6008265B2 /* SignUpViewController.m */,
+			);
+			name = LoginSignUp;
 			sourceTree = "<group>";
 		};
 		DDB3E7421AC2102200D76401 /* Frameworks */ = {
@@ -452,13 +470,15 @@
 				DD56AA371AB8F05100DB0669 /* SecondViewController.m in Sources */,
 				DD2A91021ABBB3B0001063A5 /* PlantListTableViewController.m in Sources */,
 				DD56AA311AB8F05100DB0669 /* AppDelegate.m in Sources */,
+				DD5EBDCD1ACB6BC6008265B2 /* SignUpViewController.m in Sources */,
 				DD56AA341AB8F05100DB0669 /* FirstViewController.m in Sources */,
-				DD6626511ABDDFFA00BE7C58 /* PlantInfo.m in Sources */,
 				DD56AA2E1AB8F05100DB0669 /* main.m in Sources */,
 				DD66264E1ABDD82D00BE7C58 /* PlantDetailViewController.m in Sources */,
+				DD5EBDC71ACB669B008265B2 /* Reachability.m in Sources */,
 				DDB3E7231ABF239500D76401 /* MapsViewController.m in Sources */,
 				DD1AF8B81AC3A0C9009C9637 /* TipsDetailViewController.m in Sources */,
 				DDB3E7261ABF250500D76401 /* ZoneTableViewController.m in Sources */,
+				DD5EBDCA1ACB6B37008265B2 /* LoginViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

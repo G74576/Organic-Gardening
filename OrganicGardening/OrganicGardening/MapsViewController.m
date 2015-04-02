@@ -22,17 +22,17 @@
     
     zoneArray = [[NSMutableArray alloc]init];
     
-    NSString *zone1 = @"Zone 1";
-    NSString *zone2 = @"Zone 2";
-    NSString *zone3 = @"Zone 3";
-    NSString *zone4 = @"Zone 4";
-    NSString *zone5 = @"Zone 5";
-    NSString *zone6 = @"Zone 6";
-    NSString *zone7 = @"Zone 7";
-    NSString *zone8 = @"Zone 8";
-    NSString *zone9 = @"Zone 9";
-    NSString *zone10 = @"Zone 10";
-    NSString *zone11 = @"Zone 11";
+    NSString *zone1 = @"Growing Zone 1";
+    NSString *zone2 = @"Growing Zone 2";
+    NSString *zone3 = @"Growing Zone 3";
+    NSString *zone4 = @"Growing Zone 4";
+    NSString *zone5 = @"Growing Zone 5";
+    NSString *zone6 = @"Growing Zone 6";
+    NSString *zone7 = @"Growing Zone 7";
+    NSString *zone8 = @"Growing Zone 8";
+    NSString *zone9 = @"Growing Zone 9";
+    NSString *zone10 = @"Growing Zone 10";
+    NSString *zone11 = @"Growing Zone 11";
     
     [zoneArray addObject:zone1];
     [zoneArray addObject:zone2];
@@ -47,8 +47,10 @@
     [zoneArray addObject:zone11];
     
     [super viewDidLoad];
+
     // Do any additional setup after loading the view.
 }
+
 
 //Show navigation bar on this scene
 - (void)viewWillAppear:(BOOL)animated

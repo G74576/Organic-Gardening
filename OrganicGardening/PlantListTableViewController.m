@@ -8,59 +8,16 @@
 
 #import "PlantListTableViewController.h"
 #import "PlantDetailViewController.h"
-#import "PlantInfo.h"
+#import "Reachability.h"
 
 @interface PlantListTableViewController ()
 
 @end
 
 @implementation PlantListTableViewController
-@synthesize plantCategoryInt, listTableView, vegiArray, herbArray, fruitArray;
+@synthesize plantCategoryInt, listTableView;
 
 - (void)viewDidLoad {
-    
-    vegiArray = [[NSMutableArray alloc]init];
-    
-    PlantInfo *carrots = [[PlantInfo alloc]initWithTitle:@"Carrots" pZone:1];
-    PlantInfo *cucumbers = [[PlantInfo alloc]initWithTitle:@"Cucumbers" pZone:1];
-    PlantInfo *eggplant = [[PlantInfo alloc]initWithTitle:@"Eggplant" pZone:1];
-    PlantInfo *lettuce = [[PlantInfo alloc]initWithTitle:@"Lettuce" pZone:1];
-    PlantInfo *peas = [[PlantInfo alloc]initWithTitle:@"Peas" pZone:1];
-    
-    [vegiArray addObject:carrots];
-    [vegiArray addObject:cucumbers];
-    [vegiArray addObject:eggplant];
-    [vegiArray addObject:lettuce];
-    [vegiArray addObject:peas];
-    
-    herbArray = [[NSMutableArray alloc]init];
-    
-    PlantInfo *basil = [[PlantInfo alloc]initWithTitle:@"Basil" pZone:2];
-    PlantInfo *dill = [[PlantInfo alloc]initWithTitle:@"Dill" pZone:2];
-    PlantInfo *mint = [[PlantInfo alloc]initWithTitle:@"Mint" pZone:2];
-    PlantInfo *oregano = [[PlantInfo alloc]initWithTitle:@"Oregano" pZone:2];
-    PlantInfo *parsley = [[PlantInfo alloc]initWithTitle:@"Parsley" pZone:2];
-    
-    [herbArray addObject:basil];
-    [herbArray addObject:dill];
-    [herbArray addObject:mint];
-    [herbArray addObject:oregano];
-    [herbArray addObject:parsley];
-    
-    fruitArray = [[NSMutableArray alloc] init];
-    
-    PlantInfo *blueberry = [[PlantInfo alloc]initWithTitle:@"Blueberrys" pZone:3];
-    PlantInfo *melon = [[PlantInfo alloc]initWithTitle:@"Melon" pZone:3];
-    PlantInfo *rasp = [[PlantInfo alloc]initWithTitle:@"Raspberrys" pZone:3];
-    PlantInfo *straw = [[PlantInfo alloc]initWithTitle:@"Strawberrys" pZone:3];
-    PlantInfo *water = [[PlantInfo alloc]initWithTitle:@"Watermelon" pZone:3];
-    
-    [fruitArray addObject:blueberry];
-    [fruitArray addObject:melon];
-    [fruitArray addObject:rasp];
-    [fruitArray addObject:straw];
-    [fruitArray addObject:water];
-    
     [super viewDidLoad];
     
     // Uncomment the following line to preserve selection between presentations.
@@ -70,11 +27,60 @@
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
+//Querey for vegetables
+-(void)vegeQuery{
+    PFQuery *query = [PFQuery queryWithClassName:@"Plants"];
+    [query whereKey:@"category" equalTo:@"Vegetable"];
+    [query orderByAscending:@"name"];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if (!error) {
+            vArray = [[NSArray alloc]initWithArray:objects];
+        }
+        [listTableView reloadData];
+    }];
+}
+
+//Querey for fruits
+-(void)fruitQuery{
+    PFQuery *query = [PFQuery queryWithClassName:@"Plants"];
+    [query whereKey:@"category" equalTo:@"Fruit"];
+    [query orderByAscending:@"name"];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if (!error) {
+            fArray = [[NSArray alloc]initWithArray:objects];
+        }
+        [listTableView reloadData];
+    }];
+}
+
+//Querey for hebs
+-(void)herbQuery{
+    PFQuery *query = [PFQuery queryWithClassName:@"Plants"];
+    [query whereKey:@"category" equalTo:@"Herb"];
+    [query orderByAscending:@"name"];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if (!error) {
+            hArray = [[NSArray alloc]initWithArray:objects];
+        }
+        [listTableView reloadData];
+    }];
+}
+
 //Show navigation bar on this scene
 - (void)viewWillAppear:(BOOL)animated
 {
     [self.navigationController setNavigationBarHidden:NO];
     [super viewWillAppear:animated];
+    if (plantCategoryInt == 0) {
+        [self performSelector:@selector(vegeQuery)];
+    }
+    else if (plantCategoryInt == 1){
+        [self performSelector:@selector(herbQuery)];
+    }
+    else if (plantCategoryInt == 2){
+        [self performSelector:@selector(fruitQuery)];
+    }
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -91,15 +97,15 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     if (plantCategoryInt == 0)
     {
-        return [vegiArray count];
+        return [vArray count];
     }
     else if (plantCategoryInt == 1)
     {
-        return [herbArray count];
+        return [hArray count];
     }
     else if (plantCategoryInt == 2)
     {
-        return [fruitArray count];
+        return [fArray count];
     }
     [self.listTableView reloadData];
     return 0;
@@ -113,18 +119,18 @@
     if (cell != nil) {
         if (plantCategoryInt == 0) {
             self.navigationItem.title = @"Vegetables";
-            PlantInfo *plantInfo = [vegiArray objectAtIndex:indexPath.row];
-            cell.textLabel.text = plantInfo.plantName;
+            PFObject *vegiObject = [vArray objectAtIndex:indexPath.row];
+            cell.textLabel.text = [NSString stringWithFormat:@"%@", [vegiObject objectForKey:@"name"]];
         }
         else if (plantCategoryInt == 1){
             self.navigationItem.title = @"Herbs";
-            PlantInfo *plantInfo = [herbArray objectAtIndex:indexPath.row];
-            cell.textLabel.text = plantInfo.plantName;
+            PFObject *herbObject = [hArray objectAtIndex:indexPath.row];
+            cell.textLabel.text = [NSString stringWithFormat:@"%@", [herbObject objectForKey:@"name"]];
         }
         else if (plantCategoryInt == 2){
             self.navigationItem.title = @"Fruits";
-            PlantInfo *plantInfo = [fruitArray objectAtIndex:indexPath.row];
-            cell.textLabel.text = plantInfo.plantName;
+            PFObject *fruitObject = [fArray objectAtIndex:indexPath.row];
+            cell.textLabel.text = [NSString stringWithFormat:@"%@", [fruitObject objectForKey:@"name"]];
         }
     }
     return cell;
@@ -177,22 +183,22 @@
         NSIndexPath *indexPath = [self.listTableView indexPathForSelectedRow];
         PlantDetailViewController *plantDetailViewController = segue.destinationViewController;
         
+        PFObject *vegObj = [vArray objectAtIndex:indexPath.row];
+        PFObject *herObj = [hArray objectAtIndex:indexPath.row];
+        PFObject *fruObj = [fArray objectAtIndex:indexPath.row];
         if (plantDetailViewController != nil)
         {
             if (plantCategoryInt == 0)
             {
-                PlantInfo *vegiInfo = [vegiArray objectAtIndex:indexPath.row];
-                plantDetailViewController.pInfo = vegiInfo;
+                plantDetailViewController.plantObject = vegObj;
             }
             else if (plantCategoryInt == 1)
             {
-                PlantInfo *herbInfo = [herbArray objectAtIndex:indexPath.row];
-                plantDetailViewController.pInfo = herbInfo;
+                plantDetailViewController.plantObject = herObj;
             }
             else if (plantCategoryInt == 2)
             {
-                PlantInfo *fruitInfo = [fruitArray objectAtIndex:indexPath.row];
-                plantDetailViewController.pInfo = fruitInfo;
+                plantDetailViewController.plantObject = fruObj;
             }
         }
     }

@@ -7,16 +7,33 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "PlantInfo.h"
 #import "PlantListTableViewController.h"
+#import <ParseUI/ParseUI.h>
+#import <Parse/Parse.h>
 
 @interface PlantDetailViewController : UIViewController<UIAlertViewDelegate>{
     
     IBOutlet UIScrollView *scrollView;
     
+    
 }
 
-@property (strong, nonatomic)PlantInfo *pInfo;
+@property (strong, nonatomic)PFObject *plantObject;
+
+@property (strong, nonatomic)IBOutlet UILabel *details;
+@property (strong, nonatomic)IBOutlet UILabel *difficulty;
+@property (strong, nonatomic)IBOutlet UILabel *zone;
+@property (strong, nonatomic)IBOutlet UILabel *sun;
+@property (strong, nonatomic)IBOutlet UILabel *water;
+@property (strong, nonatomic)IBOutlet UILabel *soil;
+@property (strong, nonatomic)IBOutlet UILabel *best;
+@property (strong, nonatomic)IBOutlet UILabel *container;
+@property (strong, nonatomic)IBOutlet UILabel *germ;
+@property (strong, nonatomic)IBOutlet UILabel *trans;
+@property (strong, nonatomic)IBOutlet UILabel *harv;
+@property (strong, nonatomic)IBOutlet UILabel *tips;
+@property (strong, nonatomic)IBOutlet UILabel *spacing;
+@property (strong, nonatomic)IBOutlet UILabel *height;
 
 -(IBAction)addToGarden:(id)sender;
 

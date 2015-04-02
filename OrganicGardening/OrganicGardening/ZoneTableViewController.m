@@ -8,90 +8,17 @@
 
 #import "ZoneTableViewController.h"
 #import "PlantDetailViewController.h"
-#import "PlantInfo.h"
+#import <Parse/Parse.h>
+#import <ParseUI/ParseUI.h>
 
 @interface ZoneTableViewController ()
 
 @end
 
 @implementation ZoneTableViewController
-@synthesize zoneCategoryInt, z1, z2, z3, z4, z5, z6, z7, z8, z9, z10, z11, zoneTableView;
+@synthesize zoneCategoryInt, zoneTableView;
 
 - (void)viewDidLoad {
-    
-    z1 = [[NSMutableArray alloc]init];
-    
-    PlantInfo *carrots = [[PlantInfo alloc]initWithTitle:@"Carrots" pZone:1];
-    PlantInfo *cucumbers = [[PlantInfo alloc]initWithTitle:@"Cucumbers" pZone:1];
-    
-    [z1 addObject:carrots];
-    [z1 addObject:cucumbers];
-    
-    z2 = [[NSMutableArray alloc]init];
-    
-    PlantInfo *lettuce = [[PlantInfo alloc]initWithTitle:@"Lettuce" pZone:2];
-    PlantInfo *peas = [[PlantInfo alloc]initWithTitle:@"Peas" pZone:2];
-    
-    [z2 addObject:lettuce];
-    [z2 addObject:peas];
-    
-    z3 = [[NSMutableArray alloc]init];
-    
-    PlantInfo *basil = [[PlantInfo alloc]initWithTitle:@"Basil" pZone:3];
-    PlantInfo *dill = [[PlantInfo alloc]initWithTitle:@"Dill" pZone:3];
-    
-    [z3 addObject:basil];
-    [z3 addObject:dill];
-    
-    z4 = [[NSMutableArray alloc]init];
-    
-    PlantInfo *mint = [[PlantInfo alloc]initWithTitle:@"Mint" pZone:4];
-    PlantInfo *oregano = [[PlantInfo alloc]initWithTitle:@"Oregano" pZone:4];
-
-    [z4 addObject:mint];
-    [z4 addObject:oregano];
-    
-    z5 = [[NSMutableArray alloc]init];
-    
-    PlantInfo *parsley = [[PlantInfo alloc]initWithTitle:@"Parsley" pZone:5];
-    
-    [z5 addObject:parsley];
-    
-    z6 = [[NSMutableArray alloc] init];
-    
-    PlantInfo *blueberry = [[PlantInfo alloc]initWithTitle:@"Blueberrys" pZone:6];
-    
-    [z6 addObject:blueberry];
-    
-    z7 = [[NSMutableArray alloc]init];
-    
-    PlantInfo *melon = [[PlantInfo alloc]initWithTitle:@"Melon" pZone:7];
-
-    [z7 addObject:melon];
-    
-    z8 = [[NSMutableArray alloc]init];
-    
-    PlantInfo *rasp = [[PlantInfo alloc]initWithTitle:@"Raspberrys" pZone:8];
-
-    [z8 addObject:rasp];
-    
-    z9 = [[NSMutableArray alloc]init];
-    
-    PlantInfo *straw = [[PlantInfo alloc]initWithTitle:@"Strawberrys" pZone:9];
-
-    [z9 addObject:straw];
-    
-    z10 = [[NSMutableArray alloc]init];
-    
-    PlantInfo *water = [[PlantInfo alloc]initWithTitle:@"Watermelon" pZone:10];
-    
-    [z10 addObject:water];
-    
-    z11 = [[NSMutableArray alloc]init];
-    
-    PlantInfo *eggplant = [[PlantInfo alloc]initWithTitle:@"Eggplant" pZone:1];
-    
-    [z11 addObject:eggplant];
     
     [super viewDidLoad];
     
@@ -100,6 +27,188 @@
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+}
+
+//Querey for zone1
+-(void)z1Query{
+    PFQuery *query = [PFQuery queryWithClassName:@"Plants"];
+    [query whereKey:@"z1" equalTo:[NSNumber numberWithBool:YES]];
+    [query orderByAscending:@"name"];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if (!error) {
+            z1 = [[NSArray alloc]initWithArray:objects];
+        }
+        [zoneTableView reloadData];
+    }];
+}
+
+//Querey for zone2
+-(void)z2Query{
+    PFQuery *query = [PFQuery queryWithClassName:@"Plants"];
+    [query whereKey:@"z2" equalTo:[NSNumber numberWithBool:YES]];
+    [query orderByAscending:@"name"];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if (!error) {
+            z2 = [[NSArray alloc]initWithArray:objects];
+        }
+        [zoneTableView reloadData];
+    }];
+}
+
+//Querey for zone3
+-(void)z3Query{
+    PFQuery *query = [PFQuery queryWithClassName:@"Plants"];
+    [query whereKey:@"z3" equalTo:[NSNumber numberWithBool:YES]];
+    [query orderByAscending:@"name"];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if (!error) {
+            z3 = [[NSArray alloc]initWithArray:objects];
+        }
+        [zoneTableView reloadData];
+    }];
+}
+
+//Querey for zone4
+-(void)z4Query{
+    PFQuery *query = [PFQuery queryWithClassName:@"Plants"];
+    [query whereKey:@"z4" equalTo:[NSNumber numberWithBool:YES]];
+    [query orderByAscending:@"name"];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if (!error) {
+            z4 = [[NSArray alloc]initWithArray:objects];
+        }
+        [zoneTableView reloadData];
+    }];
+}
+
+//Querey for zone5
+-(void)z5Query{
+    PFQuery *query = [PFQuery queryWithClassName:@"Plants"];
+    [query whereKey:@"z5" equalTo:[NSNumber numberWithBool:YES]];
+    [query orderByAscending:@"name"];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if (!error) {
+            z5 = [[NSArray alloc]initWithArray:objects];
+        }
+        [zoneTableView reloadData];
+    }];
+}
+
+//Querey for zone6
+-(void)z6Query{
+    PFQuery *query = [PFQuery queryWithClassName:@"Plants"];
+    [query whereKey:@"z6" equalTo:[NSNumber numberWithBool:YES]];
+    [query orderByAscending:@"name"];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if (!error) {
+            z6 = [[NSArray alloc]initWithArray:objects];
+        }
+        [zoneTableView reloadData];
+    }];
+}
+
+//Querey for zone7
+-(void)z7Query{
+    PFQuery *query = [PFQuery queryWithClassName:@"Plants"];
+    [query whereKey:@"z7" equalTo:[NSNumber numberWithBool:YES]];
+    [query orderByAscending:@"name"];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if (!error) {
+            z7 = [[NSArray alloc]initWithArray:objects];
+        }
+        [zoneTableView reloadData];
+    }];
+}
+
+//Querey for zone8
+-(void)z8Query{
+    PFQuery *query = [PFQuery queryWithClassName:@"Plants"];
+    [query whereKey:@"z8" equalTo:[NSNumber numberWithBool:YES]];
+    [query orderByAscending:@"name"];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if (!error) {
+            z8 = [[NSArray alloc]initWithArray:objects];
+        }
+        [zoneTableView reloadData];
+    }];
+}
+
+//Querey for zone9
+-(void)z9Query{
+    PFQuery *query = [PFQuery queryWithClassName:@"Plants"];
+    [query whereKey:@"z9" equalTo:[NSNumber numberWithBool:YES]];
+    [query orderByAscending:@"name"];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if (!error) {
+            z9 = [[NSArray alloc]initWithArray:objects];
+        }
+        [zoneTableView reloadData];
+    }];
+}
+
+//Querey for zone10
+-(void)z10Query{
+    PFQuery *query = [PFQuery queryWithClassName:@"Plants"];
+    [query whereKey:@"z10" equalTo:[NSNumber numberWithBool:YES]];
+    [query orderByAscending:@"name"];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if (!error) {
+            z10 = [[NSArray alloc]initWithArray:objects];
+        }
+        [zoneTableView reloadData];
+    }];
+}
+
+//Querey for zone11
+-(void)z11Query{
+    PFQuery *query = [PFQuery queryWithClassName:@"Plants"];
+    [query whereKey:@"z11" equalTo:[NSNumber numberWithBool:YES]];
+    [query orderByAscending:@"name"];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if (!error) {
+            z11 = [[NSArray alloc]initWithArray:objects];
+        }
+        [zoneTableView reloadData];
+    }];
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [self.navigationController setNavigationBarHidden:NO];
+    [super viewWillAppear:animated];
+    if (zoneCategoryInt == 0) {
+        [self performSelector:@selector(z1Query)];
+    }
+    else if (zoneCategoryInt == 1){
+        [self performSelector:@selector(z2Query)];
+    }
+    else if (zoneCategoryInt == 2){
+        [self performSelector:@selector(z3Query)];
+    }
+    else if (zoneCategoryInt == 3){
+        [self performSelector:@selector(z4Query)];
+    }
+    else if (zoneCategoryInt == 4){
+        [self performSelector:@selector(z5Query)];
+    }
+    else if (zoneCategoryInt == 5){
+        [self performSelector:@selector(z6Query)];
+    }
+    else if (zoneCategoryInt == 6){
+        [self performSelector:@selector(z7Query)];
+    }
+    else if (zoneCategoryInt == 7){
+        [self performSelector:@selector(z8Query)];
+    }
+    else if (zoneCategoryInt == 8){
+        [self performSelector:@selector(z9Query)];
+    }
+    else if (zoneCategoryInt == 9){
+        [self performSelector:@selector(z10Query)];
+    }
+    else if (zoneCategoryInt == 10){
+        [self performSelector:@selector(z11Query)];
+    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -162,58 +271,58 @@
     if (cell != nil) {
         if (zoneCategoryInt == 0) {
             self.navigationItem.title = @"Growing Zone 1";
-            PlantInfo *plantInfo = [z1 objectAtIndex:indexPath.row];
-            cell.textLabel.text = plantInfo.plantName;
+            PFObject *z1Obj = [z1 objectAtIndex:indexPath.row];
+            cell.textLabel.text = [NSString stringWithFormat:@"%@", [z1Obj objectForKey:@"name"]];
         }
         else if (zoneCategoryInt == 1){
             self.navigationItem.title = @"Growing Zone 2";
-            PlantInfo *plantInfo = [z2 objectAtIndex:indexPath.row];
-            cell.textLabel.text = plantInfo.plantName;
+            PFObject *z2Obj = [z2 objectAtIndex:indexPath.row];
+            cell.textLabel.text = [NSString stringWithFormat:@"%@", [z2Obj objectForKey:@"name"]];
         }
         else if (zoneCategoryInt == 2){
             self.navigationItem.title = @"Growing Zone 3";
-            PlantInfo *plantInfo = [z3 objectAtIndex:indexPath.row];
-            cell.textLabel.text = plantInfo.plantName;
+            PFObject *z3Obj = [z3 objectAtIndex:indexPath.row];
+            cell.textLabel.text = [NSString stringWithFormat:@"%@", [z3Obj objectForKey:@"name"]];
         }
         else if (zoneCategoryInt == 3){
             self.navigationItem.title = @"Growing Zone 4";
-            PlantInfo *plantInfo = [z4 objectAtIndex:indexPath.row];
-            cell.textLabel.text = plantInfo.plantName;
+            PFObject *z4Obj = [z4 objectAtIndex:indexPath.row];
+            cell.textLabel.text = [NSString stringWithFormat:@"%@", [z4Obj objectForKey:@"name"]];
         }
         else if (zoneCategoryInt == 4){
             self.navigationItem.title = @"Growing Zone 5";
-            PlantInfo *plantInfo = [z5 objectAtIndex:indexPath.row];
-            cell.textLabel.text = plantInfo.plantName;
+            PFObject *z5Obj = [z5 objectAtIndex:indexPath.row];
+            cell.textLabel.text = [NSString stringWithFormat:@"%@", [z5Obj objectForKey:@"name"]];
         }
         else if (zoneCategoryInt == 5){
             self.navigationItem.title = @"Growing Zone 6";
-            PlantInfo *plantInfo = [z6 objectAtIndex:indexPath.row];
-            cell.textLabel.text = plantInfo.plantName;
+            PFObject *z6Obj = [z6 objectAtIndex:indexPath.row];
+            cell.textLabel.text = [NSString stringWithFormat:@"%@", [z6Obj objectForKey:@"name"]];
         }
         else if (zoneCategoryInt == 6){
             self.navigationItem.title = @"Growing Zone 7";
-            PlantInfo *plantInfo = [z7 objectAtIndex:indexPath.row];
-            cell.textLabel.text = plantInfo.plantName;
+            PFObject *z7Obj = [z7 objectAtIndex:indexPath.row];
+            cell.textLabel.text = [NSString stringWithFormat:@"%@", [z7Obj objectForKey:@"name"]];
         }
         else if (zoneCategoryInt == 7){
             self.navigationItem.title = @"Growing Zone 8";
-            PlantInfo *plantInfo = [z8 objectAtIndex:indexPath.row];
-            cell.textLabel.text = plantInfo.plantName;
+            PFObject *z8Obj = [z8 objectAtIndex:indexPath.row];
+            cell.textLabel.text = [NSString stringWithFormat:@"%@", [z8Obj objectForKey:@"name"]];
         }
         else if (zoneCategoryInt == 8){
             self.navigationItem.title = @"Growing Zone 9";
-            PlantInfo *plantInfo = [z9 objectAtIndex:indexPath.row];
-            cell.textLabel.text = plantInfo.plantName;
+            PFObject *z9Obj = [z9 objectAtIndex:indexPath.row];
+            cell.textLabel.text = [NSString stringWithFormat:@"%@", [z9Obj objectForKey:@"name"]];
         }
         else if (zoneCategoryInt == 9){
             self.navigationItem.title = @"Growing Zone 10";
-            PlantInfo *plantInfo = [z10 objectAtIndex:indexPath.row];
-            cell.textLabel.text = plantInfo.plantName;
+            PFObject *z10Obj = [z10 objectAtIndex:indexPath.row];
+            cell.textLabel.text = [NSString stringWithFormat:@"%@", [z10Obj objectForKey:@"name"]];
         }
         else if (zoneCategoryInt == 10){
             self.navigationItem.title = @"Growing Zone 11";
-            PlantInfo *plantInfo = [z11 objectAtIndex:indexPath.row];
-            cell.textLabel.text = plantInfo.plantName;
+            PFObject *z11Obj = [z11 objectAtIndex:indexPath.row];
+            cell.textLabel.text = [NSString stringWithFormat:@"%@", [z11Obj objectForKey:@"name"]];
         }
     }
     
@@ -267,62 +376,62 @@
         NSIndexPath *indexPath = [self.zoneTableView indexPathForSelectedRow];
         PlantDetailViewController *plantDetailViewController = segue.destinationViewController;
         
+        PFObject *z1Object = [z1 objectAtIndex:indexPath.row];
+        PFObject *z2Object = [z2 objectAtIndex:indexPath.row];
+        PFObject *z3Object = [z3 objectAtIndex:indexPath.row];
+        PFObject *z4Object = [z4 objectAtIndex:indexPath.row];
+        PFObject *z5Object = [z5 objectAtIndex:indexPath.row];
+        PFObject *z6Object = [z6 objectAtIndex:indexPath.row];
+        PFObject *z7Object = [z7 objectAtIndex:indexPath.row];
+        PFObject *z8Object = [z8 objectAtIndex:indexPath.row];
+        PFObject *z9Object = [z9 objectAtIndex:indexPath.row];
+        PFObject *z10Object = [z10 objectAtIndex:indexPath.row];
+        PFObject *z11Object = [z11 objectAtIndex:indexPath.row];
         if (plantDetailViewController != nil)
         {
             if (zoneCategoryInt == 0)
             {
-                PlantInfo *z1Info = [z1 objectAtIndex:indexPath.row];
-                plantDetailViewController.pInfo = z1Info;
+                plantDetailViewController.plantObject = z1Object;
             }
             else if (zoneCategoryInt == 1)
             {
-                PlantInfo *z2Info = [z2 objectAtIndex:indexPath.row];
-                plantDetailViewController.pInfo = z2Info;
+                plantDetailViewController.plantObject = z2Object;
             }
             else if (zoneCategoryInt == 2)
             {
-                PlantInfo *z3Info = [z3 objectAtIndex:indexPath.row];
-                plantDetailViewController.pInfo = z3Info;
+                plantDetailViewController.plantObject = z3Object;
             }
             else if (zoneCategoryInt == 3)
             {
-                PlantInfo *z4Info = [z4 objectAtIndex:indexPath.row];
-                plantDetailViewController.pInfo = z4Info;
+                plantDetailViewController.plantObject = z4Object;
             }
             else if (zoneCategoryInt == 4)
             {
-                PlantInfo *z5Info = [z5 objectAtIndex:indexPath.row];
-                plantDetailViewController.pInfo = z5Info;
+                plantDetailViewController.plantObject = z5Object;
             }
             else if (zoneCategoryInt == 5)
             {
-                PlantInfo *z6Info = [z6 objectAtIndex:indexPath.row];
-                plantDetailViewController.pInfo = z6Info;
+                plantDetailViewController.plantObject = z6Object;
             }
             else if (zoneCategoryInt == 6)
             {
-                PlantInfo *z7Info = [z7 objectAtIndex:indexPath.row];
-                plantDetailViewController.pInfo = z7Info;
+                plantDetailViewController.plantObject = z7Object;
             }
             else if (zoneCategoryInt == 7)
             {
-                PlantInfo *z8Info = [z8 objectAtIndex:indexPath.row];
-                plantDetailViewController.pInfo = z8Info;
+                plantDetailViewController.plantObject = z8Object;
             }
             else if (zoneCategoryInt == 8)
             {
-                PlantInfo *z9Info = [z9 objectAtIndex:indexPath.row];
-                plantDetailViewController.pInfo = z9Info;
+                plantDetailViewController.plantObject = z9Object;
             }
             else if (zoneCategoryInt == 9)
             {
-                PlantInfo *z10Info = [z10 objectAtIndex:indexPath.row];
-                plantDetailViewController.pInfo = z10Info;
+                plantDetailViewController.plantObject = z10Object;
             }
             else if (zoneCategoryInt == 10)
             {
-                PlantInfo *z11Info = [z11 objectAtIndex:indexPath.row];
-                plantDetailViewController.pInfo = z11Info;
+                plantDetailViewController.plantObject = z11Object;
             }
         }
     }
