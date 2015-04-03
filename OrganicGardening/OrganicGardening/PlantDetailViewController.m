@@ -72,9 +72,6 @@
         PFUser *user = [PFUser currentUser];
         
         PFObject *postEvent = [PFObject objectWithClassName:@"MyGarden"];
-        PFObject *plant = [PFObject objectWithClassName:@"Plants"];
-        
-        postEvent[@"plants"] = plant;
         
         postEvent[@"mgName"] = [plantObject objectForKeyedSubscript:@"name"];
         postEvent[@"mgImage"] = [plantObject objectForKeyedSubscript:@"image"];

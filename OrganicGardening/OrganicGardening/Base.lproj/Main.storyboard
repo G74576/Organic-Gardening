@@ -746,6 +746,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Title" id="Iux-7R-V6E">
+                        <barButtonItem key="backBarButtonItem" title=" " id="0Rw-Dq-aaI"/>
                         <barButtonItem key="rightBarButtonItem" title="Log Out" id="8NI-ps-ylu">
                             <connections>
                                 <action selector="logOut:" destination="tYr-uj-dGv" id="6rD-jm-s5I"/>
@@ -839,13 +840,15 @@
                                     <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="onClick:" destination="HUY-ED-uWx" eventType="touchUpInside" id="ndC-eg-n8J"/>
+                                    <segue destination="uBm-oV-mjI" kind="show" identifier="PlantDetailMy" id="2th-Gu-QJh"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Title" id="7Pc-ga-Aol"/>
+                    <navigationItem key="navigationItem" title="Title" id="7Pc-ga-Aol">
+                        <barButtonItem key="backBarButtonItem" title=" " id="ftW-Xk-pde"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="germDateLabel" destination="WpQ-Sa-O4j" id="1BH-S7-NwD"/>
                         <outlet property="harvDateLabel" destination="bgg-QZ-lxw" id="4vK-w1-zZP"/>
@@ -1114,6 +1117,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="qH1-f9-tBG"/>
-        <segue reference="5li-Uz-Juu"/>
+        <segue reference="2th-Gu-QJh"/>
     </inferredMetricsTieBreakers>
 </document>

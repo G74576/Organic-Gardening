@@ -32,15 +32,14 @@
     NSURL *imageFileURL = [[NSURL alloc] initWithString:imageFile.url];
     NSData *imageData = [NSData dataWithContentsOfURL:imageFileURL];
     self.plantImage.image = [UIImage imageWithData:imageData];
+
 }
 
 - (void)plantQuery{
     PFQuery *query = [PFQuery queryWithClassName:@"Plants"];
     [query whereKey:@"name" equalTo:[gardenObject objectForKey:@"mgName"]];
-    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-        if (!error) {
-            plantArry = [[NSArray alloc] initWithArray:objects];
-        }
+    [query getFirstObjectInBackgroundWithBlock:^(PFObject *object, NSError *error) {
+        gardenObject = object;
     }];
 }
 
@@ -49,18 +48,22 @@
     // Dispose of any resources that can be recreated.
 }
 
--(void)onClick:(id)sender{
-    
-}
 
-/*
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
+    if ([segue.identifier isEqualToString:@"PlantDetailMy"]) {
+        PlantDetailViewController *dvc = segue.destinationViewController;
+        if (dvc != nil) {
+            dvc.plantObject = gardenObject;
+        }
+        
+    }
 }
-*/
+
 
 @end

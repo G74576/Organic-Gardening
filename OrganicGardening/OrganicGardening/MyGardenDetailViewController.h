@@ -23,6 +23,5 @@
 @property (strong, nonatomic)IBOutlet UILabel *harvDateLabel;
 @property (strong, nonatomic)IBOutlet UIImageView *plantImage;
 
--(IBAction)onClick:(id)sender;
 
 @end
