@@ -34,6 +34,7 @@
 @property (strong, nonatomic)IBOutlet UILabel *tips;
 @property (strong, nonatomic)IBOutlet UILabel *spacing;
 @property (strong, nonatomic)IBOutlet UILabel *height;
+@property (strong, nonatomic)IBOutlet UIImageView *plantImage;
 
 -(IBAction)addToGarden:(id)sender;
 

@@ -17,7 +17,7 @@
 @end
 
 @implementation PlantDetailViewController
-@synthesize plantObject, details, difficulty, zone, sun, soil, water, best, container, germ, trans, harv, tips, spacing, height;
+@synthesize plantObject, details, difficulty, zone, sun, soil, water, best, container, germ, trans, harv, tips, spacing, height, plantImage;
 
 - (void)viewDidLoad {
 
@@ -43,7 +43,10 @@
     tips.text = [plantObject objectForKey:@"tips"];
     spacing.text = [plantObject objectForKey:@"spacing"];
     height.text = [plantObject objectForKey:@"height"];
-
+    PFFile *imageFile = [plantObject objectForKey:@"image"];
+    NSURL *imageFileURL = [[NSURL alloc] initWithString:imageFile.url];
+    NSData *imageData = [NSData dataWithContentsOfURL:imageFileURL];
+    self.plantImage.image = [UIImage imageWithData:imageData];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -65,12 +68,70 @@
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
     NSString *title = [alertView buttonTitleAtIndex:buttonIndex];
     if ([title isEqualToString:@"OK"]) {
+        
         PFUser *user = [PFUser currentUser];
         
         PFObject *postEvent = [PFObject objectWithClassName:@"MyGarden"];
+        PFObject *plant = [PFObject objectWithClassName:@"Plants"];
+        
+        postEvent[@"plants"] = plant;
         
         postEvent[@"mgName"] = [plantObject objectForKeyedSubscript:@"name"];
+        postEvent[@"mgImage"] = [plantObject objectForKeyedSubscript:@"image"];
         
+        //Set Plant Date:
+        NSDate *plantDate = [NSDate date];
+        NSDateFormatter *form = [[NSDateFormatter alloc]init];
+        [form setDateFormat:@"EEE, MMM dd yyyy"];
+        NSString *plantDateString = [form stringFromDate:plantDate];
+        
+        postEvent[@"plantDate"] = plantDateString;
+        
+        //Set Germination Date:
+        NSString *germString = [NSString stringWithFormat:@"%@", [plantObject objectForKey:@"germDate"]];
+        NSNumberFormatter *f = [[NSNumberFormatter alloc] init];
+        [f setNumberStyle:NSNumberFormatterDecimalStyle];
+        NSNumber *germNumber = [f numberFromString:germString];
+        int numb = [germNumber intValue];
+        NSDate *now = [NSDate date];
+        NSDate *newDate1 = [now dateByAddingTimeInterval:60*60*24*numb];
+        NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+        [formatter setDateFormat:@"EEE, MMM dd yyyy"];
+        NSString *stringFromDate = [formatter stringFromDate:newDate1];
+        //NSLog(@"%@", stringFromDate);
+        
+        postEvent[@"germDate"] = stringFromDate;
+        
+        //Set Transplant Date:
+        NSString *tranString = [NSString stringWithFormat:@"%@", [plantObject objectForKey:@"tranDate"]];
+        NSNumberFormatter *fo = [[NSNumberFormatter alloc] init];
+        [fo setNumberStyle:NSNumberFormatterDecimalStyle];
+        NSNumber *tranNumber = [fo numberFromString:tranString];
+        int tNumb = [tranNumber intValue];
+        NSDate *nowA = [NSDate date];
+        NSDate *newDate2 = [nowA dateByAddingTimeInterval:60*60*24*tNumb];
+        NSDateFormatter *formatterA = [[NSDateFormatter alloc] init];
+        [formatterA setDateFormat:@"EEE, MMM dd yyyy"];
+        NSString *stringFromDateA = [formatterA stringFromDate:newDate2];
+        //NSLog(@"%@", stringFromDateA);
+        
+        postEvent[@"tranDate"] = stringFromDateA;
+        
+        //Set Harvest Date:
+        NSString *harvString = [NSString stringWithFormat:@"%@", [plantObject objectForKey:@"harvDate"]];
+        NSNumberFormatter *f1 = [[NSNumberFormatter alloc] init];
+        [f1 setNumberStyle:NSNumberFormatterDecimalStyle];
+        NSNumber *harvNumb = [f1 numberFromString:harvString];
+        int hNumb = [harvNumb intValue];
+        NSDate *nowB = [NSDate date];
+        NSDate *newDate3 = [nowB dateByAddingTimeInterval:60*60*24*hNumb];
+        NSDateFormatter *formatterB = [[NSDateFormatter alloc] init];
+        [formatterB setDateFormat:@"EEE, MMM dd yyyy"];
+        NSString *stringFromDateB = [formatter stringFromDate:newDate3];
+        //NSLog(@"%@", stringFromDateB);
+        
+        postEvent[@"harvDate"] = stringFromDateB;
+
         postEvent[@"user"] = user;
         [postEvent save];
         UIView *parent = self.view.superview;
@@ -88,7 +149,6 @@
         
     }
 }
-
 
 /*
 #pragma mark - Navigation

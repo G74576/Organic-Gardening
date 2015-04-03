@@ -7,6 +7,7 @@
 //
 
 #import "MyGardenTableViewController.h"
+#import "MyGardenDetailViewController.h"
 
 @interface MyGardenTableViewController ()
 
@@ -128,14 +129,24 @@
 }
 */
 
-/*
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
+    if ([segue.identifier isEqualToString:@"GardenDetails"]) {
+        NSIndexPath *indexPath = [self.gardenTable indexPathForSelectedRow];
+        MyGardenDetailViewController *dvc = segue.destinationViewController;
+        
+        PFObject *garden = [gardenArray objectAtIndex:indexPath.row];
+        if (dvc != nil) {
+            dvc.gardenObject = garden;
+        }
+        
+    }
 }
-*/
+
 
 @end

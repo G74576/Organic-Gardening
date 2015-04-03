@@ -13,6 +13,7 @@
 		DD1AF8B81AC3A0C9009C9637 /* TipsDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD1AF8B71AC3A0C9009C9637 /* TipsDetailViewController.m */; };
 		DD2A90FD1ABB8AE1001063A5 /* Apple Chancery.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DD2A90FC1ABB8AE1001063A5 /* Apple Chancery.ttf */; };
 		DD2A91021ABBB3B0001063A5 /* PlantListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD2A91011ABBB3B0001063A5 /* PlantListTableViewController.m */; };
+		DD34C8A41ACDF9DC000B286A /* MyGardenDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD34C8A31ACDF9DC000B286A /* MyGardenDetailViewController.m */; };
 		DD56AA2E1AB8F05100DB0669 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = DD56AA2D1AB8F05100DB0669 /* main.m */; };
 		DD56AA311AB8F05100DB0669 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DD56AA301AB8F05100DB0669 /* AppDelegate.m */; };
 		DD56AA341AB8F05100DB0669 /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD56AA331AB8F05100DB0669 /* FirstViewController.m */; };
@@ -81,6 +82,8 @@
 		DD2A90FC1ABB8AE1001063A5 /* Apple Chancery.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Apple Chancery.ttf"; sourceTree = "<group>"; };
 		DD2A91001ABBB3B0001063A5 /* PlantListTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PlantListTableViewController.h; path = ../PlantListTableViewController.h; sourceTree = "<group>"; };
 		DD2A91011ABBB3B0001063A5 /* PlantListTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PlantListTableViewController.m; path = ../PlantListTableViewController.m; sourceTree = "<group>"; };
+		DD34C8A21ACDF9DC000B286A /* MyGardenDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyGardenDetailViewController.h; sourceTree = "<group>"; };
+		DD34C8A31ACDF9DC000B286A /* MyGardenDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyGardenDetailViewController.m; sourceTree = "<group>"; };
 		DD56AA281AB8F05100DB0669 /* OrganicGardening.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OrganicGardening.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD56AA2C1AB8F05100DB0669 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DD56AA2D1AB8F05100DB0669 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -352,6 +355,8 @@
 			children = (
 				DDB3E74D1AC2121300D76401 /* MyGardenTableViewController.h */,
 				DDB3E74E1AC2121300D76401 /* MyGardenTableViewController.m */,
+				DD34C8A21ACDF9DC000B286A /* MyGardenDetailViewController.h */,
+				DD34C8A31ACDF9DC000B286A /* MyGardenDetailViewController.m */,
 			);
 			name = MyGarden;
 			sourceTree = "<group>";
@@ -466,6 +471,7 @@
 			files = (
 				DD1AF8B21AC39B15009C9637 /* TipsTableViewController.m in Sources */,
 				DD1AF8B51AC39E06009C9637 /* TipsInfo.m in Sources */,
+				DD34C8A41ACDF9DC000B286A /* MyGardenDetailViewController.m in Sources */,
 				DDB3E74F1AC2121300D76401 /* MyGardenTableViewController.m in Sources */,
 				DD56AA371AB8F05100DB0669 /* SecondViewController.m in Sources */,
 				DD2A91021ABBB3B0001063A5 /* PlantListTableViewController.m in Sources */,
