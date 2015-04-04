@@ -7,15 +7,17 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <Parse/Parse.h>
+#import <ParseUI/ParseUI.h>
 
 @interface TipsTableViewController : UITableViewController{
     
-    NSMutableArray *tipsArray;      //Tips and Tricks array
+    NSArray *tipsArray;
     
 }
 
 @property(strong, nonatomic)IBOutlet UITableView *tipsTableView;
 
-@property(strong, nonatomic)NSMutableArray *tipsArray;
+//-(IBAction)addTip:(id)sender;
 
 @end

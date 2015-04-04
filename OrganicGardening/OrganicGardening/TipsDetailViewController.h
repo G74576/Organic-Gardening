@@ -7,11 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "TipsDetailViewController.h"
-#import "TipsInfo.h"
+#import <ParseUI/ParseUI.h>
+#import <Parse/Parse.h>
+#import "TipsTableViewController.h"
 
 @interface TipsDetailViewController : UIViewController
 
-@property(strong, nonatomic)TipsInfo *tInfo;
+@property(strong, nonatomic)PFObject *tipsObject;
+
+@property(strong, nonatomic)IBOutlet UILabel *tipName;
+@property(strong, nonatomic)IBOutlet UITextView *tipDes;
+
 
 @end

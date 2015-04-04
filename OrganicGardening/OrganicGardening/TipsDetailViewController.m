@@ -7,28 +7,30 @@
 //
 
 #import "TipsDetailViewController.h"
-#import "TipsInfo.h"
-#import "TipsDetailViewController.h"
 
 @interface TipsDetailViewController ()
 
 @end
 
 @implementation TipsDetailViewController
-@synthesize tInfo;
+@synthesize tipDes, tipName, tipsObject;
 
 - (void)viewDidLoad {
     
-    self.title = tInfo.tipsName;
+    self.title = @"Tip/Trick Detail";
     
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    tipName.text = [tipsObject objectForKey:@"tipName"];
+    tipDes.text = [tipsObject objectForKey:@"tipInfo"];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
 
 /*
 #pragma mark - Navigation

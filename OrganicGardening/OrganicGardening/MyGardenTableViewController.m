@@ -30,6 +30,7 @@
     
 }
 
+
 - (void)gardenQuery{
     
     PFQuery *query = [PFQuery queryWithClassName:@"MyGarden"];
@@ -42,6 +43,28 @@
         [gardenTable reloadData];
     }];
 }
+
+-(void)refreshTableData{
+    [self viewDidLoad];
+    [self viewWillAppear:YES];
+}
+
+- (void)editBarBtnPressed:(id)sender{
+    if ([gardenTable isEditing]) {
+        [self.editBtn setTitle:@"Edit"];
+        [gardenTable setEditing:NO animated:YES];
+    }
+    else {
+        [self.editBtn setTitle:@"Done"];
+        [gardenTable setEditing:YES animated:YES];
+    }
+}
+
+-(void)addItems:(id)sender{
+
+}
+
+
 
 //Show navigation bar on this scene
 - (void)viewWillAppear:(BOOL)animated
@@ -94,26 +117,30 @@
     return cell;
 }
 
-
-/*
 // Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
     // Return NO if you do not want the specified item to be editable.
     return YES;
 }
-*/
 
-/*
 // Override to support editing the table view.
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+        PFObject *object = gardenArray[indexPath.row];
+        [object deleteInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+//            UIView *parent = self.view.superview;
+//            [self.view removeFromSuperview];
+//            self.view = nil;
+//            [parent addSubview:self.view];
+            
+        }];
+        [self performSelectorOnMainThread:@selector(refreshTableData) withObject:nil waitUntilDone:NO];
+        [gardenTable reloadData];
     } else if (editingStyle == UITableViewCellEditingStyleInsert) {
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
     }   
 }
-*/
 
 /*
 // Override to support rearranging the table view.

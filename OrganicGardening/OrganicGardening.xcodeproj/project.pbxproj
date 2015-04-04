@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		DD1AF8AF1AC35A09009C9637 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD1AF8AE1AC35A09009C9637 /* AdSupport.framework */; };
 		DD1AF8B21AC39B15009C9637 /* TipsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD1AF8B11AC39B15009C9637 /* TipsTableViewController.m */; };
-		DD1AF8B51AC39E06009C9637 /* TipsInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = DD1AF8B41AC39E06009C9637 /* TipsInfo.m */; };
 		DD1AF8B81AC3A0C9009C9637 /* TipsDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD1AF8B71AC3A0C9009C9637 /* TipsDetailViewController.m */; };
 		DD2A90FD1ABB8AE1001063A5 /* Apple Chancery.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DD2A90FC1ABB8AE1001063A5 /* Apple Chancery.ttf */; };
 		DD2A91021ABBB3B0001063A5 /* PlantListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD2A91011ABBB3B0001063A5 /* PlantListTableViewController.m */; };
@@ -27,6 +26,7 @@
 		DD5EBDCD1ACB6BC6008265B2 /* SignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD5EBDCC1ACB6BC6008265B2 /* SignUpViewController.m */; };
 		DD66264B1ABCE1AC00BE7C58 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DD66264A1ABCE1AC00BE7C58 /* Images.xcassets */; };
 		DD66264E1ABDD82D00BE7C58 /* PlantDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD66264D1ABDD82D00BE7C58 /* PlantDetailViewController.m */; };
+		DD9F957B1ACF7865003B6271 /* TipsAddViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD9F957A1ACF7865003B6271 /* TipsAddViewController.m */; };
 		DDB3E7231ABF239500D76401 /* MapsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DDB3E7221ABF239500D76401 /* MapsViewController.m */; };
 		DDB3E7261ABF250500D76401 /* ZoneTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DDB3E7251ABF250500D76401 /* ZoneTableViewController.m */; };
 		DDB3E7281AC20E0600D76401 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDB3E7271AC20E0600D76401 /* QuartzCore.framework */; };
@@ -75,8 +75,6 @@
 		DD1AF8AE1AC35A09009C9637 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
 		DD1AF8B01AC39B15009C9637 /* TipsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TipsTableViewController.h; sourceTree = "<group>"; };
 		DD1AF8B11AC39B15009C9637 /* TipsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TipsTableViewController.m; sourceTree = "<group>"; };
-		DD1AF8B31AC39E06009C9637 /* TipsInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TipsInfo.h; sourceTree = "<group>"; };
-		DD1AF8B41AC39E06009C9637 /* TipsInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TipsInfo.m; sourceTree = "<group>"; };
 		DD1AF8B61AC3A0C9009C9637 /* TipsDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TipsDetailViewController.h; sourceTree = "<group>"; };
 		DD1AF8B71AC3A0C9009C9637 /* TipsDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TipsDetailViewController.m; sourceTree = "<group>"; };
 		DD2A90FC1ABB8AE1001063A5 /* Apple Chancery.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Apple Chancery.ttf"; sourceTree = "<group>"; };
@@ -108,6 +106,8 @@
 		DD66264A1ABCE1AC00BE7C58 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		DD66264C1ABDD82D00BE7C58 /* PlantDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlantDetailViewController.h; sourceTree = "<group>"; };
 		DD66264D1ABDD82D00BE7C58 /* PlantDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlantDetailViewController.m; sourceTree = "<group>"; };
+		DD9F95791ACF7865003B6271 /* TipsAddViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TipsAddViewController.h; sourceTree = "<group>"; };
+		DD9F957A1ACF7865003B6271 /* TipsAddViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TipsAddViewController.m; sourceTree = "<group>"; };
 		DDB3E7211ABF239500D76401 /* MapsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapsViewController.h; sourceTree = "<group>"; };
 		DDB3E7221ABF239500D76401 /* MapsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapsViewController.m; sourceTree = "<group>"; };
 		DDB3E7241ABF250500D76401 /* ZoneTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZoneTableViewController.h; sourceTree = "<group>"; };
@@ -344,8 +344,8 @@
 				DD1AF8B11AC39B15009C9637 /* TipsTableViewController.m */,
 				DD1AF8B61AC3A0C9009C9637 /* TipsDetailViewController.h */,
 				DD1AF8B71AC3A0C9009C9637 /* TipsDetailViewController.m */,
-				DD1AF8B31AC39E06009C9637 /* TipsInfo.h */,
-				DD1AF8B41AC39E06009C9637 /* TipsInfo.m */,
+				DD9F95791ACF7865003B6271 /* TipsAddViewController.h */,
+				DD9F957A1ACF7865003B6271 /* TipsAddViewController.m */,
 			);
 			name = Tips;
 			sourceTree = "<group>";
@@ -470,7 +470,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				DD1AF8B21AC39B15009C9637 /* TipsTableViewController.m in Sources */,
-				DD1AF8B51AC39E06009C9637 /* TipsInfo.m in Sources */,
 				DD34C8A41ACDF9DC000B286A /* MyGardenDetailViewController.m in Sources */,
 				DDB3E74F1AC2121300D76401 /* MyGardenTableViewController.m in Sources */,
 				DD56AA371AB8F05100DB0669 /* SecondViewController.m in Sources */,
@@ -480,6 +479,7 @@
 				DD56AA341AB8F05100DB0669 /* FirstViewController.m in Sources */,
 				DD56AA2E1AB8F05100DB0669 /* main.m in Sources */,
 				DD66264E1ABDD82D00BE7C58 /* PlantDetailViewController.m in Sources */,
+				DD9F957B1ACF7865003B6271 /* TipsAddViewController.m in Sources */,
 				DD5EBDC71ACB669B008265B2 /* Reachability.m in Sources */,
 				DDB3E7231ABF239500D76401 /* MapsViewController.m in Sources */,
 				DD1AF8B81AC3A0C9009C9637 /* TipsDetailViewController.m in Sources */,

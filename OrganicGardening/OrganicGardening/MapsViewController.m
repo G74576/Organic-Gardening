@@ -14,7 +14,11 @@
 @end
 
 @implementation MapsViewController
-@synthesize zoneArray, mapTableView;
+@synthesize zoneArray, mapTableView, scrollView, imgView;
+
+-(UIView *)viewForZoomingInScrollView:(UIScrollView *)scrollView{
+    return imgView;
+}
 
 - (void)viewDidLoad {
     
@@ -48,6 +52,10 @@
     
     [super viewDidLoad];
 
+    UIImageView *tempImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"plantingZone.png"]];
+    self.imgView = tempImageView;
+    scrollView.maximumZoomScale = 3.0; scrollView.minimumZoomScale = 0.6; scrollView.clipsToBounds = YES;
+    scrollView.delegate = self; [scrollView addSubview:imgView];
     // Do any additional setup after loading the view.
 }
 

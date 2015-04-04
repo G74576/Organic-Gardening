@@ -37,6 +37,9 @@
     [takeButton setTitle:@"Retake Photo" forState:UIControlStateNormal];
     clearButton.hidden = NO;
     faceBookButton.hidden = NO;
+    twitterButton.hidden = NO;
+    share.hidden = NO;
+    message.hidden = YES;
     //UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil);   This will save image to photo album
     [self dismissViewControllerAnimated:YES completion:NULL];
 }
@@ -49,13 +52,32 @@
     imageView.image = nil;
     clearButton.hidden = YES;
     faceBookButton.hidden = YES;
+    twitterButton.hidden = YES;
+    share.hidden = YES;
+    message.hidden = NO;
     [takeButton setTitle:@"Take Photo" forState:UIControlStateNormal];
 }
 
 -(void)postFacebook:(id)sender{
-    UIAlertView *postFB = [[UIAlertView alloc]initWithTitle:@"Post Image to Facebook" message:@"This will be utilized to post this image to Facebook wall." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:@"Cancel", nil];
+//    UIAlertView *postFB = [[UIAlertView alloc]initWithTitle:@"Post Image to Facebook" message:@"This will be utilized to post this image to Facebook wall." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:@"Cancel", nil];
+//    
+//    [postFB show];
     
-    [postFB show];
+    slcompose = [[SLComposeViewController alloc]init];
+    slcompose = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeFacebook];
+    [slcompose setInitialText:[NSString stringWithFormat:@""]];
+    [slcompose addImage:imageView.image];
+    [self presentViewController:slcompose animated:YES completion:NULL];
+        
+}
+
+-(void)postToTwitter:(id)sender{
+    
+    slcompose = [[SLComposeViewController alloc]init];
+    slcompose = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeTwitter];
+    [slcompose setInitialText:[NSString stringWithFormat:@""]];
+    [slcompose addImage:imageView.image];
+    [self presentViewController:slcompose animated:YES completion:NULL];
 }
 
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
@@ -64,6 +86,9 @@
         imageView.image = nil;
         clearButton.hidden = YES;
         faceBookButton.hidden = YES;
+        twitterButton.hidden = YES;
+        share.hidden = YES;
+        message.hidden = NO;
         [takeButton setTitle:@"Take Photo" forState:UIControlStateNormal];
     }
     else if ([title isEqualToString:@"Cancel"]){

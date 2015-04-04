@@ -7,7 +7,6 @@
 //
 
 #import "TipsTableViewController.h"
-#import "TipsInfo.h"
 #import "TipsDetailViewController.h"
 
 @interface TipsTableViewController ()
@@ -15,25 +14,12 @@
 @end
 
 @implementation TipsTableViewController
-@synthesize tipsTableView, tipsArray;
+@synthesize tipsTableView;
 
 - (void)viewDidLoad {
     
     self.title = @"Tips & Tricks";
-    
-    tipsArray = [[NSMutableArray alloc]init];
-    
-    TipsInfo *tip1 = [[TipsInfo alloc]initWithTitle:@"Tip #1"];
-    TipsInfo *tip2 = [[TipsInfo alloc]initWithTitle:@"Tip #2"];
-    TipsInfo *tip3 = [[TipsInfo alloc]initWithTitle:@"Tip #3"];
-    TipsInfo *tip4 = [[TipsInfo alloc]initWithTitle:@"Tip #4"];
-    TipsInfo *tip5 = [[TipsInfo alloc]initWithTitle:@"Tip #5"];
-    
-    [tipsArray addObject:tip1];
-    [tipsArray addObject:tip2];
-    [tipsArray addObject:tip3];
-    [tipsArray addObject:tip4];
-    [tipsArray addObject:tip5];
+
     
     [super viewDidLoad];
     
@@ -44,11 +30,30 @@
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
+- (void)tipsQuery{
+    
+    PFQuery *query = [PFQuery queryWithClassName:@"TipsTricks"];
+    [query whereKey:@"user" equalTo:[PFUser currentUser]];
+    [query orderByAscending:@"tipName"];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if (!error) {
+            tipsArray = [[NSArray alloc] initWithArray:objects];
+        }
+        [tipsTableView reloadData];
+    }];
+}
+
 //Show navigation bar on this scene
 - (void)viewWillAppear:(BOOL)animated
 {
     [self.navigationController setNavigationBarHidden:NO];
     [super viewWillAppear:animated];
+    
+    if ([PFUser currentUser]) {
+        [self performSelector:@selector(tipsQuery)];
+    }else {
+    
+    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -74,8 +79,8 @@
     
     // Configure the cell...
     if (cell != nil) {
-        TipsInfo *tipsInfo = [tipsArray objectAtIndex:indexPath.row];
-        cell.textLabel.text = tipsInfo.tipsName;
+        PFObject *tipObject = [tipsArray objectAtIndex:indexPath.row];
+        cell.textLabel.text = [tipObject objectForKey:@"tipName"];
     }
     
     return cell;
@@ -123,17 +128,17 @@
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
 
-//    if ([segue.identifier isEqualToString:@"TipsDetail"])
-//    {
-//        NSIndexPath *indexPath = [self.tipsTableView indexPathForSelectedRow];
-//        TipsDetailViewController *tipsDetailViewController = segue.destinationViewController;
-//        
-//        if (tipsDetailViewController != nil)
-//        {
-//            TipsInfo *tipsInfo = [tipsArray objectAtIndex:indexPath.row];
-//            tipsDetailViewController.tInfo = tipsInfo;
-//        }
-//    }
+    if ([segue.identifier isEqualToString:@"TipsDetail"])
+    {
+        NSIndexPath *indexPath = [self.tipsTableView indexPathForSelectedRow];
+        TipsDetailViewController *tipsDetailViewController = segue.destinationViewController;
+        
+        PFObject *tip = [tipsArray objectAtIndex:indexPath.row];
+        if (tipsDetailViewController != nil)
+        {
+            tipsDetailViewController.tipsObject = tip;
+        }
+    }
 }
 
 @end

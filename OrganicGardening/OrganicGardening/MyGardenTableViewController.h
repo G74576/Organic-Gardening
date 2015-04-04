@@ -16,6 +16,11 @@
 }
 
 @property(strong, nonatomic)IBOutlet UITableView *gardenTable;
+@property(strong, nonatomic)IBOutlet UIBarButtonItem *editBtn;
+@property(weak, nonatomic)IBOutlet UIButton *addBtn;
+
+- (IBAction)editBarBtnPressed:(id)sender;
+- (IBAction)addItems:(id)sender;
 
 //-(IBAction)logOut:(id)sender;
 
