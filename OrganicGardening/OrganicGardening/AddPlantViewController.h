@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface AddPlantViewController : UIViewController<UIPickerViewDataSource, UIPickerViewDelegate, UIAlertViewDelegate>{
+@interface AddPlantViewController : UIViewController<UITextFieldDelegate, UITextViewDelegate, UIPickerViewDataSource, UIPickerViewDelegate, UIAlertViewDelegate>{
     
     BOOL checked;
     BOOL z1Checked;
@@ -34,8 +34,8 @@
 
 @property (strong, nonatomic) NSArray *pickerArray;
 
-@property (weak, nonatomic) IBOutlet UITextField *plantName;
-@property (weak, nonatomic) IBOutlet UITextView *plantDetails;
+@property (strong, nonatomic) IBOutlet UITextField *plantName;
+@property (strong, nonatomic) IBOutlet UITextView *plantDetails;
 @property (weak, nonatomic) IBOutlet UIPickerView *difficulty;
 @property (weak, nonatomic) IBOutlet UIButton *zone1;
 @property (weak, nonatomic) IBOutlet UIButton *zone2;
@@ -53,14 +53,14 @@
 @property (weak, nonatomic) IBOutlet UIButton *partial;
 @property (weak, nonatomic) IBOutlet UIButton *normal;
 @property (weak, nonatomic) IBOutlet UIButton *low;
-@property (weak, nonatomic) IBOutlet UITextView *soil;
-@property (weak, nonatomic) IBOutlet UITextView *timeToPlant;
-@property (weak, nonatomic) IBOutlet UITextView *spacing;
-@property (weak, nonatomic) IBOutlet UITextView *container;
-@property (weak, nonatomic) IBOutlet UITextView *height;
-@property (weak, nonatomic) IBOutlet UITextField *germination;
-@property (weak, nonatomic) IBOutlet UITextField *transplant;
-@property (weak, nonatomic) IBOutlet UITextField *harvest;
+@property (strong, nonatomic) IBOutlet UITextView *soil;
+@property (strong, nonatomic) IBOutlet UITextView *timeToPlant;
+@property (strong, nonatomic) IBOutlet UITextView *spacing;
+@property (strong, nonatomic) IBOutlet UITextView *container;
+@property (strong, nonatomic) IBOutlet UITextView *height;
+@property (strong, nonatomic) IBOutlet UITextField *germination;
+@property (strong, nonatomic) IBOutlet UITextField *transplant;
+@property (strong, nonatomic) IBOutlet UITextField *harvest;
 @property (weak, nonatomic) IBOutlet UIButton *share;
 
 - (IBAction)zone1Check:(id)sender;

@@ -25,31 +25,20 @@
     [scrollView setScrollEnabled:YES];
     [scrollView setContentSize:CGSizeMake(375, 944)];
     
-    checked = NO;
-    z1Checked = NO;
-    z2Checked = NO;
-    z3Checked = NO;
-    z4Checked = NO;
-    z5Checked = NO;
-    z6Checked = NO;
-    z7Checked = NO;
-    z8Checked = NO;
-    z9Checked = NO;
-    z10Checked = NO;
-    z11Checked = NO;
-    fullCheck = NO;
-    fullParCheck = NO;
-    parCheck = NO;
-    normCheck = NO;
-    lowCheck = NO;
+    UITapGestureRecognizer *gestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hideKeyboard:)];
+    [scrollView addGestureRecognizer:gestureRecognizer];
     
-    NSArray *pickerData = [[NSArray alloc]initWithObjects:@"Easy", @"Medium", @"Moderate", @"Hard", nil];
+    self.plantName.delegate = self;
+    self.plantDetails.delegate = self;
+    self.soil.delegate = self;
+    self.timeToPlant.delegate = self;
+    self.spacing.delegate = self;
+    self.container.delegate = self;
+    self.height.delegate = self;
+    self.germination.delegate = self;
+    self.transplant.delegate = self;
+    self.harvest.delegate = self;
     
-    self.pickerArray = pickerData;
-}
-
-//Setting the textview border and radius
--(void)viewWillAppear:(BOOL)animated{
     //Details TextView
     [plantDetails.layer setBorderColor:[[[UIColor lightGrayColor]colorWithAlphaComponent:0.5]CGColor]];
     [plantDetails.layer setBorderWidth:1.0];
@@ -80,6 +69,48 @@
     [height.layer setBorderWidth:1.0];
     height.layer.cornerRadius = 5;
     height.clipsToBounds = YES;
+    
+    checked = NO;
+    z1Checked = NO;
+    z2Checked = NO;
+    z3Checked = NO;
+    z4Checked = NO;
+    z5Checked = NO;
+    z6Checked = NO;
+    z7Checked = NO;
+    z8Checked = NO;
+    z9Checked = NO;
+    z10Checked = NO;
+    z11Checked = NO;
+    fullCheck = NO;
+    fullParCheck = NO;
+    parCheck = NO;
+    normCheck = NO;
+    lowCheck = NO;
+    
+    NSArray *pickerData = [[NSArray alloc]initWithObjects:@"Easy", @"Medium", @"Moderate", @"Hard", nil];
+    
+    self.pickerArray = pickerData;
+}
+
+- (IBAction)hideKeyboard:(id)sender {
+    [plantName endEditing:YES];
+    [plantDetails endEditing:YES];
+    [soil endEditing:YES];
+    [timeToPlant endEditing:YES];
+    [spacing endEditing:YES];
+    [container endEditing:YES];
+    [height endEditing:YES];
+    [germination endEditing:YES];
+    [transplant endEditing:YES];
+    [harvest endEditing:YES];
+}
+
+-(BOOL)textFieldShouldReturn:(UITextField *)textField{
+    if (textField) {
+        [textField resignFirstResponder];
+    }
+    return NO;
 }
 
 - (void)didReceiveMemoryWarning {
