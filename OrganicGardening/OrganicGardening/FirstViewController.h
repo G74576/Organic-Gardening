@@ -14,5 +14,7 @@
 
 }
 
+-(IBAction)logOut:(id)sender;
+
 @end
 

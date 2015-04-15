@@ -14,6 +14,7 @@
 #import <SystemConfiguration/SystemConfiguration.h>
 #import "LoginViewController.h"
 #import "SignUpViewController.h"
+#import <FacebookSDK/FacebookSDK.h>
 
 @interface FirstViewController ()
 {
@@ -98,6 +99,12 @@
         // Present the log in view controller
         [self presentViewController:logInViewController animated:YES completion:NULL];
     }
+}
+
+//Log Out of your garden.
+-(void)logOut:(id)sender{
+    [PFUser logOut];
+    [self viewDidAppear:YES];
 }
 
 #pragma mark - Parse Login ViewController Delegate methods

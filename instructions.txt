@@ -1,7 +1,7 @@
-IPV
+IPD
 ======================
 Developer: Kevin O'Toole
-IPV Term 1503
+IPD Term 1504
 Application: Organic Gardening
 Version: 1.0.0
 Platform: iOS
@@ -50,9 +50,9 @@ planted, when germination will take place, when to harvest, etc.  From either th
 view or detail view of my garden, the user will be presented with an edit option to remove
 items from their garden.
 
-Clicking on Tips & Tricks will bring up a list view of all different types of tips and or 
-tricks related to gardening.  Selecting and item from the list will allow the user to 
-view that tip/trick.
+Clicking on Tips & Tricks will bring up a list view of all tips and or 
+tricks the user added to the app.  Selecting and item from the list will allow the user to 
+view that tip/trick. Clicking Add Tip will allow the user to enter information about a tip or trick they want to add to the list
 
 Tabbed Navigation - Photo Share Screen:
 Clicking on the camera icon in the bottom tab bar navigation the user will be presented 

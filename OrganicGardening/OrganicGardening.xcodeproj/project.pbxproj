@@ -59,6 +59,7 @@
 		DDB3E78E1AC25BE900D76401 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = DDB3E7871AC25BE800D76401 /* LICENSE */; };
 		DDB3E78F1AC25BE900D76401 /* README.txt in Resources */ = {isa = PBXBuildFile; fileRef = DDB3E7881AC25BE800D76401 /* README.txt */; };
 		DDB3E7901AC25BE900D76401 /* Samples in Resources */ = {isa = PBXBuildFile; fileRef = DDB3E7891AC25BE800D76401 /* Samples */; };
+		DDBF578A1ADDEE7C002B24E4 /* AddPlantViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DDBF57891ADDEE7C002B24E4 /* AddPlantViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -143,6 +144,8 @@
 		DDB3E7871AC25BE800D76401 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = LICENSE; path = FacebookSDK/LICENSE; sourceTree = "<group>"; };
 		DDB3E7881AC25BE800D76401 /* README.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = README.txt; path = FacebookSDK/README.txt; sourceTree = "<group>"; };
 		DDB3E7891AC25BE800D76401 /* Samples */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Samples; path = FacebookSDK/Samples; sourceTree = "<group>"; };
+		DDBF57881ADDEE7C002B24E4 /* AddPlantViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddPlantViewController.h; sourceTree = "<group>"; };
+		DDBF57891ADDEE7C002B24E4 /* AddPlantViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddPlantViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -195,6 +198,8 @@
 				DD2A91011ABBB3B0001063A5 /* PlantListTableViewController.m */,
 				DD66264C1ABDD82D00BE7C58 /* PlantDetailViewController.h */,
 				DD66264D1ABDD82D00BE7C58 /* PlantDetailViewController.m */,
+				DDBF57881ADDEE7C002B24E4 /* AddPlantViewController.h */,
+				DDBF57891ADDEE7C002B24E4 /* AddPlantViewController.m */,
 			);
 			name = Plants;
 			sourceTree = "<group>";
@@ -484,6 +489,7 @@
 				DDB3E7231ABF239500D76401 /* MapsViewController.m in Sources */,
 				DD1AF8B81AC3A0C9009C9637 /* TipsDetailViewController.m in Sources */,
 				DDB3E7261ABF250500D76401 /* ZoneTableViewController.m in Sources */,
+				DDBF578A1ADDEE7C002B24E4 /* AddPlantViewController.m in Sources */,
 				DD5EBDCA1ACB6B37008265B2 /* LoginViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
