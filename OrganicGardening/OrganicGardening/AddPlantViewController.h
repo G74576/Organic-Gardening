@@ -27,6 +27,9 @@
     BOOL parCheck;
     BOOL normCheck;
     BOOL lowCheck;
+    BOOL vegCheck;
+    BOOL herbCheck;
+    BOOL fruitCheck;
 
     IBOutlet UIScrollView *scrollView;
     
@@ -35,6 +38,9 @@
 @property (strong, nonatomic) NSArray *pickerArray;
 
 @property (strong, nonatomic) IBOutlet UITextField *plantName;
+@property (strong, nonatomic) IBOutlet UIButton *vegetable;
+@property (strong, nonatomic) IBOutlet UIButton *herb;
+@property (strong, nonatomic) IBOutlet UIButton *fruit;
 @property (strong, nonatomic) IBOutlet UITextView *plantDetails;
 @property (weak, nonatomic) IBOutlet UIPickerView *difficulty;
 @property (weak, nonatomic) IBOutlet UIButton *zone1;
@@ -58,10 +64,18 @@
 @property (strong, nonatomic) IBOutlet UITextView *spacing;
 @property (strong, nonatomic) IBOutlet UITextView *container;
 @property (strong, nonatomic) IBOutlet UITextView *height;
+@property (strong, nonatomic) IBOutlet UITextView *tips;
 @property (strong, nonatomic) IBOutlet UITextField *germination;
 @property (strong, nonatomic) IBOutlet UITextField *transplant;
 @property (strong, nonatomic) IBOutlet UITextField *harvest;
 @property (weak, nonatomic) IBOutlet UIButton *share;
+@property (strong, nonatomic) IBOutlet UIView *imageFrame;
+@property (strong, nonatomic) IBOutlet UIImageView *imageView;
+@property (strong, nonatomic) IBOutlet UIScrollView *scrollView;
+
+- (IBAction)takePhoto:(id)sender;
+
+- (IBAction)category:(id)sender;
 
 - (IBAction)zone1Check:(id)sender;
 - (IBAction)zone2Check:(id)sender;

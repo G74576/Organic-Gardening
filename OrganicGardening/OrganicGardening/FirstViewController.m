@@ -15,6 +15,8 @@
 #import "LoginViewController.h"
 #import "SignUpViewController.h"
 #import <FacebookSDK/FacebookSDK.h>
+#import <ParseFacebookUtils/PFFacebookUtils.h>
+#import "UserSettingsViewController.h"
 
 @interface FirstViewController ()
 {
@@ -125,6 +127,7 @@
 
 // Sent to the delegate when a PFUser is logged in.
 - (void)logInViewController:(PFLogInViewController *)logInController didLogInUser:(PFUser *)user {
+
     [self dismissViewControllerAnimated:YES completion:NULL];
 }
 

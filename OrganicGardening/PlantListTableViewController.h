@@ -13,9 +13,20 @@
 
 @interface PlantListTableViewController : UITableViewController{
     
+    //Organic Gardening Arrays
     NSArray *vArray;
     NSArray *hArray;
     NSArray *fArray;
+    
+    //Current User Arrays
+    NSArray *cvArray;
+    NSArray *chArray;
+    NSArray *cfArray;
+    
+    //Users who shared Arrays
+    NSArray *svArray;
+    NSArray *shArray;
+    NSArray *sfArray;
     
     int plantCategoryInt;               //Used to know which category is selected from the home screen
     

@@ -10,9 +10,12 @@
 		DD1AF8AF1AC35A09009C9637 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD1AF8AE1AC35A09009C9637 /* AdSupport.framework */; };
 		DD1AF8B21AC39B15009C9637 /* TipsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD1AF8B11AC39B15009C9637 /* TipsTableViewController.m */; };
 		DD1AF8B81AC3A0C9009C9637 /* TipsDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD1AF8B71AC3A0C9009C9637 /* TipsDetailViewController.m */; };
+		DD1DB1B21ADF2B0200CF063D /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD1DB1B11ADF2B0200CF063D /* AVFoundation.framework */; };
 		DD2A90FD1ABB8AE1001063A5 /* Apple Chancery.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DD2A90FC1ABB8AE1001063A5 /* Apple Chancery.ttf */; };
 		DD2A91021ABBB3B0001063A5 /* PlantListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD2A91011ABBB3B0001063A5 /* PlantListTableViewController.m */; };
 		DD34C8A41ACDF9DC000B286A /* MyGardenDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD34C8A31ACDF9DC000B286A /* MyGardenDetailViewController.m */; };
+		DD4DB6421AE0714300FB21E3 /* UserSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD4DB6411AE0714300FB21E3 /* UserSettingsViewController.m */; };
+		DD4DB6451AE0977500FB21E3 /* EditTipViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD4DB6441AE0977500FB21E3 /* EditTipViewController.m */; };
 		DD56AA2E1AB8F05100DB0669 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = DD56AA2D1AB8F05100DB0669 /* main.m */; };
 		DD56AA311AB8F05100DB0669 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DD56AA301AB8F05100DB0669 /* AppDelegate.m */; };
 		DD56AA341AB8F05100DB0669 /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD56AA331AB8F05100DB0669 /* FirstViewController.m */; };
@@ -78,11 +81,16 @@
 		DD1AF8B11AC39B15009C9637 /* TipsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TipsTableViewController.m; sourceTree = "<group>"; };
 		DD1AF8B61AC3A0C9009C9637 /* TipsDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TipsDetailViewController.h; sourceTree = "<group>"; };
 		DD1AF8B71AC3A0C9009C9637 /* TipsDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TipsDetailViewController.m; sourceTree = "<group>"; };
+		DD1DB1B11ADF2B0200CF063D /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		DD2A90FC1ABB8AE1001063A5 /* Apple Chancery.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Apple Chancery.ttf"; sourceTree = "<group>"; };
 		DD2A91001ABBB3B0001063A5 /* PlantListTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PlantListTableViewController.h; path = ../PlantListTableViewController.h; sourceTree = "<group>"; };
 		DD2A91011ABBB3B0001063A5 /* PlantListTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PlantListTableViewController.m; path = ../PlantListTableViewController.m; sourceTree = "<group>"; };
 		DD34C8A21ACDF9DC000B286A /* MyGardenDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyGardenDetailViewController.h; sourceTree = "<group>"; };
 		DD34C8A31ACDF9DC000B286A /* MyGardenDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyGardenDetailViewController.m; sourceTree = "<group>"; };
+		DD4DB6401AE0714300FB21E3 /* UserSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserSettingsViewController.h; sourceTree = "<group>"; };
+		DD4DB6411AE0714300FB21E3 /* UserSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserSettingsViewController.m; sourceTree = "<group>"; };
+		DD4DB6431AE0977500FB21E3 /* EditTipViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditTipViewController.h; sourceTree = "<group>"; };
+		DD4DB6441AE0977500FB21E3 /* EditTipViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditTipViewController.m; sourceTree = "<group>"; };
 		DD56AA281AB8F05100DB0669 /* OrganicGardening.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OrganicGardening.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD56AA2C1AB8F05100DB0669 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DD56AA2D1AB8F05100DB0669 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -153,6 +161,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DD1DB1B21ADF2B0200CF063D /* AVFoundation.framework in Frameworks */,
 				DD1AF8AF1AC35A09009C9637 /* AdSupport.framework in Frameworks */,
 				DDB3E75F1AC2401800D76401 /* Foundation.framework in Frameworks */,
 				DDB3E7591AC23E5500D76401 /* libz.1.1.3.dylib in Frameworks */,
@@ -234,6 +243,8 @@
 				DD56AA331AB8F05100DB0669 /* FirstViewController.m */,
 				DD56AA351AB8F05100DB0669 /* SecondViewController.h */,
 				DD56AA361AB8F05100DB0669 /* SecondViewController.m */,
+				DD4DB6401AE0714300FB21E3 /* UserSettingsViewController.h */,
+				DD4DB6411AE0714300FB21E3 /* UserSettingsViewController.m */,
 				DD56AA381AB8F05100DB0669 /* Main.storyboard */,
 				DD66264A1ABCE1AC00BE7C58 /* Images.xcassets */,
 				DD56AA3D1AB8F05100DB0669 /* LaunchScreen.xib */,
@@ -297,6 +308,7 @@
 		DDB3E7421AC2102200D76401 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				DD1DB1B11ADF2B0200CF063D /* AVFoundation.framework */,
 				DD1AF8AE1AC35A09009C9637 /* AdSupport.framework */,
 				DDB3E7831AC25BE800D76401 /* Bolts.framework */,
 				DDB3E7841AC25BE800D76401 /* FacebookSDK.framework */,
@@ -351,6 +363,8 @@
 				DD1AF8B71AC3A0C9009C9637 /* TipsDetailViewController.m */,
 				DD9F95791ACF7865003B6271 /* TipsAddViewController.h */,
 				DD9F957A1ACF7865003B6271 /* TipsAddViewController.m */,
+				DD4DB6431AE0977500FB21E3 /* EditTipViewController.h */,
+				DD4DB6441AE0977500FB21E3 /* EditTipViewController.m */,
 			);
 			name = Tips;
 			sourceTree = "<group>";
@@ -481,6 +495,7 @@
 				DD2A91021ABBB3B0001063A5 /* PlantListTableViewController.m in Sources */,
 				DD56AA311AB8F05100DB0669 /* AppDelegate.m in Sources */,
 				DD5EBDCD1ACB6BC6008265B2 /* SignUpViewController.m in Sources */,
+				DD4DB6451AE0977500FB21E3 /* EditTipViewController.m in Sources */,
 				DD56AA341AB8F05100DB0669 /* FirstViewController.m in Sources */,
 				DD56AA2E1AB8F05100DB0669 /* main.m in Sources */,
 				DD66264E1ABDD82D00BE7C58 /* PlantDetailViewController.m in Sources */,
@@ -488,6 +503,7 @@
 				DD5EBDC71ACB669B008265B2 /* Reachability.m in Sources */,
 				DDB3E7231ABF239500D76401 /* MapsViewController.m in Sources */,
 				DD1AF8B81AC3A0C9009C9637 /* TipsDetailViewController.m in Sources */,
+				DD4DB6421AE0714300FB21E3 /* UserSettingsViewController.m in Sources */,
 				DDB3E7261ABF250500D76401 /* ZoneTableViewController.m in Sources */,
 				DDBF578A1ADDEE7C002B24E4 /* AddPlantViewController.m in Sources */,
 				DD5EBDCA1ACB6B37008265B2 /* LoginViewController.m in Sources */,

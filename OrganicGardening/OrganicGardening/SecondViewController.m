@@ -19,7 +19,7 @@
 @synthesize library;
 
 - (void)viewDidLoad {
-
+    
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     
@@ -80,59 +80,55 @@
 
 
 //*** This code creates a custom album in the users photo libray with the name of the app. ***
-//*** When the user saves a pic it saves to the album that was created, however if the user closes the app and restarts it, when they save the photo it then creates a duplicate folder with the same name as the previous one! Need to figure out why.. ***
 
+#define PHOTO_ALBUM_NAME @"Organic Gardening"
 
-//#define PHOTO_ALBUM_NAME @"Organic Gardening"
-//
-//NSString* existingAlbumIdentifier = nil;
-//
-//-(void)saveAssetToAlbum:(UIImage*)myPhoto
-//{
-//    PHPhotoLibrary* photoLib = [PHPhotoLibrary sharedPhotoLibrary];
-//    
-//    __block NSString* albumIdentifier = existingAlbumIdentifier;
-//    __block PHAssetCollectionChangeRequest* collectionRequest;
-//    
-//    [photoLib performChanges:^
-//     {
-//         PHFetchResult* fetchCollectionResult;
-//         if ( albumIdentifier )
-//             fetchCollectionResult = [PHAssetCollection fetchAssetCollectionsWithLocalIdentifiers:@[albumIdentifier] options:nil];
-//         
-//         // Create a new album
-//         if ( !fetchCollectionResult || fetchCollectionResult.count==0 )
-//         {
-//             NSLog(@"Creating a new album.");
-//             collectionRequest = [PHAssetCollectionChangeRequest creationRequestForAssetCollectionWithTitle:PHOTO_ALBUM_NAME];
-//             albumIdentifier = collectionRequest.placeholderForCreatedAssetCollection.localIdentifier;
-//         }
-//         // Use existing album
-//         else
-//         {
-//             NSLog(@"Fetching existing album, of #%lu albums found.", (unsigned long)fetchCollectionResult.count);
-//             PHAssetCollection* exisitingCollection = fetchCollectionResult.firstObject;
-//             collectionRequest = [PHAssetCollectionChangeRequest changeRequestForAssetCollection:exisitingCollection];
-//         }
-//         
-//         NSLog(@"Album local identifier = %@", albumIdentifier);
-//         
-//         PHAssetChangeRequest* createAssetRequest;
-//         createAssetRequest = [PHAssetChangeRequest creationRequestForAssetFromImage:myPhoto];
-//         
-//         [collectionRequest addAssets:@[createAssetRequest.placeholderForCreatedAsset]];
-//     }
-//           completionHandler:^(BOOL success, NSError *error)
-//     {
-//         if (success)
-//         {
-//             existingAlbumIdentifier = albumIdentifier;
-//             NSLog(@"added image to album:%@", PHOTO_ALBUM_NAME);
-//         }
-//         else
-//             NSLog(@"Error adding image to  album: %@", error);
-//     }];
-//}
+-(void)saveAssetToAlbum:(UIImage*)myPhoto
+{
+    PHPhotoLibrary* photoLib = [PHPhotoLibrary sharedPhotoLibrary];
+    
+    [photoLib performChanges:^
+     {
+         PHAssetCollectionChangeRequest* collectionRequest;
+         
+         PHFetchOptions *options = [[PHFetchOptions alloc] init];
+         options.predicate = [NSPredicate predicateWithFormat:@"title = %@", PHOTO_ALBUM_NAME];
+         
+         PHFetchResult* fetchCollectionResult = [PHAssetCollection fetchAssetCollectionsWithType:PHAssetCollectionTypeAlbum subtype:PHAssetCollectionSubtypeAny options:options];
+         
+         // Create a new album
+         if (fetchCollectionResult.count==0)
+         {
+             NSLog(@"Creating a new album.");
+             collectionRequest = [PHAssetCollectionChangeRequest creationRequestForAssetCollectionWithTitle:PHOTO_ALBUM_NAME];
+         }
+         
+         // Use existing album
+         else
+         {
+             NSLog(@"Fetching existing album, of #%lu albums found.", (unsigned long)fetchCollectionResult.count);
+             
+             PHAssetCollection* exisitingCollection = fetchCollectionResult.firstObject;
+             
+             collectionRequest = [PHAssetCollectionChangeRequest changeRequestForAssetCollection:exisitingCollection];
+         }
+         
+         PHAssetChangeRequest* createAssetRequest;
+         createAssetRequest = [PHAssetChangeRequest creationRequestForAssetFromImage:myPhoto];
+         [collectionRequest addAssets:@[createAssetRequest.placeholderForCreatedAsset]];
+     }
+           completionHandler:^(BOOL success, NSError *error)
+     {
+         if (success)
+         {
+             NSLog(@"added image to album:%@", PHOTO_ALBUM_NAME);
+         }
+         else
+             NSLog(@"Error adding image to album: %@", error);
+         
+     }];
+}
+
 
 -(void)postFacebook:(id)sender{
     slcompose = [[SLComposeViewController alloc]init];
@@ -146,6 +142,7 @@
                 break;
             case SLComposeViewControllerResultDone:
                 //do something here is where we will save image to photo album - post to parse also to pull down for image gallery.  Allow user to be able to then click to share with all users if choose to.
+                //[self saveAssetToAlbum:image];
                 break;
             default:
                 break;
@@ -155,7 +152,7 @@
 }
 
 -(void)postToTwitter:(id)sender{
-    
+
     slcompose = [[SLComposeViewController alloc]init];
     slcompose = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeTwitter];
     [slcompose setInitialText:[NSString stringWithFormat:@""]];
@@ -167,6 +164,8 @@
                 break;
             case SLComposeViewControllerResultDone:
                 //do something  here is where we will save image to photo album - post to parse also to pull down for image gallery.  Allow user to be able to then click to share with all users if choose to.
+                
+                //[self saveAssetToAlbum:image];
                 break;
             default:
                 break;
@@ -179,7 +178,7 @@
     NSString *title = [alertView buttonTitleAtIndex:buttonIndex];
     if ([title isEqualToString:@"Save"]) {
         
-        //[self saveAssetToAlbum:image];
+        [self saveAssetToAlbum:image];
         imageView.image = nil;
         takeButton.hidden = NO;
         retakeButton.hidden = YES;

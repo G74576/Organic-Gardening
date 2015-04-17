@@ -18,5 +18,6 @@
 @property(strong, nonatomic)IBOutlet UILabel *tipName;
 @property(strong, nonatomic)IBOutlet UITextView *tipDes;
 
+-(IBAction)editTip:(id)sender;
 
 @end

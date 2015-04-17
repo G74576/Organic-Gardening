@@ -60,12 +60,6 @@
     }
 }
 
--(void)addItems:(id)sender{
-
-}
-
-
-
 //Show navigation bar on this scene
 - (void)viewWillAppear:(BOOL)animated
 {
@@ -84,12 +78,6 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
-////Log Out of your garden.
-//-(void)logOut:(id)sender{
-//    [PFUser logOut];
-//    [self viewDidAppear:YES];
-//}
 
 #pragma mark - Table view data source
 
