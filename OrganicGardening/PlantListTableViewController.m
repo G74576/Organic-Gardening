@@ -15,7 +15,7 @@
 @end
 
 @implementation PlantListTableViewController
-@synthesize plantCategoryInt, listTableView;
+@synthesize plantCategoryInt, listTableView ;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -233,35 +233,20 @@
         }
     }
     [self.listTableView reloadData];
-    return 0;
+    return 1;
 }
 
-- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
-{
-    UIView *sectionHeaderView = [[UIView alloc] initWithFrame:
-                                 CGRectMake(0, 0, tableView.frame.size.width, 60.0)];
-    sectionHeaderView.backgroundColor = [UIColor colorWithRed:0.459 green:0.298 blue:0.141 alpha:1]; /*#754c24*/
-    
-    UILabel *headerLabel = [[UILabel alloc] initWithFrame:
-                            CGRectMake(15, 0, sectionHeaderView.frame.size.width, 20.0)];
-    
-    headerLabel.backgroundColor = [UIColor clearColor];
-    headerLabel.textColor = [UIColor whiteColor];
-    [headerLabel setFont:[UIFont fontWithName:@"Arial" size:18.0]];
-    [sectionHeaderView addSubview:headerLabel];
+-(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
     if (plantCategoryInt == 0) {
         switch (section) {
             case 0:
-                headerLabel.text = @"Organic Gardening Vegetables";
-                return sectionHeaderView;
+                return @"Organic Gardening Vegetables";
                 break;
             case 1:
-                headerLabel.text = @"Your Added Vegetables";
-                return sectionHeaderView;
+                return @"Your Added Vegetables";
                 break;
             case 2:
-                headerLabel.text = @"Other Users Shared Vegetables";
-                return sectionHeaderView;
+                return @"Other Users Shared Vegeatables";
                 break;
             default:
                 break;
@@ -270,16 +255,13 @@
     if (plantCategoryInt == 1) {
         switch (section) {
             case 0:
-                headerLabel.text = @"Organic Gardening Herbs";
-                return sectionHeaderView;
+                return @"Organic Gardening Vegetables";
                 break;
             case 1:
-                headerLabel.text = @"Your Added Herbs";
-                return sectionHeaderView;
+                return @"Your Added Vegetables";
                 break;
             case 2:
-                headerLabel.text = @"Other Users Shared Herbs";
-                return sectionHeaderView;
+                return @"Other Users Shared Vegeatables";
                 break;
             default:
                 break;
@@ -288,23 +270,98 @@
     if (plantCategoryInt == 2) {
         switch (section) {
             case 0:
-                headerLabel.text = @"Organic Gardening Fruits";
-                return sectionHeaderView;
+                return @"Organic Gardening Vegetables";
                 break;
             case 1:
-                headerLabel.text = @"Your Added Fruits";
-                return sectionHeaderView;
+                return @"Your Added Vegetables";
                 break;
             case 2:
-                headerLabel.text = @"Other Users Shared Fruits";
-                return sectionHeaderView;
+                return @"Other Users Shared Vegeatables";
                 break;
             default:
                 break;
         }
     }
-    return sectionHeaderView;
+    return @"";
 }
+
+- (void)tableView:(UITableView *)tableView willDisplayHeaderView:(UIView *)view forSection:(NSInteger)section
+{
+    UITableViewHeaderFooterView *tableViewHeaderFooterView = (UITableViewHeaderFooterView *)view;
+    tableViewHeaderFooterView.textLabel.font = [UIFont fontWithName:@"Arial" size:16.0f];
+    tableViewHeaderFooterView.textLabel.textColor = [UIColor whiteColor];
+    tableViewHeaderFooterView.contentView.backgroundColor = [UIColor colorWithRed:0.459 green:0.298 blue:0.141 alpha:1]; /*#754c24*/
+}
+
+//- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+//{
+//    UIView *sectionHeaderView = [[UIView alloc] initWithFrame:
+//                                 CGRectMake(0, 0, tableView.frame.size.width, 80.0)];
+//    sectionHeaderView.backgroundColor = [UIColor colorWithRed:0.459 green:0.298 blue:0.141 alpha:1]; /*#754c24*/
+//    
+//    UILabel *headerLabel = [[UILabel alloc] initWithFrame:
+//                            CGRectMake(15, 0, sectionHeaderView.frame.size.width, 20.0)];
+//    
+//    headerLabel.backgroundColor = [UIColor clearColor];
+//    headerLabel.textColor = [UIColor whiteColor];
+//    [headerLabel setFont:[UIFont fontWithName:@"Arial" size:18.0]];
+//    [sectionHeaderView addSubview:headerLabel];
+//    if (plantCategoryInt == 0) {
+//        switch (section) {
+//            case 0:
+//                headerLabel.text = @"Organic Gardening Vegetables";
+//                return sectionHeaderView;
+//                break;
+//            case 1:
+//                headerLabel.text = @"Your Added Vegetables";
+//                return sectionHeaderView;
+//                break;
+//            case 2:
+//                headerLabel.text = @"Other Users Shared Vegetables";
+//                return sectionHeaderView;
+//                break;
+//            default:
+//                break;
+//        }
+//    }
+//    if (plantCategoryInt == 1) {
+//        switch (section) {
+//            case 0:
+//                headerLabel.text = @"Organic Gardening Herbs";
+//                return sectionHeaderView;
+//                break;
+//            case 1:
+//                headerLabel.text = @"Your Added Herbs";
+//                return sectionHeaderView;
+//                break;
+//            case 2:
+//                headerLabel.text = @"Other Users Shared Herbs";
+//                return sectionHeaderView;
+//                break;
+//            default:
+//                break;
+//        }
+//    }
+//    if (plantCategoryInt == 2) {
+//        switch (section) {
+//            case 0:
+//                headerLabel.text = @"Organic Gardening Fruits";
+//                return sectionHeaderView;
+//                break;
+//            case 1:
+//                headerLabel.text = @"Your Added Fruits";
+//                return sectionHeaderView;
+//                break;
+//            case 2:
+//                headerLabel.text = @"Other Users Shared Fruits";
+//                return sectionHeaderView;
+//                break;
+//            default:
+//                break;
+//        }
+//    }
+//    return sectionHeaderView;
+//}
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [listTableView dequeueReusableCellWithIdentifier:@"PlantCell" forIndexPath:indexPath];
