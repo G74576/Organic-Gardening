@@ -182,6 +182,22 @@
     
 }
 
+- (void) displayAddAlert
+{
+    NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
+    NSString *alreadyRun = @"already-run";
+    if ([prefs boolForKey:alreadyRun])
+        return;
+    [prefs setBool:YES forKey:alreadyRun];
+    UIAlertView *addToGarden = [[UIAlertView alloc]initWithTitle:[NSString stringWithFormat:@"If you have a plant that is not on the list, but would like to add it, click the 'Add' button in the top right corner of the screen."] message:nil delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+    
+    [addToGarden show];
+}
+
+-(void)viewDidAppear:(BOOL)animated{
+    [self displayAddAlert];
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -194,6 +210,7 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+
     if (plantCategoryInt == 0)
     {
         if (section == 0) {
@@ -232,7 +249,7 @@
             return [sfArray count];
         }
     }
-    [self.listTableView reloadData];
+ //   [self.listTableView reloadData];
     return 1;
 }
 
@@ -292,76 +309,6 @@
     tableViewHeaderFooterView.textLabel.textColor = [UIColor whiteColor];
     tableViewHeaderFooterView.contentView.backgroundColor = [UIColor colorWithRed:0.459 green:0.298 blue:0.141 alpha:1]; /*#754c24*/
 }
-
-//- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
-//{
-//    UIView *sectionHeaderView = [[UIView alloc] initWithFrame:
-//                                 CGRectMake(0, 0, tableView.frame.size.width, 80.0)];
-//    sectionHeaderView.backgroundColor = [UIColor colorWithRed:0.459 green:0.298 blue:0.141 alpha:1]; /*#754c24*/
-//    
-//    UILabel *headerLabel = [[UILabel alloc] initWithFrame:
-//                            CGRectMake(15, 0, sectionHeaderView.frame.size.width, 20.0)];
-//    
-//    headerLabel.backgroundColor = [UIColor clearColor];
-//    headerLabel.textColor = [UIColor whiteColor];
-//    [headerLabel setFont:[UIFont fontWithName:@"Arial" size:18.0]];
-//    [sectionHeaderView addSubview:headerLabel];
-//    if (plantCategoryInt == 0) {
-//        switch (section) {
-//            case 0:
-//                headerLabel.text = @"Organic Gardening Vegetables";
-//                return sectionHeaderView;
-//                break;
-//            case 1:
-//                headerLabel.text = @"Your Added Vegetables";
-//                return sectionHeaderView;
-//                break;
-//            case 2:
-//                headerLabel.text = @"Other Users Shared Vegetables";
-//                return sectionHeaderView;
-//                break;
-//            default:
-//                break;
-//        }
-//    }
-//    if (plantCategoryInt == 1) {
-//        switch (section) {
-//            case 0:
-//                headerLabel.text = @"Organic Gardening Herbs";
-//                return sectionHeaderView;
-//                break;
-//            case 1:
-//                headerLabel.text = @"Your Added Herbs";
-//                return sectionHeaderView;
-//                break;
-//            case 2:
-//                headerLabel.text = @"Other Users Shared Herbs";
-//                return sectionHeaderView;
-//                break;
-//            default:
-//                break;
-//        }
-//    }
-//    if (plantCategoryInt == 2) {
-//        switch (section) {
-//            case 0:
-//                headerLabel.text = @"Organic Gardening Fruits";
-//                return sectionHeaderView;
-//                break;
-//            case 1:
-//                headerLabel.text = @"Your Added Fruits";
-//                return sectionHeaderView;
-//                break;
-//            case 2:
-//                headerLabel.text = @"Other Users Shared Fruits";
-//                return sectionHeaderView;
-//                break;
-//            default:
-//                break;
-//        }
-//    }
-//    return sectionHeaderView;
-//}
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [listTableView dequeueReusableCellWithIdentifier:@"PlantCell" forIndexPath:indexPath];

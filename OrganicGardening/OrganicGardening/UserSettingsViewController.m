@@ -7,6 +7,7 @@
 //
 
 #import "UserSettingsViewController.h"
+#import "FirstViewController.h"
 #import <Parse/Parse.h>
 #import <ParseUI/ParseUI.h>
 #import <ParseFacebookUtils/PFFacebookUtils.h>
@@ -16,26 +17,91 @@
 @end
 
 @implementation UserSettingsViewController
-@synthesize firstName, lastName, emailAdd, currentPassword, userPassword, userObj;
+@synthesize firstName, lastName, nuserName, emailAdd, userPassword, userObj, fbLogin, twLogin, nLogin;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+
     // Do any additional setup after loading the view.
-   // [self getUserInformation];
     
-    
+    self.firstName.delegate = self;
+    self.lastName.delegate = self;
+    self.nuserName.delegate = self;
+    self.emailAdd.delegate = self;
+    self.userPassword.delegate = self;
 
 }
 
+-(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
+    [self.firstName resignFirstResponder];
+    [self.lastName resignFirstResponder];
+    [self.nuserName resignFirstResponder];
+    [self.emailAdd resignFirstResponder];
+    [self.userPassword resignFirstResponder];
+}
+
+-(BOOL)textFieldShouldReturn:(UITextField *)textField{
+    if (textField) {
+        [textField resignFirstResponder];
+    }
+    return NO;
+}
+
+-(void)viewDidAppear:(BOOL)animated{
+    BOOL linkedWithFacebook = [PFFacebookUtils isLinkedWithUser:[PFUser currentUser]];
+    BOOL linkedWithTwitter = [PFTwitterUtils isLinkedWithUser:[PFUser currentUser]];
+    
+    if (linkedWithFacebook) {
+        fbLogin = YES;
+    } else if (linkedWithTwitter){
+        twLogin = YES;
+    } else {
+        nLogin = YES;
+    }
+    
+    if (fbLogin == YES) {
+        NSLog(@"Facebook Login");
+    }
+    if (twLogin == YES) {
+        NSLog(@"Twitter Login");
+    }
+    if (nLogin == YES){
+        NSLog(@"Normal Login");
+    }
+    NSLog(fbLogin ? @"Yes" : @"No");
+    NSLog(twLogin ? @"Yes" : @"No");
+    NSLog(nLogin ? @"Yes" : @"No");
+    [self getUserInformation];
+}
+
 -(void)getUserInformation{
-//    
-//        PFQuery *query = [PFUser query];
-//        [query whereKey:@"username" equalTo:[[PFUser currentUser]username]];
-//        [query getFirstObjectInBackgroundWithBlock:^(PFObject *object, NSError *error) {
-//            firstName.text = [object objectForKey:@"firstName"];
-//            lastName.text = [object objectForKey:@"lastName"];
-//            emailAdd.text = [object objectForKey:@"email"];
-//        }];
+
+    if (nLogin == YES) {
+        PFQuery *query = [PFUser query];
+        PFUser *user = [PFUser currentUser];
+        [query whereKey:@"username" equalTo:[[PFUser currentUser]username]];
+        [query getFirstObjectInBackgroundWithBlock:^(PFObject *object, NSError *error) {
+            firstName.text = [object objectForKey:@"firstName"];
+            lastName.text = [object objectForKey:@"lastName"];
+            emailAdd.text = [object objectForKey:@"email"];
+            nuserName.text = user.username;
+        }];
+    } else {
+        PFQuery *query = [PFUser query];
+        [query whereKey:@"username" equalTo:[[PFUser currentUser]username]];
+        [query getFirstObjectInBackgroundWithBlock:^(PFObject *object, NSError *error) {
+            firstName.text = [object objectForKey:@"firstName"];
+            lastName.text = [object objectForKey:@"lastName"];
+        }];
+        nuserName.enabled = NO;
+        emailAdd.enabled = NO;
+        userPassword.enabled = NO;
+        [[[UIAlertView alloc] initWithTitle:@"ALERT"
+                                    message:@"You are logged in through Facebook or Twitter.  Must be logged in through Organic Gardening account to change or update username, email and password. You are albe to add a first and last name."
+                                   delegate:nil
+                          cancelButtonTitle:@"OK"
+                          otherButtonTitles:nil] show];
+    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -53,7 +119,72 @@
 }
 */
 
+- (BOOL)validateEmail:(NSString *)emailStr {
+    NSString *emailRegex = @"[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}";
+    NSPredicate *emailTest = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", emailRegex];
+    return [emailTest evaluateWithObject:emailStr];
+}
+
+-(void)saveInfo{
+    
+    PFQuery *query = [PFUser query];
+    PFUser *user = [PFUser currentUser];
+    [query whereKey:@"username" equalTo:[[PFUser currentUser]username]];
+    [query getFirstObjectInBackgroundWithBlock:^(PFObject *object, NSError *error) {
+        
+        object[@"lastName"] = lastName.text;
+        object[@"firstName"] = firstName.text;
+        if ([nuserName.text isEqual:@""]) {
+            user.username = user.username;
+        } else {
+            user.username = nuserName.text;
+        }
+        if ([emailAdd.text isEqual:@""]) {
+            user.email = user.email;
+        } else {
+        user.email = emailAdd.text;
+        }
+        if ([userPassword.text isEqual:@""]) {
+            
+        } else {
+            user.password = userPassword.text;
+        }
+        
+        [user save];
+        [object saveInBackground];
+    }];
+    
+    UIAlertView *saved = [[UIAlertView alloc] initWithTitle:[NSString stringWithFormat:@"User Information has been saved"] message:nil delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+    
+    [saved show];
+
+}
+
 - (IBAction)save:(id)sender {
+    if ([firstName.text isEqual:@""]) {
+        [[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Missing Information", nil) message:NSLocalizedString(@"Please enter a first name.", nil) delegate:nil cancelButtonTitle:NSLocalizedString(@"OK", nil) otherButtonTitles:nil] show];
+    }
+    else if ([lastName.text isEqual:@""]) {
+        [[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Missing Information", nil) message:NSLocalizedString(@"Please enter a last name.", nil) delegate:nil cancelButtonTitle:NSLocalizedString(@"OK", nil) otherButtonTitles:nil] show];
+    } else if (![firstName.text isEqual:@""] && ![lastName.text isEqual:@""]){
+
+        if ([PFUser currentUser]) {
+            UIAlertView *addToGarden = [[UIAlertView alloc]initWithTitle:[NSString stringWithFormat:@"Save Changes?"] message:nil delegate:self cancelButtonTitle:@"Save" otherButtonTitles:@"Cancel", nil];
+            
+            [addToGarden show];
+        } else {
+        }
+    }
+}
+
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    NSString *title = [alertView buttonTitleAtIndex:buttonIndex];
+    if ([title isEqualToString:@"Save"]) {
+        [self saveInfo];
+    }
+    else if ([title isEqualToString:@"Cancel"]){
+        
+    }
 }
 
 @end

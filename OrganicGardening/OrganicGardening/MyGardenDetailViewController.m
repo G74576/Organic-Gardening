@@ -14,7 +14,7 @@
 @end
 
 @implementation MyGardenDetailViewController
-@synthesize gardenObject, plantDateLabel, germDateLabel, tranDateLabel, harvDateLabel, plantImage, plantHeader, germHeader, harvHeader, tranHeader, editButton, saveButton, dateObject;
+@synthesize gardenObject, plantDateLabel, germDateLabel, tranDateLabel, harvDateLabel, plantImage, plantHeader, germHeader, harvHeader, tranHeader, editButton, saveButton, dateObject, userDateObjet;
 
 - (void)viewDidLoad {
     
@@ -40,6 +40,12 @@
     [query1 getFirstObjectInBackgroundWithBlock:^(PFObject *object, NSError *error) {
         dateObject = object;
     }];
+//    
+//    PFQuery *query2 = [PFQuery queryWithClassName:@"UserPlants"];
+//    [query2 whereKey:@"name" equalTo:[gardenObject objectForKey:@"mgName"]];
+//    [query2 getFirstObjectInBackgroundWithBlock:^(PFObject *object, NSError *error) {
+//        userDateObjet = object;
+//    }];
 
 }
 
@@ -115,6 +121,7 @@
     PFQuery *query = [PFQuery queryWithClassName:@"MyGarden"];
     
     PFObject *newDateObj = dateObject;
+//    PFObject *newUserDate = userDateObjet;
     [query getObjectInBackgroundWithId:objectID block:^(PFObject *object, NSError *error){
         //Set Plant Date:
         NSDateFormatter *form = [[NSDateFormatter alloc]init];
@@ -138,6 +145,7 @@
         
         object[@"germDate"] = stringFromDate;
         germDateLabel.text = stringFromDate;
+
         
         //Set Transplant Date:
         NSString *tranString = [NSString stringWithFormat:@"%@", [newDateObj objectForKey:@"tranDate"]];
@@ -165,7 +173,7 @@
         NSDate *newDate3 = [nowB dateByAddingTimeInterval:60*60*24*hNumb];
         NSDateFormatter *formatterB = [[NSDateFormatter alloc] init];
         [formatterB setDateFormat:@"EEE, MMM dd yyyy"];
-        NSString *stringFromDateB = [formatter stringFromDate:newDate3];
+        NSString *stringFromDateB = [formatterB stringFromDate:newDate3];
         //NSLog(@"%@", stringFromDateB);
         object[@"harvDate"] = stringFromDateB;
         

@@ -20,6 +20,7 @@
 
 @property (strong, nonatomic)PFObject *gardenObject;
 @property (strong, nonatomic)PFObject *dateObject;
+@property (strong, nonatomic)PFObject *userDateObjet;
 @property (strong, nonatomic)IBOutlet UILabel *plantDateLabel;
 @property (strong, nonatomic)IBOutlet UILabel *germDateLabel;
 @property (strong, nonatomic)IBOutlet UILabel *tranDateLabel;
