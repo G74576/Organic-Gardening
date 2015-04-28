@@ -47,6 +47,7 @@
     return NO;
 }
 
+//Checking to see how the user is logged in to the app.
 -(void)viewDidAppear:(BOOL)animated{
     BOOL linkedWithFacebook = [PFFacebookUtils isLinkedWithUser:[PFUser currentUser]];
     BOOL linkedWithTwitter = [PFTwitterUtils isLinkedWithUser:[PFUser currentUser]];

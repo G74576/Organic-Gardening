@@ -31,6 +31,7 @@
 @property (strong, nonatomic) IBOutlet UILabel *tranHeader;
 @property (strong, nonatomic) IBOutlet UILabel *harvHeader;
 @property (strong, nonatomic) IBOutlet UIButton *editButton;
+@property (strong, nonatomic) IBOutlet UILabel *headerLabel;
 @property (strong, nonatomic) IBOutlet UIButton *saveButton;
 - (IBAction)editDate:(id)sender;
 - (IBAction)saveDate:(id)sender;

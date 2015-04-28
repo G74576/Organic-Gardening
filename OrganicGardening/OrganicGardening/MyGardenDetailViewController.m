@@ -14,7 +14,7 @@
 @end
 
 @implementation MyGardenDetailViewController
-@synthesize gardenObject, plantDateLabel, germDateLabel, tranDateLabel, harvDateLabel, plantImage, plantHeader, germHeader, harvHeader, tranHeader, editButton, saveButton, dateObject, userDateObjet;
+@synthesize gardenObject, plantDateLabel, germDateLabel, tranDateLabel, harvDateLabel, plantImage, plantHeader, germHeader, harvHeader, tranHeader, editButton, saveButton, dateObject, userDateObjet, headerLabel;
 
 - (void)viewDidLoad {
     
@@ -73,6 +73,7 @@
     tranHeader.hidden = YES;
     harvHeader.hidden = YES;
     editButton.hidden = YES;
+    headerLabel.hidden = YES;
     [self.view addSubview:datePicker];
     [datePicker addTarget:self
                    action:@selector(changeDateInLabel:)
@@ -100,6 +101,7 @@
     tranHeader.hidden = NO;
     harvHeader.hidden = NO;
     saveButton.hidden = NO;
+    headerLabel.hidden = NO;
 }
 
 - (IBAction)editDate:(id)sender {
