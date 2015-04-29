@@ -27,6 +27,7 @@
     
 }
 
+//Save Tip/Trick
 -(void)saveButton:(id)sender{
     
     if ([PFUser currentUser]) {
@@ -51,6 +52,7 @@
     return NO;
 }
 
+//Method to post tip/trick to Parse database
 -(void)postParse{
     PFUser *user = [PFUser currentUser];
     
@@ -77,6 +79,7 @@
     // Dispose of any resources that can be recreated.
 }
 
+//Alertview delegate methods
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
     NSString *title = [alertView buttonTitleAtIndex:buttonIndex];
     if ([title isEqualToString:@"Add"]) {

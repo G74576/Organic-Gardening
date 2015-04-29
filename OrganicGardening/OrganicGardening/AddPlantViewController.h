@@ -10,6 +10,7 @@
 
 @interface AddPlantViewController : UIViewController<UITextFieldDelegate, UITextViewDelegate, UIPickerViewDataSource, UIPickerViewDelegate, UIAlertViewDelegate>{
     
+    //Bool for checkboxes
     BOOL checked;
     BOOL z1Checked;
     BOOL z2Checked;

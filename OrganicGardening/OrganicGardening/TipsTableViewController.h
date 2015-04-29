@@ -18,6 +18,4 @@
 
 @property(strong, nonatomic)IBOutlet UITableView *tipsTableView;
 
-//-(IBAction)addTip:(id)sender;
-
 @end

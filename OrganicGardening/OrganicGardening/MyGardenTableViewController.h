@@ -20,6 +20,4 @@
 
 - (IBAction)editBarBtnPressed:(id)sender;
 
-//-(IBAction)logOut:(id)sender;
-
 @end

@@ -21,6 +21,7 @@
 @property (strong, nonatomic)PFObject *gardenObject;
 @property (strong, nonatomic)PFObject *dateObject;
 @property (strong, nonatomic)PFObject *userDateObjet;
+
 @property (strong, nonatomic)IBOutlet UILabel *plantDateLabel;
 @property (strong, nonatomic)IBOutlet UILabel *germDateLabel;
 @property (strong, nonatomic)IBOutlet UILabel *tranDateLabel;
@@ -32,7 +33,9 @@
 @property (strong, nonatomic) IBOutlet UILabel *harvHeader;
 @property (strong, nonatomic) IBOutlet UIButton *editButton;
 @property (strong, nonatomic) IBOutlet UILabel *headerLabel;
+
 @property (strong, nonatomic) IBOutlet UIButton *saveButton;
+
 - (IBAction)editDate:(id)sender;
 - (IBAction)saveDate:(id)sender;
 

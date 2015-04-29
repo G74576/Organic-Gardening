@@ -31,6 +31,8 @@
     // Dispose of any resources that can be recreated.
 }
 
+#pragma mark Take a Photo
+//UIImagePickerController for taking a photo
 -(void)takePhoto:(id)sender{
     picker = [[UIImagePickerController alloc]init];
     picker.delegate = self;
@@ -129,7 +131,7 @@
      }];
 }
 
-
+#pragma mark Post to Facebook / Twitter
 -(void)postFacebook:(id)sender{
     slcompose = [[SLComposeViewController alloc]init];
     slcompose = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeFacebook];
@@ -174,6 +176,8 @@
     [self presentViewController:slcompose animated:YES completion:NULL];
 }
 
+
+#pragma mark AlertView for buttons
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
     NSString *title = [alertView buttonTitleAtIndex:buttonIndex];
     if ([title isEqualToString:@"Save"]) {

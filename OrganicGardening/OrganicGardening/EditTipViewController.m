@@ -34,6 +34,7 @@
     editTipDes.text = editDesText;
 }
 
+//Save Button
 -(IBAction)saveButton:(id)sender{
     
     if ([PFUser currentUser]) {
@@ -58,6 +59,7 @@
     return NO;
 }
 
+//Method to post edited changes to tip/trick to parse
 -(void)postParse{
     
     PFQuery *query = [PFQuery queryWithClassName:@"TipsTricks"];
@@ -78,6 +80,7 @@
     // Dispose of any resources that can be recreated.
 }
 
+//Alertview delegate method
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
     NSString *title = [alertView buttonTitleAtIndex:buttonIndex];
     if ([title isEqualToString:@"Save"]) {

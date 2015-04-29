@@ -40,12 +40,6 @@
     [query1 getFirstObjectInBackgroundWithBlock:^(PFObject *object, NSError *error) {
         dateObject = object;
     }];
-//    
-//    PFQuery *query2 = [PFQuery queryWithClassName:@"UserPlants"];
-//    [query2 whereKey:@"name" equalTo:[gardenObject objectForKey:@"mgName"]];
-//    [query2 getFirstObjectInBackgroundWithBlock:^(PFObject *object, NSError *error) {
-//        userDateObjet = object;
-//    }];
 
 }
 
@@ -57,6 +51,8 @@
     }];
 }
 
+
+//Method to set datePicker and hide all labels
 - (void)datePickerView
 {
     // Initialization code
@@ -78,8 +74,11 @@
     [datePicker addTarget:self
                    action:@selector(changeDateInLabel:)
          forControlEvents:UIControlEventValueChanged];
+    saveButton.hidden = NO;
 }
 
+
+//Change date for plantDateLabel
 - (void)changeDateInLabel:(id)sender{
     //Use NSDateFormatter to write out the date in a friendly format
     NSDateFormatter *df = [[NSDateFormatter alloc] init];
@@ -100,14 +99,15 @@
     germHeader.hidden = NO;
     tranHeader.hidden = NO;
     harvHeader.hidden = NO;
-    saveButton.hidden = NO;
     headerLabel.hidden = NO;
 }
 
+//Edit Date Button
 - (IBAction)editDate:(id)sender {
     [self performSelector:@selector(datePickerView)];
 }
 
+//Save Date Button
 - (void)saveDate:(id)sender{
     if ([PFUser currentUser]) {
         UIAlertView *saveNewDate = [[UIAlertView alloc]initWithTitle:[NSString stringWithFormat:@"Save new plant date?"] message:nil delegate:self cancelButtonTitle:@"Save" otherButtonTitles:@"Cancel", nil];
@@ -119,6 +119,7 @@
     }
 }
 
+//Post Changes to Parse database & Update labels in view with new dates:
 - (void)postDate{
     PFQuery *query = [PFQuery queryWithClassName:@"MyGarden"];
     
@@ -207,12 +208,14 @@
     }
 }
 
+//AlertView delegate method
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
     NSString *title = [alertView buttonTitleAtIndex:buttonIndex];
     if ([title isEqualToString:@"Save"]) {
         [self postDate];
         editButton.hidden = NO;
         saveButton.hidden = YES;
+        
     }
     else if ([title isEqualToString:@"Cancel"]){
         

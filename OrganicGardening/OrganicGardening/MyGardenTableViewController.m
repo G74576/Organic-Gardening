@@ -21,16 +21,10 @@
     self.title = @"My Garden";
     
     [super viewDidLoad];
-    
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-    
 }
 
 
+//Querying parse for all items added to the users garden
 - (void)gardenQuery{
     
     PFQuery *query = [PFQuery queryWithClassName:@"MyGarden"];
@@ -44,11 +38,15 @@
     }];
 }
 
+
+//Refresh view
 -(void)refreshTableData{
     [self viewDidLoad];
     [self viewWillAppear:YES];
 }
 
+
+//If edit button in navigation bar is pressed:
 - (void)editBarBtnPressed:(id)sender{
     if ([gardenTable isEditing]) {
         [self.editBtn setTitle:@"Edit"];

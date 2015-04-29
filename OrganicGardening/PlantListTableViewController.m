@@ -17,6 +17,10 @@
 @implementation PlantListTableViewController
 @synthesize plantCategoryInt, listTableView ;
 
+bool vegiIsCollapsed = NO;
+bool addIsCollapsed = NO;
+bool userIsCollapsed = NO;
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
@@ -182,6 +186,7 @@
     
 }
 
+//Displays an alert the virst time the user clicks on either veg/herb/frut category letting them know they can add their own items to the list.
 - (void) displayAddAlert
 {
     NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
@@ -204,7 +209,6 @@
 }
 
 #pragma mark - Table view data source
-
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 3;
 }
@@ -272,13 +276,13 @@
     if (plantCategoryInt == 1) {
         switch (section) {
             case 0:
-                return @"Organic Gardening Vegetables";
+                return @"Organic Gardening Herbs";
                 break;
             case 1:
-                return @"Your Added Vegetables";
+                return @"Your Added Herbs";
                 break;
             case 2:
-                return @"Other Users Shared Vegeatables";
+                return @"Other Users Shared Herbs";
                 break;
             default:
                 break;
@@ -287,13 +291,13 @@
     if (plantCategoryInt == 2) {
         switch (section) {
             case 0:
-                return @"Organic Gardening Vegetables";
+                return @"Organic Gardening Fruits";
                 break;
             case 1:
-                return @"Your Added Vegetables";
+                return @"Your Added Fruits";
                 break;
             case 2:
-                return @"Other Users Shared Vegeatables";
+                return @"Other Users Shared Fruits";
                 break;
             default:
                 break;

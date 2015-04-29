@@ -75,6 +75,7 @@
     [self getUserInformation];
 }
 
+//Getting User Information
 -(void)getUserInformation{
 
     if (nLogin == YES) {
@@ -126,6 +127,8 @@
     return [emailTest evaluateWithObject:emailStr];
 }
 
+
+//Update / Save information in parse database
 -(void)saveInfo{
     
     PFQuery *query = [PFUser query];
@@ -161,6 +164,8 @@
 
 }
 
+
+//Button to save information - will check for errors then call alertview
 - (IBAction)save:(id)sender {
     if ([firstName.text isEqual:@""]) {
         [[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Missing Information", nil) message:NSLocalizedString(@"Please enter a first name.", nil) delegate:nil cancelButtonTitle:NSLocalizedString(@"OK", nil) otherButtonTitles:nil] show];
@@ -178,6 +183,8 @@
     }
 }
 
+
+//Alert View Delegate 
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
     NSString *title = [alertView buttonTitleAtIndex:buttonIndex];
     if ([title isEqualToString:@"Save"]) {

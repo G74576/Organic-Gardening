@@ -36,7 +36,8 @@ AVCaptureStillImageOutput *stillImageOutput;
     [scrollView addGestureRecognizer:gestureRecognizer];
     
     self.plantName.delegate = self;
-    //TextView Placeholders
+    
+//TextView Placeholders
     self.plantDetails.delegate = self;
     [plantDetails setReturnKeyType:UIReturnKeyDone];
     [plantDetails setText:@"Details about the plant will go here..."];
@@ -81,37 +82,44 @@ AVCaptureStillImageOutput *stillImageOutput;
     [plantDetails.layer setBorderWidth:1.0];
     plantDetails.layer.cornerRadius = 5;
     plantDetails.clipsToBounds = YES;
+    
     //Soil TextView
     [soil.layer setBorderColor:[[[UIColor lightGrayColor]colorWithAlphaComponent:0.5]CGColor]];
     [soil.layer setBorderWidth:1.0];
     soil.layer.cornerRadius = 5;
     soil.clipsToBounds = YES;
+    
     //timeToPlant TextView
     [timeToPlant.layer setBorderColor:[[[UIColor lightGrayColor]colorWithAlphaComponent:0.5]CGColor]];
     [timeToPlant.layer setBorderWidth:1.0];
     timeToPlant.layer.cornerRadius = 5;
     timeToPlant.clipsToBounds = YES;
+    
     //spacing TextView
     [spacing.layer setBorderColor:[[[UIColor lightGrayColor]colorWithAlphaComponent:0.5]CGColor]];
     [spacing.layer setBorderWidth:1.0];
     spacing.layer.cornerRadius = 5;
     spacing.clipsToBounds = YES;
+    
     //container TextView
     [container.layer setBorderColor:[[[UIColor lightGrayColor]colorWithAlphaComponent:0.5]CGColor]];
     [container.layer setBorderWidth:1.0];
     container.layer.cornerRadius = 5;
     container.clipsToBounds = YES;
+    
     //height TextView
     [height.layer setBorderColor:[[[UIColor lightGrayColor]colorWithAlphaComponent:0.5]CGColor]];
     [height.layer setBorderWidth:1.0];
     height.layer.cornerRadius = 5;
     height.clipsToBounds = YES;
+    
     //Tips TextView
     [tips.layer setBorderColor:[[[UIColor lightGrayColor]colorWithAlphaComponent:0.5]CGColor]];
     [tips.layer setBorderWidth:1.0];
     tips.layer.cornerRadius = 5;
     tips.clipsToBounds = YES;
     
+    //Booleans for check boxes
     checked = NO;
     vegCheck = NO;
     herbCheck = NO;
@@ -133,6 +141,7 @@ AVCaptureStillImageOutput *stillImageOutput;
     normCheck = NO;
     lowCheck = NO;
     
+    //Data for pickr controller
     NSArray *pickerData = [[NSArray alloc]initWithObjects:@"Easy", @"Medium", @"Moderate", @"Hard", nil];
     
     self.pickerArray = pickerData;

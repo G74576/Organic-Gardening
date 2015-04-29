@@ -53,6 +53,7 @@
     // Dispose of any resources that can be recreated.
 }
 
+//Calls an alert asking if they want to add whaterver item was clicked to thier garden.
 -(IBAction)addToGarden:(id)sender{
     if ([PFUser currentUser]) {
         UIAlertView *addToGarden = [[UIAlertView alloc]initWithTitle:[NSString stringWithFormat:@"Add %@ to your garden?", [plantObject objectForKey:@"name"]] message:nil delegate:self cancelButtonTitle:@"Add" otherButtonTitles:@"Cancel", nil];
@@ -64,6 +65,7 @@
     }
 }
 
+//Posts information to MyGarden on Parse.com
 -(void)postParse{
     
     PFUser *user = [PFUser currentUser];
@@ -140,6 +142,7 @@
                       otherButtonTitles:nil] show];
 }
 
+//AlertView delegate methods
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
     NSString *title = [alertView buttonTitleAtIndex:buttonIndex];
     if ([title isEqualToString:@"Add"]) {
