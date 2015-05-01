@@ -79,13 +79,7 @@
 {
     [self.navigationController setNavigationBarHidden:YES];
     [super viewWillAppear:animated];
-    
-    PFQuery *query = [PFUser query];
-    [query whereKey:@"username" equalTo:[[PFUser currentUser]username]];
-    [query getFirstObjectInBackgroundWithBlock:^(PFObject *object, NSError *error) {
-        welcomeLabel.text = [NSString stringWithFormat:@"Welcome %@", [object objectForKey:@"firstName"]];
-    }];
-    
+
 }
 
 
@@ -108,6 +102,12 @@
         
         // Present the log in view controller
         [self presentViewController:logInViewController animated:YES completion:NULL];
+    } else {
+            PFQuery *query = [PFUser query];
+            [query whereKey:@"username" equalTo:[[PFUser currentUser]username]];
+            [query getFirstObjectInBackgroundWithBlock:^(PFObject *object, NSError *error) {
+                welcomeLabel.text = [NSString stringWithFormat:@"Welcome %@", [object objectForKey:@"firstName"]];
+            }];
     }
 }
 
