@@ -25,6 +25,7 @@
 @end
 
 @implementation FirstViewController
+@synthesize welcomeLabel;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -78,6 +79,13 @@
 {
     [self.navigationController setNavigationBarHidden:YES];
     [super viewWillAppear:animated];
+    
+    PFQuery *query = [PFUser query];
+    [query whereKey:@"username" equalTo:[[PFUser currentUser]username]];
+    [query getFirstObjectInBackgroundWithBlock:^(PFObject *object, NSError *error) {
+        welcomeLabel.text = [NSString stringWithFormat:@"Welcome %@", [object objectForKey:@"firstName"]];
+    }];
+    
 }
 
 

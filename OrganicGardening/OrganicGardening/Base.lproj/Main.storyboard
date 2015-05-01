@@ -1350,6 +1350,12 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4pP-5G-7AM">
+                                <rect key="frame" x="146" y="557" width="83" height="23"/>
+                                <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="20"/>
+                                <color key="textColor" red="0.20000000000000001" green="0.80000000000000004" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -1368,6 +1374,7 @@
                             <constraint firstItem="4ug-Mw-9AY" firstAttribute="top" secondItem="5yx-Pv-yDe" secondAttribute="bottom" constant="69" id="Bdm-ky-bsr"/>
                             <constraint firstItem="I6L-IW-lfq" firstAttribute="top" secondItem="5yx-Pv-yDe" secondAttribute="bottom" constant="31" id="Dke-tk-a09"/>
                             <constraint firstItem="Tre-UL-gAw" firstAttribute="width" secondItem="5lx-ga-lfo" secondAttribute="width" id="E7j-bm-v80"/>
+                            <constraint firstItem="I6L-IW-lfq" firstAttribute="top" secondItem="4pP-5G-7AM" secondAttribute="bottom" id="EHh-E2-PXB"/>
                             <constraint firstItem="BHE-3K-cgy" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leading" id="EbP-NU-WZu"/>
                             <constraint firstItem="vca-mK-Xrm" firstAttribute="top" secondItem="ApU-xi-FKf" secondAttribute="bottom" constant="26" id="EeX-EE-Btn"/>
                             <constraint firstItem="Tre-UL-gAw" firstAttribute="width" secondItem="K2l-sx-1Bh" secondAttribute="height" multiplier="1:1" id="Enp-lz-G0S"/>
@@ -1410,6 +1417,8 @@
                             <constraint firstItem="4ug-Mw-9AY" firstAttribute="top" secondItem="ISB-X2-ZPS" secondAttribute="bottom" constant="134" id="tYW-Cy-LWs"/>
                             <constraint firstItem="K2l-sx-1Bh" firstAttribute="centerX" secondItem="5yx-Pv-yDe" secondAttribute="centerX" id="uoM-WK-3b4"/>
                             <constraint firstItem="4ug-Mw-9AY" firstAttribute="top" secondItem="fyB-gJ-nKL" secondAttribute="bottom" constant="69" id="usZ-vF-ZBa"/>
+                            <constraint firstItem="4pP-5G-7AM" firstAttribute="top" secondItem="fyB-gJ-nKL" secondAttribute="bottom" constant="8" id="w2c-lo-yzm"/>
+                            <constraint firstItem="4pP-5G-7AM" firstAttribute="centerX" secondItem="I6L-IW-lfq" secondAttribute="centerX" constant="0.5" id="wiH-Qb-hUD"/>
                             <constraint firstItem="vca-mK-Xrm" firstAttribute="centerX" secondItem="QKK-Gk-B2n" secondAttribute="centerX" id="yLa-Xi-JNN"/>
                             <constraint firstItem="BHE-3K-cgy" firstAttribute="top" secondItem="Ia1-K6-d13" secondAttribute="bottom" id="z2L-Io-sEF"/>
                         </constraints>
@@ -1433,6 +1442,9 @@
                         <barButtonItem key="backBarButtonItem" title=" " id="GzZ-Ch-OH6"/>
                     </navigationItem>
                     <nil key="simulatedTopBarMetrics"/>
+                    <connections>
+                        <outlet property="welcomeLabel" destination="4pP-5G-7AM" id="jjR-B2-bdu"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
             </objects>

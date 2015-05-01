@@ -13,6 +13,7 @@
 @interface FirstViewController : UIViewController<PFLogInViewControllerDelegate, PFSignUpViewControllerDelegate>{
 
 }
+@property (strong, nonatomic) IBOutlet UILabel *welcomeLabel;
 
 -(IBAction)logOut:(id)sender;
 
