@@ -10,18 +10,33 @@
 #import "PlantListTableViewController.h"
 #import <Parse/Parse.h>
 #import <ParseUI/ParseUI.h>
+#import "AddPlantViewController.h"
 
 @interface PlantDetailViewController ()
 
 @end
 
 @implementation PlantDetailViewController
-@synthesize plantObject, details, difficulty, zone, sun, soil, water, best, container, germ, trans, harv, tips, spacing, height, plantImage;
+@synthesize plantObject, details, difficulty, zone, sun, soil, water, best, container, germ, trans, harv, tips, spacing, height, plantImage, addButton, buttonHidden, editDetails;
 
 - (void)viewDidLoad {
-
+    NSString *bthd = buttonHidden;
+    
+    if ([bthd isEqualToString:@"YES"]) {
+        [self.navigationItem.rightBarButtonItem setEnabled:NO];
+    }
+    
+    if ([[plantObject objectForKey:@"ogBool"] isEqual:[NSNumber numberWithBool:YES]]) {
+        editDetails.hidden = YES;
+    } else if ([[[plantObject objectForKey:@"user"] objectId ] isEqualToString:[PFUser currentUser].objectId]) {
+        editDetails.hidden = NO;
+    }else {
+        editDetails.hidden = YES;
+    }
     //self.title = pInfo.plantName;
     self.title = [plantObject objectForKey:@"name"];
+    
+
     [super viewDidLoad];
     
     [scrollView setScrollEnabled:YES];
@@ -48,6 +63,14 @@
     self.plantImage.image = [UIImage imageWithData:imageData];
 }
 
+-(void)viewWillAppear:(BOOL)animated{
+    PFUser *user = [plantObject objectForKey:@"user"];
+    [user fetchIfNeeded];
+    if ([user isEqual:[PFUser currentUser]]) {
+        editDetails.hidden = YES;
+    }
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -64,6 +87,7 @@
 
     }
 }
+
 
 //Posts information to MyGarden on Parse.com
 -(void)postParse{
@@ -153,14 +177,21 @@
     }
 }
 
-/*
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
+    if ([segue.identifier isEqualToString:@"EditDetails"]) {
+        AddPlantViewController *apvc = segue.destinationViewController;
+        if (apvc != nil) {
+            apvc.editObject = plantObject;
+            apvc.inEditMode = @"YES";
+        }
+    }
 }
-*/
+
 
 @end

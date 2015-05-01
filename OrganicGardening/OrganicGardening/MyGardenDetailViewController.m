@@ -203,6 +203,7 @@
         PlantDetailViewController *dvc = segue.destinationViewController;
         if (dvc != nil) {
             dvc.plantObject = gardenObject;
+            dvc.buttonHidden = @"YES";
         }
         
     }

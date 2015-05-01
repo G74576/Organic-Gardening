@@ -15,7 +15,6 @@
     
     IBOutlet UIScrollView *scrollView;
     
-    
 }
 
 @property (strong, nonatomic)PFObject *plantObject;
@@ -35,6 +34,10 @@
 @property (strong, nonatomic)IBOutlet UILabel *spacing;
 @property (strong, nonatomic)IBOutlet UILabel *height;
 @property (strong, nonatomic)IBOutlet UIImageView *plantImage;
+
+@property (strong, nonatomic)IBOutlet UIBarButtonItem *addButton;
+@property (strong, nonatomic)NSString *buttonHidden;
+@property (strong, nonatomic) IBOutlet UIButton *editDetails;
 
 -(IBAction)addToGarden:(id)sender;
 

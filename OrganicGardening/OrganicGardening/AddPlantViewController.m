@@ -17,10 +17,7 @@
 @end
 
 @implementation AddPlantViewController
-@synthesize plantName, plantDetails, difficulty, zone1, zone10, zone11, zone2, zone3, zone4, zone5, zone6, zone7, zone8, zone9, full, fullPar, partial, normal, low, soil, timeToPlant, spacing, container, height, tips, germination, transplant, harvest, share, pickerArray, imageFrame, imageView, scrollView, vegetable, herb, fruit;
-
-AVCaptureSession *session;
-AVCaptureStillImageOutput *stillImageOutput;
+@synthesize plantName, plantDetails, difficulty, zone1, zone10, zone11, zone2, zone3, zone4, zone5, zone6, zone7, zone8, zone9, full, fullPar, partial, normal, low, soil, timeToPlant, spacing, container, height, tips, germination, transplant, harvest, share, pickerArray, imageFrame, imageView, scrollView, vegetable, herb, fruit, editObject, inEditMode;
 
 - (void)viewDidLoad {
     
@@ -35,172 +32,323 @@ AVCaptureStillImageOutput *stillImageOutput;
     UITapGestureRecognizer *gestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hideKeyboard:)];
     [scrollView addGestureRecognizer:gestureRecognizer];
     
-    self.plantName.delegate = self;
-    
-//TextView Placeholders
-    self.plantDetails.delegate = self;
-    [plantDetails setReturnKeyType:UIReturnKeyDone];
-    [plantDetails setText:@"Details about the plant will go here..."];
-    [plantDetails setTextColor:[UIColor lightGrayColor]];
+    if ([inEditMode isEqualToString:@"YES"]) {
 
-    self.soil.delegate = self;
-    [soil setReturnKeyType:UIReturnKeyDone];
-    [soil setText:@"Details about the soil will go here..."];
-    [soil setTextColor:[UIColor lightGrayColor]];
-   
-    self.timeToPlant.delegate = self;
-    [timeToPlant setReturnKeyType:UIReturnKeyDone];
-    [timeToPlant setText:@"Details about when to plant will go here..."];
-    [timeToPlant setTextColor:[UIColor lightGrayColor]];
+       objectID = [editObject objectId];
+      
+        self.plantName.delegate = self;
+        self.plantName.text = [NSString stringWithFormat:@"%@", [editObject objectForKey:@"name"]];
+        self.plantDetails.delegate = self;
+        self.plantDetails.text = [NSString stringWithFormat:@"%@", [editObject objectForKey:@"details"]];
+        self.soil.delegate = self;
+        self.soil.text = [NSString stringWithFormat:@"%@", [editObject objectForKey:@"soil"]];
+        self.timeToPlant.delegate = self;
+        self.timeToPlant.text = [NSString stringWithFormat:@"%@", [editObject objectForKey:@"timeToPlant"]];
+        self.spacing.delegate = self;
+        self.spacing.text = [NSString stringWithFormat:@"%@", [editObject objectForKey:@"spacing"]];
+        self.container.delegate = self;
+        self.container.text = [NSString stringWithFormat:@"%@", [editObject objectForKey:@"container"]];
+        self.height.delegate = self;
+        self.height.text = [NSString stringWithFormat:@"%@", [editObject objectForKey:@"height"]];
+        self.tips.delegate = self;
+        self.tips.text = [NSString stringWithFormat:@"%@", [editObject objectForKey:@"tips"]];
+        self.germination.delegate = self;
+        NSNumber *germNum = [editObject objectForKey:@"germDate"];
+        self.germination.text = [germNum stringValue];
+        self.transplant.delegate = self;
+        NSNumber *tranNumb = [editObject objectForKey:@"tranDate"];
+        self.transplant.text = [tranNumb stringValue];
+        self.harvest.delegate = self;
+        NSNumber *harvNumb = [editObject objectForKey:@"harvDate"];
+        self.harvest.text = [harvNumb stringValue];
 
-    self.spacing.delegate = self;
-    [spacing setReturnKeyType:UIReturnKeyDone];
-    [spacing setText:@"Details about spacing will go here..."];
-    [spacing setTextColor:[UIColor lightGrayColor]];
+        //Details TextView
+        [plantDetails.layer setBorderColor:[[[UIColor lightGrayColor]colorWithAlphaComponent:0.5]CGColor]];
+        [plantDetails.layer setBorderWidth:1.0];
+        plantDetails.layer.cornerRadius = 5;
+        plantDetails.clipsToBounds = YES;
+        
+        //Soil TextView
+        [soil.layer setBorderColor:[[[UIColor lightGrayColor]colorWithAlphaComponent:0.5]CGColor]];
+        [soil.layer setBorderWidth:1.0];
+        soil.layer.cornerRadius = 5;
+        soil.clipsToBounds = YES;
+        
+        //timeToPlant TextView
+        [timeToPlant.layer setBorderColor:[[[UIColor lightGrayColor]colorWithAlphaComponent:0.5]CGColor]];
+        [timeToPlant.layer setBorderWidth:1.0];
+        timeToPlant.layer.cornerRadius = 5;
+        timeToPlant.clipsToBounds = YES;
+        
+        //spacing TextView
+        [spacing.layer setBorderColor:[[[UIColor lightGrayColor]colorWithAlphaComponent:0.5]CGColor]];
+        [spacing.layer setBorderWidth:1.0];
+        spacing.layer.cornerRadius = 5;
+        spacing.clipsToBounds = YES;
+        
+        //container TextView
+        [container.layer setBorderColor:[[[UIColor lightGrayColor]colorWithAlphaComponent:0.5]CGColor]];
+        [container.layer setBorderWidth:1.0];
+        container.layer.cornerRadius = 5;
+        container.clipsToBounds = YES;
+        
+        //height TextView
+        [height.layer setBorderColor:[[[UIColor lightGrayColor]colorWithAlphaComponent:0.5]CGColor]];
+        [height.layer setBorderWidth:1.0];
+        height.layer.cornerRadius = 5;
+        height.clipsToBounds = YES;
+        
+        //Tips TextView
+        [tips.layer setBorderColor:[[[UIColor lightGrayColor]colorWithAlphaComponent:0.5]CGColor]];
+        [tips.layer setBorderWidth:1.0];
+        tips.layer.cornerRadius = 5;
+        tips.clipsToBounds = YES;
+        
+        NSString *sunText = [NSString stringWithFormat:@"%@", [editObject objectForKey:@"sun"]];
+        if ([sunText isEqualToString:@"Full Sun"]) {
+            [full setImage:[UIImage imageNamed:@"cBoxG.png"] forState:UIControlStateNormal];
+            [fullPar setImage:[UIImage imageNamed:@"cBox.png"] forState:UIControlStateNormal];
+            [partial setImage:[UIImage imageNamed:@"cBox.png"] forState:UIControlStateNormal];
+            fullCheck = YES;
+            fullParCheck = NO;
+            parCheck = NO;
+        }
+        else if ([sunText isEqualToString:@"Full Sun to Partial Shade"]) {
+            [full setImage:[UIImage imageNamed:@"cBox.png"] forState:UIControlStateNormal];
+            [fullPar setImage:[UIImage imageNamed:@"cBoxG.png"] forState:UIControlStateNormal];
+            [partial setImage:[UIImage imageNamed:@"cBox.png"] forState:UIControlStateNormal];
+            fullCheck = NO;
+            fullParCheck = YES;
+            parCheck = NO;
+        }
+        else if ([sunText isEqualToString:@"Partial Sun"]) {
+            [full setImage:[UIImage imageNamed:@"cBox.png"] forState:UIControlStateNormal];
+            [fullPar setImage:[UIImage imageNamed:@"cBox.png"] forState:UIControlStateNormal];
+            [partial setImage:[UIImage imageNamed:@"cBoxG.png"] forState:UIControlStateNormal];
+            fullCheck = NO;
+            fullParCheck = NO;
+            parCheck = YES;
+        }
+        
+        NSString *catText = [NSString stringWithFormat:@"%@", [editObject objectForKey:@"category"]];
+        if ([catText isEqualToString:@"Vegetable"]) {
+            [vegetable setImage:[UIImage imageNamed:@"cBoxG.png"] forState:UIControlStateNormal];
+            [herb setImage:[UIImage imageNamed:@"cBox.png"] forState:UIControlStateNormal];
+            [fruit setImage:[UIImage imageNamed:@"cBox.png"] forState:UIControlStateNormal];
+            vegCheck = YES;
+            herbCheck = NO;
+            fruitCheck = NO;
+        }
+        else if ([catText isEqualToString:@"Herb"]) {
+            [vegetable setImage:[UIImage imageNamed:@"cBox.png"] forState:UIControlStateNormal];
+            [herb setImage:[UIImage imageNamed:@"cBoxG.png"] forState:UIControlStateNormal];
+            [fruit setImage:[UIImage imageNamed:@"cBox.png"] forState:UIControlStateNormal];
+            vegCheck = NO;
+            herbCheck = YES;
+            fruitCheck = NO;
+        }
+        else if ([catText isEqualToString:@"Fruit"]) {
+            [vegetable setImage:[UIImage imageNamed:@"cBox.png"] forState:UIControlStateNormal];
+            [herb setImage:[UIImage imageNamed:@"cBox.png"] forState:UIControlStateNormal];
+            [fruit setImage:[UIImage imageNamed:@"cBoxG.png"] forState:UIControlStateNormal];
+            vegCheck = NO;
+            herbCheck = NO;
+            fruitCheck = YES;
+        }
+        
+        NSString *watText = [NSString stringWithFormat:@"%@", [editObject objectForKey:@"water"]];
+        if ([watText isEqualToString:@"Normal Watering"]) {
+            [normal setImage:[UIImage imageNamed:@"cBoxG.png"] forState:UIControlStateNormal];
+            [low setImage:[UIImage imageNamed:@"cBox.png"] forState:UIControlStateNormal];
+            normCheck = YES;
+            lowCheck = NO;
+        }
+        else if ([watText isEqualToString:@"Low Watering"]) {
+            [normal setImage:[UIImage imageNamed:@"cBox.png"] forState:UIControlStateNormal];
+            [low setImage:[UIImage imageNamed:@"cBoxG.png"] forState:UIControlStateNormal];
+            normCheck = NO;
+            lowCheck = YES;
+        }
+        PFFile *imageFile = [editObject objectForKey:@"image"];
+        NSURL *imageFileURL = [[NSURL alloc] initWithString:imageFile.url];
+        NSData *imageData = [NSData dataWithContentsOfURL:imageFileURL];
+        self.imageView.image = [UIImage imageWithData:imageData];
+        
+        NSArray *pickerData = [[NSArray alloc]initWithObjects:@"Easy", @"Medium", @"Moderate", @"Hard", nil];
+        
+        self.pickerArray = pickerData;
+        
+    } else {
+    
+        self.plantName.delegate = self;
+        
+    //TextView Placeholders
+        self.plantDetails.delegate = self;
+        [plantDetails setReturnKeyType:UIReturnKeyDone];
+        [plantDetails setText:@"Details about the plant will go here..."];
+        [plantDetails setTextColor:[UIColor lightGrayColor]];
 
-    self.container.delegate = self;
-    [container setReturnKeyType:UIReturnKeyDone];
-    [container setText:@"Details about container size will go here..."];
-    [container setTextColor:[UIColor lightGrayColor]];
+        self.soil.delegate = self;
+        [soil setReturnKeyType:UIReturnKeyDone];
+        [soil setText:@"Details about the soil will go here..."];
+        [soil setTextColor:[UIColor lightGrayColor]];
+       
+        self.timeToPlant.delegate = self;
+        [timeToPlant setReturnKeyType:UIReturnKeyDone];
+        [timeToPlant setText:@"Details about when to plant will go here..."];
+        [timeToPlant setTextColor:[UIColor lightGrayColor]];
 
-    self.height.delegate = self;
-    [height setReturnKeyType:UIReturnKeyDone];
-    [height setText:@"Details about plant height will go here..."];
-    [height setTextColor:[UIColor lightGrayColor]];
+        self.spacing.delegate = self;
+        [spacing setReturnKeyType:UIReturnKeyDone];
+        [spacing setText:@"Details about spacing will go here..."];
+        [spacing setTextColor:[UIColor lightGrayColor]];
 
-    self.tips.delegate = self;
-    [tips setReturnKeyType:UIReturnKeyDone];
-    [tips setText:@"Put any tips about this plant here..."];
-    [tips setTextColor:[UIColor lightGrayColor]];
-    
-    self.germination.delegate = self;
-    self.transplant.delegate = self;
-    self.harvest.delegate = self;
-    
-    //Details TextView
-    [plantDetails.layer setBorderColor:[[[UIColor lightGrayColor]colorWithAlphaComponent:0.5]CGColor]];
-    [plantDetails.layer setBorderWidth:1.0];
-    plantDetails.layer.cornerRadius = 5;
-    plantDetails.clipsToBounds = YES;
-    
-    //Soil TextView
-    [soil.layer setBorderColor:[[[UIColor lightGrayColor]colorWithAlphaComponent:0.5]CGColor]];
-    [soil.layer setBorderWidth:1.0];
-    soil.layer.cornerRadius = 5;
-    soil.clipsToBounds = YES;
-    
-    //timeToPlant TextView
-    [timeToPlant.layer setBorderColor:[[[UIColor lightGrayColor]colorWithAlphaComponent:0.5]CGColor]];
-    [timeToPlant.layer setBorderWidth:1.0];
-    timeToPlant.layer.cornerRadius = 5;
-    timeToPlant.clipsToBounds = YES;
-    
-    //spacing TextView
-    [spacing.layer setBorderColor:[[[UIColor lightGrayColor]colorWithAlphaComponent:0.5]CGColor]];
-    [spacing.layer setBorderWidth:1.0];
-    spacing.layer.cornerRadius = 5;
-    spacing.clipsToBounds = YES;
-    
-    //container TextView
-    [container.layer setBorderColor:[[[UIColor lightGrayColor]colorWithAlphaComponent:0.5]CGColor]];
-    [container.layer setBorderWidth:1.0];
-    container.layer.cornerRadius = 5;
-    container.clipsToBounds = YES;
-    
-    //height TextView
-    [height.layer setBorderColor:[[[UIColor lightGrayColor]colorWithAlphaComponent:0.5]CGColor]];
-    [height.layer setBorderWidth:1.0];
-    height.layer.cornerRadius = 5;
-    height.clipsToBounds = YES;
-    
-    //Tips TextView
-    [tips.layer setBorderColor:[[[UIColor lightGrayColor]colorWithAlphaComponent:0.5]CGColor]];
-    [tips.layer setBorderWidth:1.0];
-    tips.layer.cornerRadius = 5;
-    tips.clipsToBounds = YES;
-    
-    //Booleans for check boxes
-    checked = NO;
-    vegCheck = NO;
-    herbCheck = NO;
-    fruitCheck = NO;
-    z1Checked = NO;
-    z2Checked = NO;
-    z3Checked = NO;
-    z4Checked = NO;
-    z5Checked = NO;
-    z6Checked = NO;
-    z7Checked = NO;
-    z8Checked = NO;
-    z9Checked = NO;
-    z10Checked = NO;
-    z11Checked = NO;
-    fullCheck = NO;
-    fullParCheck = NO;
-    parCheck = NO;
-    normCheck = NO;
-    lowCheck = NO;
-    
-    //Data for pickr controller
-    NSArray *pickerData = [[NSArray alloc]initWithObjects:@"Easy", @"Medium", @"Moderate", @"Hard", nil];
-    
-    self.pickerArray = pickerData;
+        self.container.delegate = self;
+        [container setReturnKeyType:UIReturnKeyDone];
+        [container setText:@"Details about container size will go here..."];
+        [container setTextColor:[UIColor lightGrayColor]];
+
+        self.height.delegate = self;
+        [height setReturnKeyType:UIReturnKeyDone];
+        [height setText:@"Details about plant height will go here..."];
+        [height setTextColor:[UIColor lightGrayColor]];
+
+        self.tips.delegate = self;
+        [tips setReturnKeyType:UIReturnKeyDone];
+        [tips setText:@"Put any tips about this plant here..."];
+        [tips setTextColor:[UIColor lightGrayColor]];
+        
+        self.germination.delegate = self;
+        self.transplant.delegate = self;
+        self.harvest.delegate = self;
+        
+        //Details TextView
+        [plantDetails.layer setBorderColor:[[[UIColor lightGrayColor]colorWithAlphaComponent:0.5]CGColor]];
+        [plantDetails.layer setBorderWidth:1.0];
+        plantDetails.layer.cornerRadius = 5;
+        plantDetails.clipsToBounds = YES;
+        
+        //Soil TextView
+        [soil.layer setBorderColor:[[[UIColor lightGrayColor]colorWithAlphaComponent:0.5]CGColor]];
+        [soil.layer setBorderWidth:1.0];
+        soil.layer.cornerRadius = 5;
+        soil.clipsToBounds = YES;
+        
+        //timeToPlant TextView
+        [timeToPlant.layer setBorderColor:[[[UIColor lightGrayColor]colorWithAlphaComponent:0.5]CGColor]];
+        [timeToPlant.layer setBorderWidth:1.0];
+        timeToPlant.layer.cornerRadius = 5;
+        timeToPlant.clipsToBounds = YES;
+        
+        //spacing TextView
+        [spacing.layer setBorderColor:[[[UIColor lightGrayColor]colorWithAlphaComponent:0.5]CGColor]];
+        [spacing.layer setBorderWidth:1.0];
+        spacing.layer.cornerRadius = 5;
+        spacing.clipsToBounds = YES;
+        
+        //container TextView
+        [container.layer setBorderColor:[[[UIColor lightGrayColor]colorWithAlphaComponent:0.5]CGColor]];
+        [container.layer setBorderWidth:1.0];
+        container.layer.cornerRadius = 5;
+        container.clipsToBounds = YES;
+        
+        //height TextView
+        [height.layer setBorderColor:[[[UIColor lightGrayColor]colorWithAlphaComponent:0.5]CGColor]];
+        [height.layer setBorderWidth:1.0];
+        height.layer.cornerRadius = 5;
+        height.clipsToBounds = YES;
+        
+        //Tips TextView
+        [tips.layer setBorderColor:[[[UIColor lightGrayColor]colorWithAlphaComponent:0.5]CGColor]];
+        [tips.layer setBorderWidth:1.0];
+        tips.layer.cornerRadius = 5;
+        tips.clipsToBounds = YES;
+        
+        //Booleans for check boxes
+        checked = NO;
+        vegCheck = NO;
+        herbCheck = NO;
+        fruitCheck = NO;
+        z1Checked = NO;
+        z2Checked = NO;
+        z3Checked = NO;
+        z4Checked = NO;
+        z5Checked = NO;
+        z6Checked = NO;
+        z7Checked = NO;
+        z8Checked = NO;
+        z9Checked = NO;
+        z10Checked = NO;
+        z11Checked = NO;
+        fullCheck = NO;
+        fullParCheck = NO;
+        parCheck = NO;
+        normCheck = NO;
+        lowCheck = NO;
+        
+        //Data for pickr controller
+        NSArray *pickerData = [[NSArray alloc]initWithObjects:@"Easy", @"Medium", @"Moderate", @"Hard", nil];
+        
+        self.pickerArray = pickerData;
+    }
 }
 
 
 #pragma mark - View for camera
 -(void)viewWillAppear:(BOOL)animated{
-    session = [[AVCaptureSession alloc]init];
-    [session setSessionPreset:AVCaptureSessionPresetPhoto];
+
     
-    AVCaptureDevice *inputDevice = [AVCaptureDevice defaultDeviceWithMediaType:AVMediaTypeVideo];
-    NSError *error;
-    AVCaptureDeviceInput *deviceInput = [AVCaptureDeviceInput deviceInputWithDevice:inputDevice error:&error];
-    
-    if ([session canAddInput:deviceInput]) {
-        [session addInput:deviceInput];
-    }
-    
-    AVCaptureVideoPreviewLayer *previewLayer = [[AVCaptureVideoPreviewLayer alloc]initWithSession:session];
-    [previewLayer setVideoGravity:AVLayerVideoGravityResize];
-    CALayer *rootLayer = [[self scrollView]layer];
-    [rootLayer setMasksToBounds:YES];
-    CGRect frame = self.imageFrame.frame;
-    
-    [previewLayer setFrame:frame];
-    
-    [rootLayer insertSublayer:previewLayer atIndex:0];
-    
-    stillImageOutput = [[AVCaptureStillImageOutput alloc]init];
-    NSDictionary *outPutSettings = [[NSDictionary alloc]initWithObjectsAndKeys:AVVideoCodecJPEG, AVVideoCodecKey, nil];
-    [stillImageOutput setOutputSettings:outPutSettings];
-    
-    [session addOutput:stillImageOutput];
-    [session startRunning];
 }
 
 -(void)takePhoto:(id)sender{
-    AVCaptureConnection *videoConnection = nil;
     
-    for (AVCaptureConnection *connection in stillImageOutput.connections) {
-        for (AVCaptureInputPort *port in [connection inputPorts]) {
-            if ([[port mediaType] isEqual:AVMediaTypeVideo]) {
-                videoConnection = connection;
-                break;
-            }
-        }
-        if (videoConnection) {
-            break;
-        }
-    }
+    picker = [[UIImagePickerController alloc]init];
     
-    [stillImageOutput captureStillImageAsynchronouslyFromConnection:videoConnection completionHandler:^(CMSampleBufferRef imageDataSampleBuffer, NSError *error) {
-        if (imageDataSampleBuffer != NULL) {
-            NSData *imageDatea = [AVCaptureStillImageOutput jpegStillImageNSDataRepresentation:imageDataSampleBuffer];
-            UIImage *image = [UIImage imageWithData:imageDatea];
-            self.imageView.image = image;
-        }
-    }];
+//This code will set an overlay on the image picker controller - having issues getting this to let us select use photo
+//    picker.sourceType = UIImagePickerControllerSourceTypeCamera;
+//    
+//    if (picker.sourceType == UIImagePickerControllerSourceTypeCamera) {
+//        //Create camera overlay
+//        CGRect f = picker.view.bounds;
+//        f.size.height -= picker.navigationBar.bounds.size.height;
+//        CGFloat barHeight = (f.size.height - f.size.width) / 1.2;
+//        UIGraphicsBeginImageContext(f.size);
+//        [[UIColor colorWithWhite:0 alpha:.5] set];
+//        UIRectFillUsingBlendMode(CGRectMake(0, 0, f.size.width, barHeight), kCGBlendModeNormal);
+//        UIRectFillUsingBlendMode(CGRectMake(0, f.size.height - barHeight, f.size.width, barHeight), kCGBlendModeNormal);
+//        UIImage *overlayImage = UIGraphicsGetImageFromCurrentImageContext();
+//        UIGraphicsEndImageContext();
+//        
+//        UIImageView *overlayIV = [[UIImageView alloc] initWithFrame:f];
+//        overlayIV.image = overlayImage;
+//        [picker.cameraOverlayView addSubview:overlayIV];
+//    }
+//
+//    
+    
+    
+    picker.delegate = self;
+   [picker setSourceType:UIImagePickerControllerSourceTypeCamera];
+    [self presentViewController:picker animated:YES completion:NULL];
+
+}
+
+-(void)choosePhot:(id)sender{
+    picker = [[UIImagePickerController alloc]init];
+    picker.delegate = self;
+    [picker setSourceType:UIImagePickerControllerSourceTypePhotoLibrary];
+    [self presentViewController:picker animated:YES completion:NULL];
+}
+
+-(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info{
+    image = [info objectForKey:@"UIImagePickerControllerOriginalImage"];
+    
+    [imageView setImage:image];
+    [self dismissViewControllerAnimated:YES completion:NULL];
+}
+
+-(void)imagePickerControllerDidCancel:(UIImagePickerController *)picker{
+    [self dismissViewControllerAnimated:YES completion:NULL];
 }
 
 #pragma mark TextView placeholder methods
@@ -354,7 +502,7 @@ AVCaptureStillImageOutput *stillImageOutput;
 -(void)postParse{
     PFUser *user = [PFUser currentUser];
     
-    PFObject *postEvent = [PFObject objectWithClassName:@"UsersPlants"];
+    PFObject *postEvent = [PFObject objectWithClassName:@"Plants"];
     
     //Plant Name
     postEvent[@"name"] = plantName.text;
@@ -478,6 +626,10 @@ AVCaptureStillImageOutput *stillImageOutput;
     NSNumber *havNumb = [f2 numberFromString:havString];
     postEvent[@"harvDate"] = havNumb;
     
+    BOOL og = NO;
+    NSNumber *ogBool = [NSNumber numberWithBool:og];
+    postEvent[@"ogBool"] = ogBool;
+    
     //Saving Image
     NSData *imageData = UIImageJPEGRepresentation(imageView.image, 0.5f);
     PFFile *pfFile = [PFFile fileWithName:[NSString stringWithFormat:@"%@.png", plantName.text] data:imageData];
@@ -505,6 +657,119 @@ AVCaptureStillImageOutput *stillImageOutput;
     [parent addSubview:self.view];
     
     [[[UIAlertView alloc] initWithTitle:[NSString stringWithFormat:@"Added Plant to List"]
+                                message:nil
+                               delegate:nil
+                      cancelButtonTitle:@"OK"
+                      otherButtonTitles:nil] show];
+}
+
+-(void)postEdit{
+    
+    PFQuery *query = [PFQuery queryWithClassName:@"Plants"];
+    [query getObjectInBackgroundWithId:objectID block:^(PFObject *object, NSError *error) {
+        object[@"name"] = plantName.text;
+        object[@"details"] = plantDetails.text;
+        //Vegetable Category
+        NSString *cat;
+        if (vegCheck == YES) {
+            cat = @"Vegetable";
+        }
+        if (herbCheck == YES) {
+            cat = @"Herb";
+        }
+        if (fruitCheck == YES) {
+            cat = @"Fruit";
+        }
+        object[@"category"] = cat;
+        
+        //Difficulty
+        NSString *diffString = [pickerArray objectAtIndex:[difficulty selectedRowInComponent:0]];
+        object[@"difficulty"] = diffString;
+        
+        //Get Sun
+        NSString *sun;
+        if (fullCheck == YES) {
+            sun = @"Full Sun";
+        }
+        if (fullParCheck == YES){
+            sun = @"Full Sun to Partial Shade";
+        }
+        if (parCheck == YES) {
+            sun = @"Partial Sun";
+        }
+        object[@"sun"] = sun;
+        
+        //Get watering
+        NSString *watering;
+        if (normCheck == YES) {
+            watering = @"Normal Watering";
+        }
+        if (lowCheck == YES) {
+            watering = @"Low Watering";
+        }
+        object[@"water"] = watering;
+        
+        //Soil requirements
+        object[@"soil"] = soil.text;
+        
+        //Time to plant details
+        object[@"timeToPlant"] = timeToPlant.text;
+        
+        //Spacing details
+        object[@"spacing"] = spacing.text;
+        
+        //container details
+        object[@"container"] = container.text;
+        
+        //Height details
+        object[@"height"] = height.text;
+        
+        //Tips
+        object[@"tips"] = tips.text;
+        
+        //Get Germination Days
+        NSString *germString = germination.text;
+        NSNumberFormatter *f = [[NSNumberFormatter alloc] init];
+        [f setNumberStyle:NSNumberFormatterDecimalStyle];
+        NSNumber *germNumber = [f numberFromString:germString];
+        object[@"germDate"] = germNumber;
+        
+        //Get Transplant Days
+        NSString *tranString = transplant.text;
+        NSNumberFormatter *f1 = [[NSNumberFormatter alloc] init];
+        [f1 setNumberStyle:NSNumberFormatterDecimalStyle];
+        NSNumber *tranNumb = [f1 numberFromString:tranString];
+        object[@"tranDate"] = tranNumb;
+        
+        //Get Harvest Days
+        NSString *havString = harvest.text;
+        NSNumberFormatter *f2 = [[NSNumberFormatter alloc] init];
+        [f2 setNumberStyle:NSNumberFormatterDecimalStyle];
+        NSNumber *havNumb = [f2 numberFromString:havString];
+        object[@"harvDate"] = havNumb;
+        
+        //Saving Image
+        NSData *imageData = UIImageJPEGRepresentation(imageView.image, 0.5f);
+        PFFile *pfFile = [PFFile fileWithName:[NSString stringWithFormat:@"%@.png", plantName.text] data:imageData];
+        [pfFile saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+            if (!error) {
+                object[@"image"] = pfFile;
+                
+                [object saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+                    if (!error) {
+                        NSLog(@"Saved");
+                    }
+                    else{
+                        // Error
+                        NSLog(@"Error: %@ %@", error, [error userInfo]);
+                    }
+                }];
+            }
+        }];
+        
+        [object saveInBackground];
+    }];
+    [[[UIAlertView alloc] initWithTitle:@"Item has been Edited!"
                                 message:nil
                                delegate:nil
                       cancelButtonTitle:@"OK"
@@ -815,40 +1080,48 @@ AVCaptureStillImageOutput *stillImageOutput;
 }
 
 - (IBAction)save:(id)sender {
-    if ([plantName.text isEqual:@""]) {
-        [[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Missing Information", nil) message:NSLocalizedString(@"Plant Name Required!", nil) delegate:nil cancelButtonTitle:NSLocalizedString(@"OK", nil) otherButtonTitles:nil] show];
-    } else if (vegCheck == NO && herbCheck == NO && fruitCheck == NO){
-        [[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Missing Information", nil) message:NSLocalizedString(@"A Category is Required!", nil) delegate:nil cancelButtonTitle:NSLocalizedString(@"OK", nil) otherButtonTitles:nil] show];
-    } else if ([plantDetails.text isEqual:@""] || [plantDetails.text isEqualToString:@"Details about the plant will go here..."]){
-        [[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Missing Information", nil) message:NSLocalizedString(@"Plant Details Required!", nil) delegate:nil cancelButtonTitle:NSLocalizedString(@"OK", nil) otherButtonTitles:nil] show];
-    } else if (fullCheck == NO && fullParCheck == NO && parCheck == NO) {
-        [[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Missing Information", nil) message:NSLocalizedString(@"Sun is Required!", nil) delegate:nil cancelButtonTitle:NSLocalizedString(@"OK", nil) otherButtonTitles:nil] show];
-    } else if (normCheck == NO && lowCheck == NO){
-        [[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Missing Information", nil) message:NSLocalizedString(@"Watering is Required!", nil) delegate:nil cancelButtonTitle:NSLocalizedString(@"OK", nil) otherButtonTitles:nil] show];
-    } else if ([soil.text isEqual:@""] || [soil.text isEqualToString:@"Details about the soil will go here..."]){
-        [[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Missing Information", nil) message:NSLocalizedString(@"Soil Details Required!", nil) delegate:nil cancelButtonTitle:NSLocalizedString(@"OK", nil) otherButtonTitles:nil] show];
-    } else if ([timeToPlant.text isEqual:@""] || [timeToPlant.text isEqualToString:@"Details about when to plant will go here..."]){
-        [[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Missing Information", nil) message:NSLocalizedString(@"Best Time To Plant Details Required!", nil) delegate:nil cancelButtonTitle:NSLocalizedString(@"OK", nil) otherButtonTitles:nil] show];
-    } else if ([spacing.text isEqual:@""] || [spacing.text isEqualToString:@"Details about spacing will go here..."]){
-        [[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Missing Information", nil) message:NSLocalizedString(@"Spacing Details Required!", nil) delegate:nil cancelButtonTitle:NSLocalizedString(@"OK", nil) otherButtonTitles:nil] show];
-    } else if ([container.text isEqual:@""] || [container.text isEqualToString:@"Details about container size will go here..."]){
-        [[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Missing Information", nil) message:NSLocalizedString(@"Container Details Required!", nil) delegate:nil cancelButtonTitle:NSLocalizedString(@"OK", nil) otherButtonTitles:nil] show];
-    } else if ([height.text isEqual:@""] || [height.text isEqualToString:@"Details about plant height will go here..."]){
-        [[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Missing Information", nil) message:NSLocalizedString(@"Height Details Required!", nil) delegate:nil cancelButtonTitle:NSLocalizedString(@"OK", nil) otherButtonTitles:nil] show];
-    } else if ([germination.text isEqual:@""]){
-        [[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Missing Information", nil) message:NSLocalizedString(@"Germination Days are Required!", nil) delegate:nil cancelButtonTitle:NSLocalizedString(@"OK", nil) otherButtonTitles:nil] show];
-    } else if ([transplant.text isEqual:@""]){
-        [[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Missing Information", nil) message:NSLocalizedString(@"Transplant Days are Required!", nil) delegate:nil cancelButtonTitle:NSLocalizedString(@"OK", nil) otherButtonTitles:nil] show];
-    } else if ([harvest.text isEqual:@""]){
-        [[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Missing Information", nil) message:NSLocalizedString(@"Harvest Days are Required!", nil) delegate:nil cancelButtonTitle:NSLocalizedString(@"OK", nil) otherButtonTitles:nil] show];
-    } else if (imageView.image == nil){
-        [[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Missing Information", nil) message:NSLocalizedString(@"A photo is required for this plant", nil) delegate:nil cancelButtonTitle:NSLocalizedString(@"OK", nil) otherButtonTitles:nil] show];
-    } else if (![plantName.text isEqual:@""] && ![plantDetails.text isEqual:@""] && ![plantDetails.text isEqualToString:@"Details about the plant will go here..."] && ![soil.text isEqual:@""] && ![soil.text isEqualToString:@"Details about the soil will go here..."] && ![timeToPlant.text isEqual:@""] && ![timeToPlant.text isEqualToString:@"Details about when to plant will go here..."] && ![spacing.text isEqual:@""] && ![spacing.text isEqualToString:@"Details about spacing will go here..."] && ![container.text isEqual:@""] && ![container.text isEqualToString:@"Details about container size will go here..."] && ![height.text isEqual:@""] && ![height.text isEqualToString:@"Details about plant height will go here..."] && (vegCheck == YES || herbCheck == YES || fruitCheck == YES) && (fullCheck == YES || fullParCheck == YES || parCheck == YES) && (normCheck == YES || lowCheck == YES) && ![germination.text isEqual:@""] && ![transplant.text isEqual:@""] && ![harvest.text isEqual:@""] && !(imageView.image == nil)){
+    if ([inEditMode isEqualToString:@"YES"]) {
         if ([PFUser currentUser]) {
-            UIAlertView *addToGarden = [[UIAlertView alloc]initWithTitle:[NSString stringWithFormat:@"Are you sure you want to add this item to the list?"] message:nil delegate:self cancelButtonTitle:@"Add" otherButtonTitles:@"Cancel", nil];
+            UIAlertView *addToGarden = [[UIAlertView alloc]initWithTitle:[NSString stringWithFormat:@"Are you sure you want to save these changes?"] message:nil delegate:self cancelButtonTitle:@"Save" otherButtonTitles:@"Cancel", nil];
             
             [addToGarden show];
-        } else {
+        }
+    } else {
+        if ([plantName.text isEqual:@""]) {
+            [[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Missing Information", nil) message:NSLocalizedString(@"Plant Name Required!", nil) delegate:nil cancelButtonTitle:NSLocalizedString(@"OK", nil) otherButtonTitles:nil] show];
+        } else if (vegCheck == NO && herbCheck == NO && fruitCheck == NO){
+            [[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Missing Information", nil) message:NSLocalizedString(@"A Category is Required!", nil) delegate:nil cancelButtonTitle:NSLocalizedString(@"OK", nil) otherButtonTitles:nil] show];
+        } else if ([plantDetails.text isEqual:@""] || [plantDetails.text isEqualToString:@"Details about the plant will go here..."]){
+            [[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Missing Information", nil) message:NSLocalizedString(@"Plant Details Required!", nil) delegate:nil cancelButtonTitle:NSLocalizedString(@"OK", nil) otherButtonTitles:nil] show];
+        } else if (fullCheck == NO && fullParCheck == NO && parCheck == NO) {
+            [[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Missing Information", nil) message:NSLocalizedString(@"Sun is Required!", nil) delegate:nil cancelButtonTitle:NSLocalizedString(@"OK", nil) otherButtonTitles:nil] show];
+        } else if (normCheck == NO && lowCheck == NO){
+            [[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Missing Information", nil) message:NSLocalizedString(@"Watering is Required!", nil) delegate:nil cancelButtonTitle:NSLocalizedString(@"OK", nil) otherButtonTitles:nil] show];
+        } else if ([soil.text isEqual:@""] || [soil.text isEqualToString:@"Details about the soil will go here..."]){
+            [[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Missing Information", nil) message:NSLocalizedString(@"Soil Details Required!", nil) delegate:nil cancelButtonTitle:NSLocalizedString(@"OK", nil) otherButtonTitles:nil] show];
+        } else if ([timeToPlant.text isEqual:@""] || [timeToPlant.text isEqualToString:@"Details about when to plant will go here..."]){
+            [[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Missing Information", nil) message:NSLocalizedString(@"Best Time To Plant Details Required!", nil) delegate:nil cancelButtonTitle:NSLocalizedString(@"OK", nil) otherButtonTitles:nil] show];
+        } else if ([spacing.text isEqual:@""] || [spacing.text isEqualToString:@"Details about spacing will go here..."]){
+            [[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Missing Information", nil) message:NSLocalizedString(@"Spacing Details Required!", nil) delegate:nil cancelButtonTitle:NSLocalizedString(@"OK", nil) otherButtonTitles:nil] show];
+        } else if ([container.text isEqual:@""] || [container.text isEqualToString:@"Details about container size will go here..."]){
+            [[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Missing Information", nil) message:NSLocalizedString(@"Container Details Required!", nil) delegate:nil cancelButtonTitle:NSLocalizedString(@"OK", nil) otherButtonTitles:nil] show];
+        } else if ([height.text isEqual:@""] || [height.text isEqualToString:@"Details about plant height will go here..."]){
+            [[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Missing Information", nil) message:NSLocalizedString(@"Height Details Required!", nil) delegate:nil cancelButtonTitle:NSLocalizedString(@"OK", nil) otherButtonTitles:nil] show];
+        } else if ([germination.text isEqual:@""]){
+            [[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Missing Information", nil) message:NSLocalizedString(@"Germination Days are Required!", nil) delegate:nil cancelButtonTitle:NSLocalizedString(@"OK", nil) otherButtonTitles:nil] show];
+        } else if ([transplant.text isEqual:@""]){
+            [[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Missing Information", nil) message:NSLocalizedString(@"Transplant Days are Required!", nil) delegate:nil cancelButtonTitle:NSLocalizedString(@"OK", nil) otherButtonTitles:nil] show];
+        } else if ([harvest.text isEqual:@""]){
+            [[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Missing Information", nil) message:NSLocalizedString(@"Harvest Days are Required!", nil) delegate:nil cancelButtonTitle:NSLocalizedString(@"OK", nil) otherButtonTitles:nil] show];
+        } else if (imageView.image == nil){
+            [[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Missing Information", nil) message:NSLocalizedString(@"A photo is required for this plant", nil) delegate:nil cancelButtonTitle:NSLocalizedString(@"OK", nil) otherButtonTitles:nil] show];
+        } else if (![plantName.text isEqual:@""] && ![plantDetails.text isEqual:@""] && ![plantDetails.text isEqualToString:@"Details about the plant will go here..."] && ![soil.text isEqual:@""] && ![soil.text isEqualToString:@"Details about the soil will go here..."] && ![timeToPlant.text isEqual:@""] && ![timeToPlant.text isEqualToString:@"Details about when to plant will go here..."] && ![spacing.text isEqual:@""] && ![spacing.text isEqualToString:@"Details about spacing will go here..."] && ![container.text isEqual:@""] && ![container.text isEqualToString:@"Details about container size will go here..."] && ![height.text isEqual:@""] && ![height.text isEqualToString:@"Details about plant height will go here..."] && (vegCheck == YES || herbCheck == YES || fruitCheck == YES) && (fullCheck == YES || fullParCheck == YES || parCheck == YES) && (normCheck == YES || lowCheck == YES) && ![germination.text isEqual:@""] && ![transplant.text isEqual:@""] && ![harvest.text isEqual:@""] && !(imageView.image == nil)){
+            if ([PFUser currentUser]) {
+                UIAlertView *addToGarden = [[UIAlertView alloc]initWithTitle:[NSString stringWithFormat:@"Are you sure you want to add this item to the list?"] message:nil delegate:self cancelButtonTitle:@"Add" otherButtonTitles:@"Cancel", nil];
+                
+                [addToGarden show];
+            } else {
+            }
         }
     }
 }
@@ -857,6 +1130,9 @@ AVCaptureStillImageOutput *stillImageOutput;
     NSString *title = [alertView buttonTitleAtIndex:buttonIndex];
     if ([title isEqualToString:@"Add"]) {
         [self postParse];
+    }
+    else if ([title isEqualToString:@"Save"]) {
+        [self postEdit];
     }
     else if ([title isEqualToString:@"Cancel"]){
         

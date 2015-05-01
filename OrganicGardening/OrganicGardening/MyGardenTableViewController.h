@@ -11,7 +11,6 @@
 #import <ParseUI/ParseUI.h>
 
 @interface MyGardenTableViewController : UITableViewController{
-    
     NSArray *gardenArray;
 }
 

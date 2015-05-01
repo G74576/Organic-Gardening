@@ -7,8 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <Parse/Parse.h>
+#import <ParseUI/ParseUI.h>
+#import "PlantDetailViewController.h"
 
-@interface AddPlantViewController : UIViewController<UITextFieldDelegate, UITextViewDelegate, UIPickerViewDataSource, UIPickerViewDelegate, UIAlertViewDelegate>{
+@interface AddPlantViewController : UIViewController<UINavigationControllerDelegate, UIImagePickerControllerDelegate, UITextFieldDelegate, UITextViewDelegate, UIPickerViewDataSource, UIPickerViewDelegate, UIAlertViewDelegate>{
     
     //Bool for checkboxes
     BOOL checked;
@@ -34,7 +37,15 @@
 
     IBOutlet UIScrollView *scrollView;
     
+    UIImagePickerController *picker;
+    UIImage *image;
+    
+    NSString *inEditMode;
+    NSString *objectID;
+    
 }
+
+@property(strong, nonatomic)PFObject *editObject;
 
 @property (strong, nonatomic) NSArray *pickerArray;
 
@@ -74,7 +85,11 @@
 @property (strong, nonatomic) IBOutlet UIImageView *imageView;
 @property (strong, nonatomic) IBOutlet UIScrollView *scrollView;
 
+
+@property (strong, nonatomic)NSString *inEditMode;
+
 - (IBAction)takePhoto:(id)sender;
+- (IBAction)choosePhot:(id)sender;
 
 - (IBAction)category:(id)sender;
 

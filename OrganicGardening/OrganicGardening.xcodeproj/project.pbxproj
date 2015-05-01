@@ -63,6 +63,7 @@
 		DDB3E78F1AC25BE900D76401 /* README.txt in Resources */ = {isa = PBXBuildFile; fileRef = DDB3E7881AC25BE800D76401 /* README.txt */; };
 		DDB3E7901AC25BE900D76401 /* Samples in Resources */ = {isa = PBXBuildFile; fileRef = DDB3E7891AC25BE800D76401 /* Samples */; };
 		DDBF578A1ADDEE7C002B24E4 /* AddPlantViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DDBF57891ADDEE7C002B24E4 /* AddPlantViewController.m */; };
+		DDEA153F1AF1A71C0063802E /* AddTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DDEA153E1AF1A71C0063802E /* AddTableViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -154,6 +155,8 @@
 		DDB3E7891AC25BE800D76401 /* Samples */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Samples; path = FacebookSDK/Samples; sourceTree = "<group>"; };
 		DDBF57881ADDEE7C002B24E4 /* AddPlantViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddPlantViewController.h; sourceTree = "<group>"; };
 		DDBF57891ADDEE7C002B24E4 /* AddPlantViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddPlantViewController.m; sourceTree = "<group>"; };
+		DDEA153D1AF1A71C0063802E /* AddTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddTableViewController.h; sourceTree = "<group>"; };
+		DDEA153E1AF1A71C0063802E /* AddTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddTableViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -376,6 +379,8 @@
 				DDB3E74E1AC2121300D76401 /* MyGardenTableViewController.m */,
 				DD34C8A21ACDF9DC000B286A /* MyGardenDetailViewController.h */,
 				DD34C8A31ACDF9DC000B286A /* MyGardenDetailViewController.m */,
+				DDEA153D1AF1A71C0063802E /* AddTableViewController.h */,
+				DDEA153E1AF1A71C0063802E /* AddTableViewController.m */,
 			);
 			name = MyGarden;
 			sourceTree = "<group>";
@@ -503,6 +508,7 @@
 				DD5EBDC71ACB669B008265B2 /* Reachability.m in Sources */,
 				DDB3E7231ABF239500D76401 /* MapsViewController.m in Sources */,
 				DD1AF8B81AC3A0C9009C9637 /* TipsDetailViewController.m in Sources */,
+				DDEA153F1AF1A71C0063802E /* AddTableViewController.m in Sources */,
 				DD4DB6421AE0714300FB21E3 /* UserSettingsViewController.m in Sources */,
 				DDB3E7261ABF250500D76401 /* ZoneTableViewController.m in Sources */,
 				DDBF578A1ADDEE7C002B24E4 /* AddPlantViewController.m in Sources */,

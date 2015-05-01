@@ -11,16 +11,20 @@
 
 @interface MyGardenTableViewController ()
 
+@property (strong, nonatomic) NSArray *plantArray;
+
 @end
 
 @implementation MyGardenTableViewController
-@synthesize gardenTable;
+@synthesize gardenTable, plantArray;
 
 - (void)viewDidLoad {
     
     self.title = @"My Garden";
     
     [super viewDidLoad];
+    
+
 }
 
 
@@ -38,6 +42,15 @@
     }];
 }
 
+- (void)plantQuery{
+    PFQuery *query = [PFQuery queryWithClassName:@"Plants"];
+    [query orderByAscending:@"name"];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if (!error) {
+            plantArray = [[NSArray alloc]initWithArray:objects];
+        }
+    }];
+}
 
 //Refresh view
 -(void)refreshTableData{
@@ -45,18 +58,19 @@
     [self viewWillAppear:YES];
 }
 
-
 //If edit button in navigation bar is pressed:
 - (void)editBarBtnPressed:(id)sender{
-    if ([gardenTable isEditing]) {
-        [self.editBtn setTitle:@"Edit"];
-        [gardenTable setEditing:NO animated:YES];
-    }
-    else {
-        [self.editBtn setTitle:@"Done"];
-        [gardenTable setEditing:YES animated:YES];
-    }
+    
+//    if ([gardenTable isEditing]) {
+//        [self.editBtn setTitle:@"Edit"];
+//        [gardenTable setEditing:NO animated:YES];
+//    }
+//    else {
+//        [self.editBtn setTitle:@"Done"];
+//        [gardenTable setEditing:YES animated:YES];
+//    }
 }
+
 
 //Show navigation bar on this scene
 - (void)viewWillAppear:(BOOL)animated

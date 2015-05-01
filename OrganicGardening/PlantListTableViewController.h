@@ -29,6 +29,7 @@
     NSArray *sfArray;
     
     int plantCategoryInt;               //Used to know which category is selected from the home screen
+
     
 }
 

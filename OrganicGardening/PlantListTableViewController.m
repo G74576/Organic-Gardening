@@ -12,28 +12,22 @@
 
 @interface PlantListTableViewController ()
 
+
 @end
 
 @implementation PlantListTableViewController
 @synthesize plantCategoryInt, listTableView ;
 
-bool vegiIsCollapsed = NO;
-bool addIsCollapsed = NO;
-bool userIsCollapsed = NO;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+
 }
 
 //Querey for Organic Gardening vegetables
 -(void)vegeQuery{
     PFQuery *query = [PFQuery queryWithClassName:@"Plants"];
+    [query whereKey:@"ogBool" equalTo:[NSNumber numberWithBool:YES]];
     [query whereKey:@"category" equalTo:@"Vegetable"];
     [query orderByAscending:@"name"];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
@@ -47,6 +41,7 @@ bool userIsCollapsed = NO;
 //Querey for Organic Gardening fruits
 -(void)fruitQuery{
     PFQuery *query = [PFQuery queryWithClassName:@"Plants"];
+    [query whereKey:@"ogBool" equalTo:[NSNumber numberWithBool:YES]];
     [query whereKey:@"category" equalTo:@"Fruit"];
     [query orderByAscending:@"name"];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
@@ -60,6 +55,7 @@ bool userIsCollapsed = NO;
 //Querey for Organic Gardening hebs
 -(void)herbQuery{
     PFQuery *query = [PFQuery queryWithClassName:@"Plants"];
+    [query whereKey:@"ogBool" equalTo:[NSNumber numberWithBool:YES]];
     [query whereKey:@"category" equalTo:@"Herb"];
     [query orderByAscending:@"name"];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
@@ -72,7 +68,7 @@ bool userIsCollapsed = NO;
 
 //Query for Current User Vegetables
 -(void)cvegeQuery{
-    PFQuery *query = [PFQuery queryWithClassName:@"UsersPlants"];
+    PFQuery *query = [PFQuery queryWithClassName:@"Plants"];
     PFUser *user = [PFUser currentUser];
     [query whereKey:@"user" equalTo:user];
     [query whereKey:@"category" equalTo:@"Vegetable"];
@@ -87,7 +83,7 @@ bool userIsCollapsed = NO;
 
 //Query for Current User Herbs
 -(void)cherbQuery{
-    PFQuery *query = [PFQuery queryWithClassName:@"UsersPlants"];
+    PFQuery *query = [PFQuery queryWithClassName:@"Plants"];
     PFUser *user = [PFUser currentUser];
     [query whereKey:@"user" equalTo:user];
     [query whereKey:@"category" equalTo:@"Herb"];
@@ -102,7 +98,7 @@ bool userIsCollapsed = NO;
 
 //Query for Current User Fruits
 -(void)cfruitQuery{
-    PFQuery *query = [PFQuery queryWithClassName:@"UsersPlants"];
+    PFQuery *query = [PFQuery queryWithClassName:@"Plants"];
     PFUser *user = [PFUser currentUser];
     [query whereKey:@"user" equalTo:user];
     [query whereKey:@"category" equalTo:@"Fruit"];
@@ -117,7 +113,7 @@ bool userIsCollapsed = NO;
 
 //Query for Shared Vegetables
 -(void)svegeQuery{
-    PFQuery *query = [PFQuery queryWithClassName:@"UsersPlants"];
+    PFQuery *query = [PFQuery queryWithClassName:@"Plants"];
     PFUser *user = [PFUser currentUser];
     [query whereKey:@"user" notEqualTo:user];
     [query whereKey:@"share" equalTo:[NSNumber numberWithBool:YES]];
@@ -133,7 +129,7 @@ bool userIsCollapsed = NO;
 
 //Query for Shared Herbs
 -(void)sherbQuery{
-    PFQuery *query = [PFQuery queryWithClassName:@"UsersPlants"];
+    PFQuery *query = [PFQuery queryWithClassName:@"Plants"];
     PFUser *user = [PFUser currentUser];
     [query whereKey:@"user" notEqualTo:user];
     [query whereKey:@"share" equalTo:[NSNumber numberWithBool:YES]];
@@ -253,7 +249,7 @@ bool userIsCollapsed = NO;
             return [sfArray count];
         }
     }
- //   [self.listTableView reloadData];
+    [self.listTableView reloadData];
     return 1;
 }
 
@@ -321,6 +317,7 @@ bool userIsCollapsed = NO;
     if (cell != nil) {
         if (plantCategoryInt == 0) {
             self.navigationItem.title = @"Vegetables";
+            
             if (indexPath.section == 0) {
                 PFObject *vegiObject = [vArray objectAtIndex:indexPath.row];
                 cell.textLabel.text = [NSString stringWithFormat:@"%@", [vegiObject objectForKey:@"name"]];
